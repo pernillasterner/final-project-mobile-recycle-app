@@ -9,9 +9,9 @@ export const ProductList = () => {
   useEffect(() => {
     const fetchProds = async () => {
       try {
-        const { data } = await supabase.from("products").select(); // Get all of the data
+        const { data } = await supabase.from("phones").select(); // Get all of the data
         setProds(data);
-        console.log(data);
+
         setFetchError(null);
       } catch (error) {
         setFetchError("Could not fetch products");
@@ -22,8 +22,10 @@ export const ProductList = () => {
 
     fetchProds();
   }, []);
+  console.log(prods);
   return (
     <div>
+      PRODLIST
       {fetchError && <p>{fetchError}</p>}
       {prods && (
         <div className="prods">
@@ -31,7 +33,7 @@ export const ProductList = () => {
             <div key={prod.id} className="prod-card">
               <h3>{prod.brandValue}</h3>
               <p>{prod.modelValue}</p>
-              <p>{prod.price}</p>
+              <p>{prod.priceValue}</p>
             </div>
           ))}
         </div>
