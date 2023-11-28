@@ -8,7 +8,7 @@ const initialState = {
   filter: [],
 };
 
-export const productSlice = createSlice({
+const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
