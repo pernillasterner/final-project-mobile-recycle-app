@@ -4,11 +4,11 @@ import { IconFacebook } from "../../assets/Icons";
 
 export const Footer = () => {
   return (
-    <div className={styles.Footer}>
+    <footer className={styles.Footer}>
       <div className={`${styles.FooterSection} ${styles.InfoSection}`}>
         <h3>TechCycle</h3>
         <p>On a mission to consume less and re-use more.</p>
-        <button className={styles.FooterBtn}>
+        <button className="PrimaryBtn">
           <Link to="/">Browse phones</Link>
         </button>
       </div>
@@ -28,6 +28,6 @@ export const Footer = () => {
           <IconFacebook />
         </Link>
       </div>
-    </div>
+    </footer>
   );
 };

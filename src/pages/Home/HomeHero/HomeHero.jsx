@@ -10,7 +10,7 @@ export const HomeHero = () => {
             Change your phone and save the planet’s resources with our peer2peer
             smartphone market.{" "}
           </p>
-          <button>Browse phones</button>
+          <button className="PrimaryBtn">Browse phones</button>
         </div>
         <div className={styles.Image}></div>
       </header>

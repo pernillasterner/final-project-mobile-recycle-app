@@ -1,8 +1,9 @@
 import { ProductList } from "../../components/ProductList/ProductList";
 import { HomeHero } from "../Home/HomeHero/HomeHero";
 export const Home = () => {
-  return <HomeHero />;
+  return (
+    <main>
+      <HomeHero />
+    </main>
+  );
 };
-// export const Home = () => {
-//   return <ProductList />;
-// };

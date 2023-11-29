@@ -24,7 +24,7 @@ export const NavBar = () => {
             <NavLink to="/peer-to-peer">P2P</NavLink>
           </li>
         </ul>
-        <button className={styles.NavBarBtn}>
+        <button className="PrimaryBtn">
           <Link to="/peer-to-peer">Sell Your Phone</Link>
         </button>
         <Link to="cart" className={styles.IconCartLink}>
@@ -33,6 +33,7 @@ export const NavBar = () => {
         <div className={styles.HamburgerMenuIcon} onClick={handleDropdown}>
           <IconHamburgerMenu />
         </div>
+        <aside></aside>
         <ul
           className={`${styles.HamburgerMenu} ${
             isActive ? styles.isActive : "is-active"
