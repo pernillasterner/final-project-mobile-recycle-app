@@ -1,0 +1,51 @@
+.BenefitsBanner {
+  display: flex;
+  background-color: var(--clr-primary);
+  color: var(--clr-primary-dark);
+
+  .Div {
+    border-left: 1px solid var(--clr-primary-dark);
+    flex-basis: 33.33%;
+    padding: 35px 1%;
+  }
+
+  .Span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.83rem;
+    gap: 1%;
+  }
+
+  svg {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: row;
+
+    .Div {
+      border-bottom: 1px solid var(--clr-primary-dark);
+      flex-basis: 100%;
+      padding: 3%;
+    }
+
+    .Span {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .Div {
+      border-bottom: 1px solid var(--clr-primary-dark);
+      flex-basis: 100%;
+    }
+
+    .Span {
+      justify-content: center;
+    }
+  }
+}
