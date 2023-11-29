@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--general-smaller-padding) var(--general-mini-padding);
+  z-index: 8888;
 
   .NavBarBrand {
     font-weight: 700;
