@@ -139,6 +139,7 @@ textarea {
 All buttons should have 
 - cursor: pointer 
 - font-weight: 700
+- width: fit-content;
 */
 
 /* GLOBALS */
@@ -188,4 +189,15 @@ All buttons should have
 .BuyBtn a {
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.AddToCartBtn {
+  background-color: var(--clr-secondary);
+  padding: 5px 10px;
+  width: fit-content;
+  color: var(--clr-black);
+}
+
+.AddToCartBtn a {
+  font-weight: 700;
 }
