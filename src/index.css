@@ -23,7 +23,7 @@ Variables
   --large-screen-width: 1170px;
   --small-screen-width: 90vw;
   --fixed-width: 50rem; */
-  --radius: 0.25rem;
+  --radius: 1.5rem;
   --general-padding: 35px;
   --general-smaller-padding: 20px;
   --general-mini-padding: 10px;
@@ -51,10 +51,12 @@ body {
   font-family: "Poppins", "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
 a {
   text-decoration: none;
+  color: var(--clr-white);
 }
 img {
   width: 100%;
@@ -83,6 +85,15 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
+}
+
+ul li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  border-radius: var(--radius);
 }
 
 .small-text {
