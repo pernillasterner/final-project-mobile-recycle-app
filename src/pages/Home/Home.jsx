@@ -4,6 +4,7 @@ export const Home = () => {
   return (
     <main>
       <HomeHero />
+      <ProductList />
     </main>
   );
 };
