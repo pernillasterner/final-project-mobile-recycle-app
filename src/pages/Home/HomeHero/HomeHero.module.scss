@@ -1,0 +1,45 @@
+.HomeHero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--general-padding) 0;
+
+  .Text {
+    flex-basis: 60%;
+    padding: 0 var(--general-padding);
+  }
+
+  .Image {
+    flex-basis: 40%;
+    min-height: 70vh;
+    background: url(./home-hero-img.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: -150% 0%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .Text {
+      flex-basis: 100%;
+      padding: var(--general-padding);
+    }
+
+    .Image {
+      min-height: 50vh;
+      flex-basis: 100%;
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: -50% 0%;
+    }
+  }
+
+  @media screen and (max-width: 667px) {
+    flex-direction: column-reverse;
+    .Image {
+      min-height: 20vh;
+      min-width: 100%;
+      flex-basis: 100%;
+      background-size: cover;
+    }
+  }
+}
