@@ -42,6 +42,23 @@ export const IconHamburgerMenu = () => {
     </svg>
   );
 };
+
+export const IconFacebook = () => {
+  return (
+    <svg
+      width="45"
+      height="46"
+      viewBox="0 0 45 46"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M45 23.0406C45 10.3222 34.92 0 22.5 0C10.08 0 0 10.3222 0 23.0406C0 34.1923 7.74 43.4776 18 45.6204V29.9528H13.5V23.0406H18V17.2805C18 12.8336 21.5325 9.21624 25.875 9.21624H31.5V16.1284H27C25.7625 16.1284 24.75 17.1653 24.75 18.4325V23.0406H31.5V29.9528H24.75V45.966C36.1125 44.814 45 34.9987 45 23.0406Z"
+        fill="#14F194"
+      />
+    </svg>
+  );
+};
 export const IconRecycle = () => {
   return (
     <svg
