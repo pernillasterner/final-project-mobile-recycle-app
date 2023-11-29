@@ -5,8 +5,8 @@ export const Home = () => {
   return (
     <main>
       <HomeHero />
-      <ProductList />
       <Filter />
+      <ProductList />
     </main>
   );
 };
