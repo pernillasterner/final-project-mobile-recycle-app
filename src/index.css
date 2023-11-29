@@ -15,6 +15,7 @@ Variables
   --clr-grey-5: #7c7c7c;
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
+  --clr-black: #000;
   /* --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --transition: all 0.3s linear;
@@ -63,6 +64,7 @@ main {
 a {
   text-decoration: none;
   color: var(--clr-white);
+  cursor: pointer;
 }
 img {
   width: 100%;
@@ -98,6 +100,7 @@ ul li {
 }
 
 button {
+  cursor: pointer;
   border: none;
   border-radius: var(--radius);
 }
@@ -124,6 +127,13 @@ textarea {
 }
 
 /* __________________________ */
+
+/* 
+All buttons should have 
+- cursor: pointer 
+- font-weight: 700
+*/
+
 /* GLOBALS */
 .PrimaryBtn {
   background-color: var(--clr-primary);
@@ -135,4 +145,27 @@ textarea {
 .PrimaryBtn a {
   color: #000;
   font-weight: 700;
+}
+
+/* FILTER BTN */
+.FilterBtn {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  padding: var(--general-mini-padding);
+  border-radius: 10px;
+  min-width: 170px;
+}
+
+.FilterBtn a {
+  font-weight: 700;
+}
+
+.FilterDropdownBtn {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border: 1px solid var(--clr-black);
+  padding: var(--general-mini-padding);
+  border-radius: 10px;
+  min-width: 90px;
+  margin-right: 0.5em;
 }
