@@ -24,6 +24,7 @@ export const NavBar = () => {
             <NavLink to="/peer-to-peer">P2P</NavLink>
           </li>
         </ul>
+
         <button className="PrimaryBtn">
           <Link to="/peer-to-peer">Sell Your Phone</Link>
         </button>
@@ -33,19 +34,20 @@ export const NavBar = () => {
         <div className={styles.HamburgerMenuIcon} onClick={handleDropdown}>
           <IconHamburgerMenu />
         </div>
-        <aside></aside>
-        <ul
-          className={`${styles.HamburgerMenu} ${
-            isActive ? styles.isActive : "is-active"
-          }`}
-        >
-          <li>
-            <NavLink to="/refurbished">Refurbished</NavLink>
-          </li>
-          <li>
-            <NavLink to="/peer-to-peer">P2P</NavLink>
-          </li>
-        </ul>
+        {isActive && (
+          <ul
+            className={`${styles.HamburgerMenu} ${
+              isActive ? styles.isActive : "is-active"
+            }`}
+          >
+            <li>
+              <NavLink to="/refurbished">Refurbished</NavLink>
+            </li>
+            <li>
+              <NavLink to="/peer-to-peer">P2P</NavLink>
+            </li>
+          </ul>
+        )}
       </div>
     </nav>
   );
