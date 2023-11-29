@@ -6,6 +6,17 @@
   @media screen and (max-width: 767px) {
     flex-direction: column;
   }
+
+  .GoBackBtn {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    svg {
+      height: 1.5rem;
+      width: auto;
+    }
+  }
+
   .Prod__LeftColumn {
     width: 50%;
     @media screen and (max-width: 767px) {

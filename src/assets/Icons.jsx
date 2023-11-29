@@ -96,3 +96,20 @@ export const IconPlanet = () => {
     </svg>
   );
 };
+
+export const IconGoBack = () => {
+  return (
+    <svg
+      width="30"
+      height="48"
+      viewBox="0 0 30 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M29.64 5.64L24 0L0 24L24 48L29.64 42.36L11.32 24L29.64 5.64Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
