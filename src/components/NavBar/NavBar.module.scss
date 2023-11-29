@@ -1,0 +1,72 @@
+.NavBar {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--general-smaller-padding) var(--general-mini-padding);
+
+  .NavBarBrand {
+    font-weight: 700;
+  }
+
+  .NavBarRight {
+    display: flex;
+
+    .NavBarMenu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      li {
+        font-weight: 700;
+        padding-right: var(--general-padding);
+      }
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    // TODO: Move to common
+    .NavBarBtn {
+      background-color: var(--clr-primary);
+      padding: 5px 10px;
+      a {
+        color: #000;
+        font-weight: 700;
+      }
+    }
+    .IconCartLink {
+      display: flex;
+      align-items: center;
+      padding-left: var(--general-mini-padding);
+      width: 35px;
+    }
+
+    .HamburgerMenuIcon {
+      position: absolute;
+      right: var(--general-mini-padding);
+      top: 75px;
+      cursor: pointer;
+      display: none;
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+    }
+
+    .HamburgerMenu {
+      position: absolute;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      top: 120px;
+      right: var(--general-mini-padding);
+      display: none;
+
+      &.isActive {
+        display: block;
+      }
+    }
+  }
+}
