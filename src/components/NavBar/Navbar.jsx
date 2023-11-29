@@ -1,3 +1,51 @@
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
+import styles from "./NavBar.module.scss";
+import { IconCart, IconHamburgerMenu } from "../../assets/Icons";
+
 export const NavBar = () => {
-  return <div>Navbar</div>;
+  const [isActive, setIsActive] = useState(false);
+
+  const handleDropdown = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <nav className={styles.NavBar}>
+      <div className={styles.NavBarBrand}>
+        <Link to="/">TechCycle</Link>
+      </div>
+      <div className={styles.NavBarRight}>
+        <ul className={styles.NavBarMenu}>
+          <li>
+            <NavLink to="/refurbished">Refurbished</NavLink>
+          </li>
+          <li>
+            <NavLink to="/peer-to-peer">P2P</NavLink>
+          </li>
+        </ul>
+        <button className={styles.NavBarBtn}>
+          <Link to="/peer-to-peer">Sell Your Phone</Link>
+        </button>
+        <Link to="cart" className={styles.IconCartLink}>
+          <IconCart />
+        </Link>
+        <div className={styles.HamburgerMenuIcon} onClick={handleDropdown}>
+          <IconHamburgerMenu />
+        </div>
+        <ul
+          className={`${styles.HamburgerMenu} ${
+            isActive ? styles.isActive : "is-active"
+          }`}
+        >
+          <li>
+            <NavLink to="/refurbished">Refurbished</NavLink>
+          </li>
+          <li>
+            <NavLink to="/peer-to-peer">P2P</NavLink>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 };
