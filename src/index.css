@@ -28,6 +28,13 @@ Variables
   --general-padding: 35px;
   --general-smaller-padding: 20px;
   --general-mini-padding: 10px;
+
+  --z-index-modal: 9000;
+  --z-index-hamburger: 8500;
+  --z-index-navbar: 8000;
+  --z-index-sortby: 7000;
+  --z-index-filter: 6000;
+  --z-index-product-image: 5000;
 }
 
 * {
