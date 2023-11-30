@@ -1,11 +1,13 @@
 import styles from "./CartContent.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import { IconGoBack } from "../../../assets/Icons";
 import { CartLeftColumn } from "./CartColumns/CartLeftColumn";
 import { CartRightColumn } from "./CartColumns/CartRightColumn";
 
 export const CartContent = () => {
   const navigate = useNavigate();
+  const cartItems = useSelector((store) => store.cart.cartItems);
 
   return (
     <>
@@ -13,10 +15,15 @@ export const CartContent = () => {
         <IconGoBack />
       </div>
       <div className={styles.CartContainer}>
-        <div className={styles.CartColumns}>
-          <CartLeftColumn />
-          <CartRightColumn />
-        </div>
+        {cartItems.length !== 0 ? (
+          <div className={styles.CartColumns}>
+            <CartLeftColumn cartItems={cartItems} />
+            <CartRightColumn cartItems={cartItems} />
+          </div>
+        ) : (
+          // TODO: Prompt
+          <h1>OPPS NOTHING IN CART. PROPS PAGE</h1>
+        )}
       </div>
     </>
   );
