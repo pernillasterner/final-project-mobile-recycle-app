@@ -1,98 +1,17 @@
 .CartContainer {
-  padding: var(--general-padding);
   display: flex;
-  flex-direction: row;
-  min-height: 100vh;
+  justify-content: center;
   color: var(--clr-black);
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
-  }
 
-  .Cart__LeftColumn {
-    background-color: var(--clr-white);
-    border-radius: 20px;
-    overflow: hidden;
-    .CartTitle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      padding: var(--general-padding);
-      padding-bottom: 0;
-    }
-
-    .SingleCartItem {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-
-      padding: var(--general-padding);
-
-      a {
-        // padding: 0px 0.75rem 0px 0px;
-        height: 80px;
-        width: 80px;
-        // background-color: red;
-        position: relative;
-        .ProdCardImg {
-          //   position: relative;
-          flex-basis: calc(25% - var(--general-padding));
-          background-size: auto 100%;
-          background-repeat: no-repeat;
-          background-position: center;
-          //   height: 10vh;
-          background-color: var(--clr-white);
-          border-radius: 10px;
-          height: 100%;
-          //   width: auto;
-          //   object-fit: contain;
-        }
-      }
-
-      .SingleCartItemInfo {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding-left: var(--general-padding);
-
-        .DetailsContainer {
-          .ItemBrand {
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1rem;
-            line-height: 1.25rem;
-            font-weight: 700;
-            padding-bottom: 0.25rem;
-            padding-right: 0.5rem;
-            width: 100%;
-          }
-        }
-
-        .PriceContainer {
-          text-align: end;
-          .ItemPrice {
-            font-weight: 600;
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-
-    .CartItemOffer {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      background-color: var(--clr-primary);
-      color: var(--clr-black);
-      padding: var(--general-smaller-padding) 0;
-      p {
-        font-size: 0.8rem;
-        margin-bottom: 0;
-      }
+  .CartColumns {
+    width: 100%;
+    padding: var(--general-padding);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 970px;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
     }
   }
 }
