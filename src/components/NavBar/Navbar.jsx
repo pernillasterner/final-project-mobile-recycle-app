@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./NavBar.module.scss";
 import { IconCart, IconHamburgerMenu } from "../../assets/Icons";
 
 export const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
+  const totalItems = useSelector((state) => state.cart.totalItems);
 
   const handleDropdown = () => {
     setIsActive(!isActive);
@@ -28,9 +30,14 @@ export const NavBar = () => {
         <button className="PrimaryBtn">
           <Link to="/peer-to-peer">Sell Your Phone</Link>
         </button>
-        <Link to="cart" className={styles.IconCartLink}>
-          <IconCart />
-        </Link>
+        {totalItems !== 0 && (
+          <div className={styles.MiniCartContainer}>
+            <Link to="cart" className={styles.IconCartLink}>
+              <IconCart />
+            </Link>
+            <span className={styles.MiniCartCount}>{totalItems}</span>
+          </div>
+        )}
         <div className={styles.HamburgerMenuIcon} onClick={handleDropdown}>
           <IconHamburgerMenu />
         </div>

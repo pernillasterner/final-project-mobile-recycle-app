@@ -1,0 +1,17 @@
+.CartContainer {
+  display: flex;
+  justify-content: center;
+  color: var(--clr-black);
+
+  .CartColumns {
+    width: 100%;
+    padding: var(--general-padding);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 970px;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+}
