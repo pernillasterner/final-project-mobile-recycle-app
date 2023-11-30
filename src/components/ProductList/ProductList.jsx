@@ -8,12 +8,14 @@ import { setInitialState } from "../../reducers/productSlice";
 
 export const ProductList = ({ category }) => {
   const [fetchError, setFetchError] = useState(null);
-  // const [prods, setProds] = useState(null);
-  const prods = useSelector((state) => state.product.products);
-  const [filterProds, setFilterProds] = useState(null);
+  const filterArray = useSelector((state) => state.product.filterArray);
+  const prods = useSelector((state) => {
+    return state.product.filterArray.length > 0
+      ? state.product.filterArray
+      : state.product.products;
+  });
+
   const dispatch = useDispatch();
-  console.log(prods);
-  // Fetch the data
   useEffect(() => {
     const fetchProds = async () => {
       try {
@@ -22,27 +24,20 @@ export const ProductList = ({ category }) => {
             .from("phones")
             .select()
             .is("peer2peer", false);
-          // setProds(data);
           dispatch(setInitialState(data));
-          console.log(data);
-          // setFilterProds(data);
           setFetchError(null);
         } else if (category === "peer2peer") {
           const { data } = await supabase
             .from("phones")
             .select()
             .is("peer2peer", true);
-          // setProds(data);
           dispatch(setInitialState(data));
-          setFilterProds(data);
           setFetchError(null);
         }
       } catch (error) {
         setFetchError("Could not fetch products");
-        // setProds(null);
         console.log(error);
       }
-      console.log(prods);
     };
 
     fetchProds();
