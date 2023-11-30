@@ -201,3 +201,8 @@ All buttons should have
 .AddToCartBtn a {
   font-weight: 700;
 }
+
+.FilterBrandBtnActive {
+  color: var(--clr-white);
+  background-color: var(--clr-black);
+}
