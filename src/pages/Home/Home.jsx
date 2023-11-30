@@ -1,11 +1,11 @@
 import { Filter } from "../../components/ProductList/Filter/Filter";
-// import { ProductList } from "../../components/ProductList/ProductList";
+import { ProductList } from "../../components/ProductList/ProductList";
 import { HomeHero } from "../Home/HomeHero/HomeHero";
 export const Home = () => {
   return (
-    <main>
+    <>
       <HomeHero />
-      <Filter />
-    </main>
+      <ProductList category={"refurbished"} />
+    </>
   );
 };

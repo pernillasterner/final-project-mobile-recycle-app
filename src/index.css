@@ -28,6 +28,13 @@ Variables
   --general-padding: 35px;
   --general-smaller-padding: 20px;
   --general-mini-padding: 10px;
+
+  --z-index-modal: 9000;
+  --z-index-hamburger: 8500;
+  --z-index-navbar: 8000;
+  --z-index-sortby: 7000;
+  --z-index-filter: 6000;
+  --z-index-product-image: 5000;
 }
 
 * {
@@ -132,6 +139,7 @@ textarea {
 All buttons should have 
 - cursor: pointer 
 - font-weight: 700
+- width: fit-content;
 */
 
 /* GLOBALS */
@@ -143,7 +151,7 @@ All buttons should have
 }
 
 .PrimaryBtn a {
-  color: #000;
+  color: var(--clr-black);
   font-weight: 700;
 }
 
@@ -168,4 +176,28 @@ All buttons should have
   border-radius: 10px;
   min-width: 90px;
   margin-right: 0.5em;
+}
+
+.BuyBtn {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.BuyBtn a {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.AddToCartBtn {
+  background-color: var(--clr-secondary);
+  padding: 5px 10px;
+  width: fit-content;
+  color: var(--clr-black);
+}
+
+.AddToCartBtn a {
+  font-weight: 700;
 }

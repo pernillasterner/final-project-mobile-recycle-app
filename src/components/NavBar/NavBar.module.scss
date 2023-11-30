@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--general-smaller-padding) var(--general-mini-padding);
+  z-index: var(--z-index-navbar);
 
   .NavBarBrand {
     font-weight: 700;
@@ -37,6 +38,7 @@
 
     .HamburgerMenuIcon {
       position: absolute;
+      z-index: var(--z-index-hamburger);
       right: var(--general-mini-padding);
       top: 75px;
       cursor: pointer;
