@@ -1,23 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: {
-    refurbished: [],
-    peer2peer: [],
+  products: [],
+  filter: {
+    brandValue: [],
+    priceRange: {
+      priceLow: false,
+      priceHigh: false,
+    },
+
+    sort: {
+      priceLow: false,
+      priceHigh: false,
+      newest: false,
+    },
   },
-  filter: [],
+  filterArray: [],
 };
 
 const productSlice = createSlice({
-  name: "products",
+  name: "product",
   initialState,
   reducers: {
-    clearTasks: (state) => {
-      state.products = [];
+    setInitialState: (state, action) => {
+      state.products = action.payload;
     },
   },
 });
 
-export const { clearProducts } = productSlice.actions;
+export const { setInitialState } = productSlice.actions;
 
 export default productSlice.reducer;
+
+// filterBrand: (state, { payload: { addBrand } }) => {
+//   if (state.brandValue.find(addBrand)) {
+//     state.brandValue.filter((brand) => brand !== addBrand);
+//   } else {
+//     state.brandValue.push(addBrand);
+//   }
+// },
