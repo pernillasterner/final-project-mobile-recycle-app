@@ -25,10 +25,11 @@ export const CartLeftColumn = ({ cartItems }) => {
       </h2>
       <div className={styles.SingleCartItem}>
         {cartItems &&
-          cartItems.map((item, index) => (
-            <div key={index}>
+          cartItems.map((item) => (
+            <>
               <Link to={"/"}>
                 <div
+                  key={item.id}
                   className={styles.ProdCardImg}
                   style={{ backgroundImage: `url(${item.imageUrl})` }}
                 ></div>
@@ -53,7 +54,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                   </button>
                 </div>
               </div>
-            </div>
+            </>
           ))}
       </div>
       <div className={styles.CartItemOffer}>
