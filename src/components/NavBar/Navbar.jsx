@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./NavBar.module.scss";
+import buttonStyles from "../commons/Buttons.module.scss";
 import { IconCart, IconHamburgerMenu } from "../../assets/Icons";
 
 export const NavBar = () => {
@@ -27,7 +28,7 @@ export const NavBar = () => {
           </li>
         </ul>
 
-        <button className="PrimaryBtn">
+        <button className={buttonStyles.PrimaryBtn}>
           <Link to="/peer-to-peer">Sell Your Phone</Link>
         </button>
         {totalItems !== 0 && (

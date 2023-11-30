@@ -1,0 +1,23 @@
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+}
+
+.PrimaryBtn {
+  background-color: var(--clr-primary);
+  padding: 5px 10px;
+  width: fit-content;
+  color: var(--clr-primary-dark);
+  a {
+    color: var(--clr-black);
+    font-weight: 700;
+  }
+}
+
+// .secondary {
+//   // @extend .button;
+//   background-color: red;
+//   color: white;
+// }
