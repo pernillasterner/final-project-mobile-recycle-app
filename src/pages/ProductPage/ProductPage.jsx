@@ -45,11 +45,11 @@ export const ProductPage = () => {
   return (
     // TODO: Add class and set color depengin on that
     <>
+      <div className={styles.GoBackBtn} onClick={() => navigate(-1)}>
+        <IconGoBack />
+      </div>
       {prod && (
         <article className={styles.ProdContainer}>
-          <div className={styles.GoBackBtn} onClick={() => navigate(-1)}>
-            <IconGoBack />
-          </div>
           <div className={styles.Prod__LeftColumn}>
             <div
               className={styles.ProdCardImg}
