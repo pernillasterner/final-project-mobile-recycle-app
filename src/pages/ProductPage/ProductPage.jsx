@@ -45,7 +45,7 @@ export const ProductPage = () => {
   return (
     // TODO: Add class and set color depengin on that
     <>
-      <div className={styles.GoBackBtn} onClick={() => navigate(-1)}>
+      <div className="GoBackBtn" onClick={() => navigate(-1)}>
         <IconGoBack />
       </div>
       {prod && (
