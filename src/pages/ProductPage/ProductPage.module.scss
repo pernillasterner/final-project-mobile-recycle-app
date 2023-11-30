@@ -1,0 +1,50 @@
+.ProdContainer {
+  padding: var(--general-padding);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  .GoBackBtn {
+    position: absolute;
+    top: 4px;
+    left: 10px;
+    svg {
+      height: 1.5rem;
+      width: auto;
+    }
+  }
+
+  .Prod__LeftColumn {
+    width: 50%;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+    .ProdCardImg {
+      position: relative;
+      flex-basis: calc(25% - var(--general-padding));
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: center 1rem;
+      height: 40vh;
+      background-color: var(--clr-white);
+      border-radius: 20px;
+    }
+  }
+
+  .Prod__RightColumn {
+    padding-left: var(--general-padding);
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .ProdModel {
+      @media screen and (max-width: 767px) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
