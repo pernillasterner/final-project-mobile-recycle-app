@@ -1,4 +1,5 @@
 import styles from "./Footer.module.scss";
+import buttonStyles from "../commons/Buttons.module.scss";
 import { Link } from "react-router-dom";
 import { IconFacebook } from "../../assets/Icons";
 
@@ -8,7 +9,7 @@ export const Footer = () => {
       <div className={`${styles.FooterSection} ${styles.InfoSection}`}>
         <h3>TechCycle</h3>
         <p>On a mission to consume less and re-use more.</p>
-        <button className="PrimaryBtn">
+        <button className={buttonStyles.PrimaryBtn}>
           <Link to="/">Browse phones</Link>
         </button>
       </div>

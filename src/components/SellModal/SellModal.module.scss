@@ -1,0 +1,27 @@
+.QuestionContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 25rem;
+
+  .FormStepContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 540px;
+    z-index: 1;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 3rem 1rem 2rem;
+  }
+
+  .FormButton {
+    background-color: var(--clr-white);
+    padding: 10px 20px;
+    margin: 5px;
+
+    &:hover {
+      background-color: pink;
+    }
+  }
+}

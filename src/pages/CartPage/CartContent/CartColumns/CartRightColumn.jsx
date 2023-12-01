@@ -1,6 +1,7 @@
 import styles from "./CartRightColumn.module.scss";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import buttonStyles from "../../../../components/commons/Buttons.module.scss";
 
 export const CartRightColumn = ({ cartItems }) => {
   const [totalCartItems, setTotalCartItems] = useState([]);
@@ -45,7 +46,7 @@ export const CartRightColumn = ({ cartItems }) => {
             </div>
           </div>
         </div>
-        <button className="PrimaryBtn">
+        <button className={buttonStyles.PrimaryBtn}>
           <Link to="/checkout">Go to checkoute</Link>
         </button>
         <div className={styles.PaymentLogosContainer}>
