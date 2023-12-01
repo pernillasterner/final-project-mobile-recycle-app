@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { SmallHero } from "./SmallHero/SmallHero";
 import { ProductList } from "../../components/ProductList/ProductList";
 import { setInitialState } from "../../reducers/productSlice";
+import { SellModal } from "../../components/SellModal/SellModal";
 
 export const P2PPage = () => {
   const [fetchError, setFetchError] = useState(null);
@@ -35,6 +36,7 @@ export const P2PPage = () => {
 
   return (
     <>
+      <SellModal />
       <SmallHero />
       <ProductList />
     </>
