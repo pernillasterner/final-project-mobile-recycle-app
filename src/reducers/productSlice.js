@@ -68,18 +68,3 @@ export const { setInitialState, setFilter, clearFilters, calculatePriceRange } =
   productSlice.actions;
 
 export default productSlice.reducer;
-
-// setFilter: (state, action) => {
-//   const filterOption = action.payload;
-//   // Get the initial array of products and make a copy of that
-//   const initialProducts = state.products;
-//   // Run filter on the parameters and return the filtered array
-
-//   const updatedProducts = initialProducts.filter((product) =>
-//     product.brandValue.includes(filterOption)
-//   );
-
-//   // Update the state
-
-//   state.filterArray = updatedProducts;
-// };

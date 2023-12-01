@@ -12,7 +12,6 @@ import "rc-slider/assets/index.css";
 export const Filter = () => {
   const dispatch = useDispatch();
   const filterArray = useSelector((state) => state.product.filterArray);
-
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
   const priceRange = useSelector((state) => state.product.filter.priceRange);
@@ -81,6 +80,10 @@ export const Filter = () => {
               <button
                 className="FilterDropdownBtn"
                 onClick={() => handleClearFilter()}
+              ></button>
+              <button
+                className="FilterDropdownBtn"
+                onClick={() => handleClearFilter()}
               >
                 Clear filter
               </button>
@@ -92,6 +95,13 @@ export const Filter = () => {
         <button className="FilterBtn" onClick={handleSortByFilter}>
           SORT BY
         </button>
+        {isSortByActive && (
+          <div className={styles.SortBox}>
+            <p>Price: High to low</p>
+            <p>Price: Low to high</p>
+            <p>Newest</p>
+          </div>
+        )}
         {isSortByActive && (
           <div className={styles.SortBox}>
             <p>Price: High to low</p>
