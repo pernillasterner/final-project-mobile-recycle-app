@@ -16,7 +16,7 @@
     width: calc(100% - 75px);
     margin-right: 35px;
     padding: var(--general-padding);
-    z-index: 7777;
+    z-index: var(--z-index-filter);
 
     h4 {
       color: var(--clr-black);
@@ -46,4 +46,63 @@
       align-items: end;
     }
   }
+
+  .SortDropdown {
+    .SortBox {
+      position: absolute;
+      color: var(--clr-black);
+      background-color: var(--clr-white);
+      font-size: 0.83rem;
+      padding: 1rem;
+      z-index: var(--z-index-sortby);
+    }
+  }
 }
+// .FilterAside {
+//   padding: var(--general-smaller-padding) var(--general-padding);
+//   background-color: var(--clr-white);
+//   display: flex;
+//   justify-content: space-between;
+//   position: relative;
+
+//   .FilterDropdown {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     position: absolute;
+//     background-color: var(--clr-white);
+//     border-radius: 10px;
+//     top: 70px;
+//     width: calc(100% - 75px);
+//     margin-right: 35px;
+//     padding: var(--general-padding);
+
+//     h4 {
+//       color: var(--clr-black);
+//     }
+
+//     .BrandBox,
+//     .RangeBox,
+//     .ClearFilterBox {
+//       width: 100%;
+//     }
+
+//     .RangeBox {
+//       position: relative;
+
+//       .LowRange,
+//       .HighRange {
+//         position: absolute;
+//         height: 2px;
+//         width: 100%;
+//         background-color: var(--clr-black);
+//       }
+//     }
+
+//     .ClearFilterBox {
+//       display: flex;
+//       justify-content: right;
+//       align-items: end;
+//     }
+//   }
+// }

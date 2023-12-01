@@ -25,17 +25,48 @@ const productSlice = createSlice({
     setInitialState: (state, action) => {
       state.products = action.payload;
     },
+    setFilter: (state, action) => {
+      const selectedBrand = action.payload;
+
+      const brandExists = state.filter.brandValue.includes(selectedBrand);
+
+      if (brandExists) {
+        state.filter.brandValue = state.filter.brandValue.filter(
+          (brand) => brand !== selectedBrand
+        );
+      } else {
+        state.filter.brandValue.push(selectedBrand);
+      }
+      const updatedProducts = state.products.filter(
+        (product) =>
+          state.filter.brandValue.length === 0 ||
+          state.filter.brandValue.includes(product.brandValue)
+      );
+      state.filterArray = updatedProducts;
+    },
+    clearFilters: (state) => {
+      state.filter = initialState.filter;
+      state.filterArray = state.products;
+    },
   },
 });
 
-export const { setInitialState } = productSlice.actions;
+export const { setInitialState, setFilter, clearFilters } =
+  productSlice.actions;
 
 export default productSlice.reducer;
 
-// filterBrand: (state, { payload: { addBrand } }) => {
-//   if (state.brandValue.find(addBrand)) {
-//     state.brandValue.filter((brand) => brand !== addBrand);
-//   } else {
-//     state.brandValue.push(addBrand);
-//   }
-// },
+// setFilter: (state, action) => {
+//   const filterOption = action.payload;
+//   // Get the initial array of products and make a copy of that
+//   const initialProducts = state.products;
+//   // Run filter on the parameters and return the filtered array
+
+//   const updatedProducts = initialProducts.filter((product) =>
+//     product.brandValue.includes(filterOption)
+//   );
+
+//   // Update the state
+
+//   state.filterArray = updatedProducts;
+// };

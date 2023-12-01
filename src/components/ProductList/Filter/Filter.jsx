@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
+import { clearFilters, setFilter } from "../../../reducers/productSlice";
 
 export const Filter = () => {
+  const filterArray = useSelector((state) => state.product.filterArray);
   const dispatch = useDispatch();
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
-  const brandValue = "iPhone";
 
   const handleFilterToggle = () => {
-    console.log("Open filter");
-    setFilterActive(!isFilterActive);
+    setFilterActive((last) => !last);
     // Add dropdown to sort by filter
   };
 
@@ -21,13 +21,17 @@ export const Filter = () => {
   };
 
   const handleClearFilter = () => {
-    // Use dispatch to clear the active filter
-    // dispatch.clearFilter();
+    document.querySelectorAll(".FilterDropdownBtn").forEach((button) => {
+      button.classList.remove("FilterBrandBtnActive");
+    });
+    dispatch(clearFilters());
   };
 
-  const handleDropdownItem = (value) => {
-    // Find all items with brandValue = item
-    console.log(value);
+  const handleFilterBrand = (value) => {
+    document
+      .querySelector(`.${value}`)
+      .classList.toggle("FilterBrandBtnActive");
+    dispatch(setFilter(value));
   };
 
   return (
@@ -41,14 +45,14 @@ export const Filter = () => {
             <div className={styles.BrandBox}>
               <h4>Brand</h4>
               <button
-                className="FilterDropdownBtn"
-                onClick={handleDropdownItem(brandValue)}
+                className="FilterDropdownBtn Apple"
+                onClick={() => handleFilterBrand("Apple")}
               >
                 iPhone
               </button>
               <button
-                className="FilterDropdownBtn"
-                onClick={handleDropdownItem(brandValue)}
+                className="FilterDropdownBtn Samsung"
+                onClick={() => handleFilterBrand("Samsung")}
               >
                 Samsung
               </button>
@@ -56,24 +60,32 @@ export const Filter = () => {
 
             <div className={styles.RangeBox}>
               <h4>Price Range</h4>
-              <span className={styles.LowRange}></span>
-              <span className={styles.HighRange}></span>
+              <input type="range" />
+              {/* <span className={styles.LowRange}></span>
+              <span className={styles.HighRange}></span> */}
             </div>
             <div className={styles.ClearFilterBox}>
-              <button className="FilterDropdownBtn" onClick={handleClearFilter}>
+              <button
+                className="FilterDropdownBtn"
+                onClick={() => handleClearFilter()}
+              >
                 Clear filter
               </button>
             </div>
           </div>
         )}
       </div>
-      <div className="SortBox">
+      <div className={styles.SortDropdown}>
         <button className="FilterBtn" onClick={handleSortByFilter}>
           SORT BY
         </button>
-        {/* {isSortByActive && (
-            // TODO: Add dropdown
-        )} */}
+        {isSortByActive && (
+          <div className={styles.SortBox}>
+            <p>Price: High to low</p>
+            <p>Price: Low to high</p>
+            <p>Newest</p>
+          </div>
+        )}
       </div>
     </aside>
   );

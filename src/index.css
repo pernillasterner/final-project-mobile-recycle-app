@@ -237,3 +237,8 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
     width: auto;
   }
 }
+
+.FilterBrandBtnActive {
+  color: var(--clr-white);
+  background-color: var(--clr-black);
+}
