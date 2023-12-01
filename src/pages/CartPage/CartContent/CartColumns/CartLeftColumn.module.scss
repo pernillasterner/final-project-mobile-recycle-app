@@ -1,0 +1,81 @@
+.Cart__LeftColumn {
+  background-color: var(--clr-white);
+  border-radius: 20px;
+  overflow: hidden;
+
+  .CartTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: var(--general-padding);
+    padding-bottom: 0;
+  }
+
+  .SingleCartItem {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    padding: var(--general-padding);
+
+    a {
+      height: 80px;
+      width: 80px;
+      position: relative;
+      .ProdCardImg {
+        flex-basis: calc(25% - var(--general-padding));
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: var(--clr-white);
+        height: 100%;
+      }
+    }
+
+    .SingleCartItemInfo {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-left: var(--general-padding);
+
+      .DetailsContainer {
+        .ItemBrand {
+          font-weight: 600;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1rem;
+          line-height: 1.25rem;
+          font-weight: 700;
+          padding-bottom: 0.25rem;
+          padding-right: 0.5rem;
+          width: 100%;
+        }
+      }
+
+      .PriceContainer {
+        text-align: end;
+        .ItemPrice {
+          font-weight: 600;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .CartItemOffer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: var(--clr-primary);
+    color: var(--clr-black);
+    padding: var(--general-smaller-padding);
+    p {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+  }
+}

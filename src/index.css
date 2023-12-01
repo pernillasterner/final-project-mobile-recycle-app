@@ -15,7 +15,7 @@ Variables
   --clr-grey-5: #7c7c7c;
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
-  --clr-black: #000;
+  --clr-black: #333;
   /* --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --transition: all 0.3s linear;
@@ -110,6 +110,7 @@ button {
   cursor: pointer;
   border: none;
   border-radius: var(--radius);
+  background: transparent;
 }
 
 .small-text {
@@ -140,6 +141,10 @@ All buttons should have
 - cursor: pointer 
 - font-weight: 700
 - width: fit-content;
+
+
+
+Ska vi ha uppercase eller capitalize text på knapparna eller både och?
 */
 
 /* GLOBALS */
@@ -200,6 +205,37 @@ All buttons should have
 
 .AddToCartBtn a {
   font-weight: 700;
+}
+
+/* GLOBAL STYLING ICONS */
+
+.GoBackBtn {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  cursor: pointer;
+  svg {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+.IconRecycle {
+  display: flex;
+  svg {
+    /* height: 1.5rem; */
+    width: auto;
+  }
+}
+
+.IconTrash {
+  display: flex;
+  svg {
+    flex-shrink: 0;
+
+    height: 1.5rem;
+    width: auto;
+  }
 }
 
 .FilterBrandBtnActive {

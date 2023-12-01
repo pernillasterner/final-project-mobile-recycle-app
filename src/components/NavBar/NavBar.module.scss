@@ -36,6 +36,17 @@
       width: 35px;
     }
 
+    .MiniCartContainer {
+      position: relative;
+      .MiniCartCount {
+        position: absolute;
+        top: -15px;
+        right: 2px;
+        font-size: 0.75rem;
+        font-weight: 400;
+      }
+    }
+
     .HamburgerMenuIcon {
       position: absolute;
       z-index: var(--z-index-hamburger);
