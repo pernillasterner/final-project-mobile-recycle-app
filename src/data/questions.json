@@ -1,0 +1,55 @@
+[
+  {
+    "question": "Choose your brand",
+    "name": "brandValue",
+    "phoneDescription": false,
+    "options": ["Samsung", "iPhone"]
+  },
+  {
+    "question": "Choose your model",
+    "name": "modelValue",
+    "phoneDescription": false
+  },
+  {
+    "question": " What is the storage capacity of the phone?",
+    "name": "storage",
+    "phoneDescription": true,
+    "options": ["512GB", "256GB", "128GB"]
+  },
+  {
+    "question": "Does the phone function normally?",
+    "name": "functionCondition",
+    "phoneDescription": true,
+    "options": ["Yes", "No"]
+  },
+  {
+    "question": "Is the screen intact and undamaged?",
+    "name": "screenCondition",
+    "phoneDescription": true,
+    "options": ["Yes", "No"]
+  },
+  {
+    "question": "In what visual condition is the phone's screen and frame?",
+    "name": "phoneCondition",
+    "phoneDescription": true,
+    "options": ["Like new", "Very good", "Good", "Okay"]
+  },
+  {
+    "question": "Are any of the mobile's glass parts broken (back glass or camera lens)?",
+    "name": "glassCondition",
+    "phoneDescription": true,
+    "options": ["Yes", "No"]
+  },
+  {
+    "question": "What is your price?",
+    "name": "priceValue",
+    "phoneDescription": false,
+    "input": ""
+  },
+  {
+    "question": "Please leave a comment",
+    "name": "comment",
+    "phoneDescription": true,
+    "input": ""
+  }
+]
