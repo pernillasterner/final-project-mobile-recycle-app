@@ -5,8 +5,8 @@ const initialState = {
   filter: {
     brandValue: [],
     priceRange: {
-      priceLow: false,
-      priceHigh: false,
+      priceLow: 0,
+      priceHigh: 0,
     },
 
     sort: {
@@ -48,25 +48,23 @@ const productSlice = createSlice({
       state.filter = initialState.filter;
       state.filterArray = state.products;
     },
+    calculatePriceRange: (state) => {
+      let highestPrice = state.products[0].priceValue;
+      let lowestPrice = state.products[0].priceValue;
+      state.products.forEach((element) => {
+        if (highestPrice < element.priceValue) {
+          state.filter.priceRange.priceHigh = element.priceValue;
+          highestPrice = element.priceValue;
+        } else if (lowestPrice > element.priceValue) {
+          state.filter.priceRange.priceLow = element.priceValue;
+          lowestPrice = element.priceValue;
+        }
+      });
+    },
   },
 });
 
-export const { setInitialState, setFilter, clearFilters } =
+export const { setInitialState, setFilter, clearFilters, calculatePriceRange } =
   productSlice.actions;
 
 export default productSlice.reducer;
-
-// setFilter: (state, action) => {
-//   const filterOption = action.payload;
-//   // Get the initial array of products and make a copy of that
-//   const initialProducts = state.products;
-//   // Run filter on the parameters and return the filtered array
-
-//   const updatedProducts = initialProducts.filter((product) =>
-//     product.brandValue.includes(filterOption)
-//   );
-
-//   // Update the state
-
-//   state.filterArray = updatedProducts;
-// };
