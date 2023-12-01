@@ -1,17 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
-import { clearFilters, setFilter } from "../../../reducers/productSlice";
+import {
+  clearFilters,
+  setFilter,
+  calculatePriceRange,
+} from "../../../reducers/productSlice";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 export const Filter = () => {
-  const filterArray = useSelector((state) => state.product.filterArray);
   const dispatch = useDispatch();
+  const filterArray = useSelector((state) => state.product.filterArray);
+
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
-
+  const priceRange = useSelector((state) => state.product.filter.priceRange);
   const handleFilterToggle = () => {
     setFilterActive((last) => !last);
-    // Add dropdown to sort by filter
+    dispatch(calculatePriceRange());
   };
 
   const handleSortByFilter = () => {
@@ -60,7 +67,13 @@ export const Filter = () => {
 
             <div className={styles.RangeBox}>
               <h4>Price Range</h4>
-              <input type="range" />
+              <div>
+                <span>{priceRange.priceLow}</span>
+
+                <span>{priceRange.priceHigh}</span>
+                <Slider range />
+              </div>
+
               {/* <span className={styles.LowRange}></span>
               <span className={styles.HighRange}></span> */}
             </div>
