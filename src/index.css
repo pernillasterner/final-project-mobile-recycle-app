@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800&family=Poppins:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800&family=Poppins:wght@100;300;400;700;900&family=Share+Tech&display=swap");
 
 /*
 =============== 
@@ -15,7 +15,8 @@ Variables
   --clr-grey-5: #7c7c7c;
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
-  --clr-black: #333;
+  --clr-black: #000;
+  --clr-text: #333;
   /* --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --transition: all 0.3s linear;
@@ -54,9 +55,9 @@ h3 {
 }
 
 body {
-  background-color: var(--clr-primary-dark);
+  background-color: var(--clr-black);
   color: var(--clr-white);
-  font-family: "Poppins", "Montserrat", sans-serif;
+  font-family: "Share Tech", "Poppins", "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
@@ -106,11 +107,13 @@ ul li {
   list-style: none;
 }
 
+/* TODO: Remove */
 button {
   cursor: pointer;
   border: none;
-  border-radius: var(--radius);
   background: transparent;
+  padding: 10px 15px;
+  width: fit-content;
 }
 
 .small-text {
@@ -146,12 +149,12 @@ All buttons should have
 
 Ska vi ha uppercase eller capitalize text på knapparna eller både och?
 */
-
+/* TODO: Remove */
 /* GLOBALS */
 .PrimaryBtn {
   background-color: var(--clr-primary);
-  padding: 5px 10px;
-  width: fit-content;
+  /* padding: 5px 10px;
+  width: fit-content; */
   color: var(--clr-primary-dark);
 }
 
@@ -236,9 +239,4 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
     height: 1.5rem;
     width: auto;
   }
-}
-
-.FilterBrandBtnActive {
-  color: var(--clr-white);
-  background-color: var(--clr-black);
 }
