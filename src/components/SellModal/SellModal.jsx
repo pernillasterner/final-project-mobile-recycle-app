@@ -5,7 +5,7 @@ import questions from "../../data/questions.json";
 import { InputOption } from "./InputOption/InputOption";
 import { Summery } from "./Summery/Summery";
 
-export const SellModal = () => {
+export const SellModal = ({ onClose }) => {
   const [fetchError, setFetchError] = useState(null);
   const [selectedValue, setSelectedValue] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -100,7 +100,7 @@ export const SellModal = () => {
   };
 
   return (
-    <div className={styles.QuestionContainer}>
+    <div className={styles.SellModalContainer}>
       <div className={styles.FormStepContainer}>
         <h2>Sell you phone by following these steps</h2>
         {questions[steps] ? (
@@ -168,7 +168,7 @@ export const SellModal = () => {
             )}
           </form>
         ) : (
-          <Summery details={phoneDetails} />
+          <Summery details={phoneDetails} onClose={onClose} />
         )}
       </div>
     </div>

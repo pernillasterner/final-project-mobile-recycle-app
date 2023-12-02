@@ -4,13 +4,19 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./NavBar.module.scss";
 import buttonStyles from "../commons/Buttons.module.scss";
 import { IconCart, IconHamburgerMenu } from "../../assets/Icons";
+import { SellModal } from "../SellModal/SellModal";
 
 export const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isSellModalOpen, setIsSellModalOpen] = useState(false);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
   const handleDropdown = () => {
     setIsActive(!isActive);
+  };
+
+  const handleIsSellModalOpen = () => {
+    setIsSellModalOpen(!isSellModalOpen);
   };
 
   return (
@@ -24,13 +30,20 @@ export const NavBar = () => {
             <NavLink to="/refurbished">Refurbished</NavLink>
           </li>
           <li>
-            <NavLink to="/peer-to-peer">P2P</NavLink>
+            <NavLink to="/peertopeer">P2P</NavLink>
           </li>
         </ul>
 
-        <button className={buttonStyles.PrimaryBtn}>
-          <Link to="/peer-to-peer">Sell Your Phone</Link>
+        <button
+          className={buttonStyles.PrimaryBtn}
+          onClick={handleIsSellModalOpen}
+        >
+          Sell Your Phone
         </button>
+        {isSellModalOpen && (
+          <SellModal onClose={() => setIsSellModalOpen(false)} />
+        )}
+
         {totalItems !== 0 && (
           <div className={styles.MiniCartContainer}>
             <Link to="cart" className={styles.IconCartLink}>

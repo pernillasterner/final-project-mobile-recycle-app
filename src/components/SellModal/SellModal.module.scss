@@ -1,18 +1,23 @@
-.QuestionContainer {
+.SellModalContainer {
+  background-color: var(--clr-black);
   display: flex;
   justify-content: center;
-  position: relative;
-  min-height: 25rem;
+  align-items: center;
+  position: absolute;
+  min-height: 100vh;
+  left: 0;
+  right: 0;
+  top: 70px;
 
   .FormStepContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: 540px;
-    z-index: 1;
-    -moz-box-pack: justify;
-    justify-content: space-between;
-    position: relative;
-    padding: 3rem 1rem 2rem;
+    // display: flex;
+    // flex-direction: column;
+    // max-width: 540px;
+    // z-index: 1;
+    // -moz-box-pack: justify;
+    // justify-content: space-between;
+    // position: relative;
+    // padding: 3rem 1rem 2rem;
   }
 
   .FormButton {

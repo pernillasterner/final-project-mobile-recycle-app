@@ -2,7 +2,7 @@ import styles from "../SellModal.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
 
-export const Summery = ({ details }) => {
+export const Summery = ({ details, onClose }) => {
   const [submissionStatus, setSubmissionStatus] = useState("pending");
   const desc = details.phoneDescription;
 
@@ -66,7 +66,10 @@ export const Summery = ({ details }) => {
           </button>
         </>
       ) : submissionStatus === "success" ? (
-        <h1>THANK YOU FOR SELLING your phone at techcycle</h1>
+        <>
+          <h1>THANK YOU FOR SELLING your phone at techcycle</h1>
+          <button onClick={onClose}>Close</button>
+        </>
       ) : (
         <>
           <h1>Error submissioning the product. Please try again!</h1>
