@@ -22,7 +22,9 @@ export const NavBar = () => {
   return (
     <nav className={styles.NavBar}>
       <div className={styles.NavBarBrand}>
-        <Link to="/">TechCycle</Link>
+        <Link to="/">
+          Tech<span>Cycle</span>
+        </Link>
       </div>
       <div className={styles.NavBarRight}>
         <ul className={styles.NavBarMenu}>
@@ -30,15 +32,18 @@ export const NavBar = () => {
             <NavLink to="/refurbished">Refurbished</NavLink>
           </li>
           <li>
-            <NavLink to="/peertopeer">P2P</NavLink>
+            <NavLink to="/peertopeer">Peer2Peer</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about-us">About Us</NavLink>
           </li>
         </ul>
 
         <button
-          className={buttonStyles.PrimaryBtn}
+          className={buttonStyles.SellYourPhoneBtn}
           onClick={handleIsSellModalOpen}
         >
-          Sell Your Phone
+          SELL YOUR PHONE
         </button>
         {isSellModalOpen && (
           <SellModal onClose={() => setIsSellModalOpen(false)} />
