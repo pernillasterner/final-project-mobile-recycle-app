@@ -3,16 +3,18 @@ import { useState } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import styles from "./NavBar.module.scss";
 import buttonStyles from "../commons/Buttons.module.scss";
-import { IconCart, IconHamburgerMenu } from "../../assets/Icons";
+import { IconCart } from "../../assets/Icons";
 import { SellModal } from "../SellModal/SellModal";
 
 export const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const [isSellModalOpen, setIsSellModalOpen] = useState(false);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
   const handleDropdown = () => {
     setIsActive(!isActive);
+    setIsBurgerOpen(!isBurgerOpen);
   };
 
   const handleIsSellModalOpen = () => {
@@ -40,6 +42,13 @@ export const NavBar = () => {
         </ul>
 
         <button
+          className={buttonStyles.SellYourPhoneBanner}
+          onClick={handleIsSellModalOpen}
+        >
+          SELL YOUR PHONE
+        </button>
+
+        <button
           className={buttonStyles.SellYourPhoneBtn}
           onClick={handleIsSellModalOpen}
         >
@@ -57,8 +66,16 @@ export const NavBar = () => {
             <span className={styles.MiniCartCount}>{totalItems}</span>
           </div>
         )}
-        <div className={styles.HamburgerMenuIcon} onClick={handleDropdown}>
-          <IconHamburgerMenu />
+        <div
+          className={`${styles.HamburgerMenuIcon} ${
+            isBurgerOpen ? styles.open : ""
+          }`}
+          onClick={handleDropdown}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         {isActive && (
           <ul
@@ -70,7 +87,10 @@ export const NavBar = () => {
               <NavLink to="/refurbished">Refurbished</NavLink>
             </li>
             <li>
-              <NavLink to="/peer-to-peer">P2P</NavLink>
+              <NavLink to="/peertopeer">Peer2Peer</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about-us">About Us</NavLink>
             </li>
           </ul>
         )}
