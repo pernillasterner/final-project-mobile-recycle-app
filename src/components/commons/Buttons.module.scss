@@ -20,6 +20,19 @@ button {
   }
 }
 
+.ReversePrimaryBtn {
+  background-color: transparent;
+  color: var(--clr-primary);
+  padding: 13px 20px;
+  border: 1px solid var(--clr-primary);
+  transition: 0.5s ease;
+  &:hover {
+    color: var(--clr-black);
+    background-color: var(--clr-primary);
+    border: 1px solid transparent;
+  }
+}
+
 // .secondary {
 //   // @extend .button;
 //   background-color: red;

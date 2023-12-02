@@ -11,7 +11,9 @@ export const Footer = () => {
           Tech<span>Cycle</span>
         </h3>
         <p>On a mission to consume less and re-use more.</p>
-        <button className={buttonStyles.PrimaryBtn}>BROWSE PHONES</button>
+        <button className={buttonStyles.ReversePrimaryBtn}>
+          BROWSE PHONES
+        </button>
       </div>
       <div className={`${styles.FooterSection} ${styles.LinksSection}`}>
         <Link to="/">Refurbished phones</Link>
