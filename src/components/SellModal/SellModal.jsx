@@ -3,6 +3,7 @@ import { useState } from "react";
 import supabase from "../../config/supabaseClient";
 import questions from "../../data/questions.json";
 import { InputOption } from "./InputOption/InputOption";
+import { Summery } from "./Summery/Summery";
 
 export const SellModal = () => {
   const [fetchError, setFetchError] = useState(null);
@@ -22,6 +23,7 @@ export const SellModal = () => {
       phoneDamage: false,
       screenCondition: false,
       functionCondition: false,
+      phoneCondition: false,
     },
     peer2peer: true,
   });
@@ -166,7 +168,7 @@ export const SellModal = () => {
             )}
           </form>
         ) : (
-          <h1>Thank you for selling</h1>
+          <Summery details={phoneDetails} />
         )}
       </div>
     </div>
