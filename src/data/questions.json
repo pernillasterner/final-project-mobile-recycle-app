@@ -3,7 +3,7 @@
     "question": "Choose your brand",
     "name": "brandValue",
     "phoneDescription": false,
-    "options": ["Samsung", "iPhone"]
+    "options": ["Samsung", "Apple"]
   },
   {
     "question": "Choose your model",
@@ -37,6 +37,12 @@
   {
     "question": "Are any of the mobile's glass parts broken (back glass or camera lens)?",
     "name": "glassCondition",
+    "phoneDescription": true,
+    "options": ["Yes", "No"]
+  },
+  {
+    "question": "Is your phone bent, water damaged, or is the fingerprint reader broken??",
+    "name": "phoneCondition",
     "phoneDescription": true,
     "options": ["Yes", "No"]
   },
