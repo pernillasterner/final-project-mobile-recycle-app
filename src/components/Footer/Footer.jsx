@@ -1,17 +1,17 @@
 import styles from "./Footer.module.scss";
 import buttonStyles from "../commons/Buttons.module.scss";
 import { Link } from "react-router-dom";
-import { IconFacebook } from "../../assets/Icons";
+import { IconFacebook, IconInstagram, IconLinkedin } from "../../assets/Icons";
 
 export const Footer = () => {
   return (
     <footer className={styles.Footer}>
       <div className={`${styles.FooterSection} ${styles.InfoSection}`}>
-        <h3>TechCycle</h3>
+        <h3>
+          Tech<span>Cycle</span>
+        </h3>
         <p>On a mission to consume less and re-use more.</p>
-        <button className={buttonStyles.PrimaryBtn}>
-          <Link to="/">Browse phones</Link>
-        </button>
+        <button className={buttonStyles.PrimaryBtn}>BROWSE PHONES</button>
       </div>
       <div className={`${styles.FooterSection} ${styles.LinksSection}`}>
         <Link to="/">Refurbished phones</Link>
@@ -23,10 +23,10 @@ export const Footer = () => {
           <IconFacebook />
         </Link>
         <Link to="instagram" className={styles.IconCartLink}>
-          <IconFacebook />
+          <IconInstagram />
         </Link>
         <Link to="linkedin" className={styles.IconCartLink}>
-          <IconFacebook />
+          <IconLinkedin />
         </Link>
       </div>
     </footer>
