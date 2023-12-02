@@ -11,6 +11,13 @@ button {
   background-color: var(--clr-primary);
   color: var(--clr-black);
   padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+  &:hover {
+    background-color: transparent;
+    color: var(--clr-primary);
+    border: 1px solid var(--clr-primary);
+  }
 }
 
 // .secondary {
