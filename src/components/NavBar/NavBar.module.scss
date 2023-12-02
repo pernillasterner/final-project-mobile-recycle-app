@@ -84,12 +84,15 @@
       width: 30px;
       height: 14px;
       position: relative;
-
       z-index: var(--z-index-hamburger);
       transform: rotate(0deg);
       transition: 0.5s ease-in-out;
       cursor: pointer;
       display: none;
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+
       &.open span:nth-child(1) {
         top: 7px;
         width: 0%;
@@ -124,9 +127,6 @@
           top: 14px;
         }
       }
-      @media screen and (max-width: 767px) {
-        display: block;
-      }
     }
 
     .HamburgerMenu {
@@ -149,7 +149,7 @@
 
       li {
         padding: var(--general-smaller-padding);
-
+        border-bottom: 1px solid #848895;
         position: relative;
 
         a:hover {
