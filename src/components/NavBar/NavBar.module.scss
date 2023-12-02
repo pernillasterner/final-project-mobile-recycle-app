@@ -6,11 +6,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--general-smaller-padding) var(--general-mini-padding);
+  padding: var(--general-smaller-padding) var(--general-padding);
   z-index: var(--z-index-navbar);
 
   .NavBarBrand {
     font-weight: 700;
+    font-size: 1.1rem;
+    span {
+      background: linear-gradient(130deg, #d45bff 30%, #16ef94 70%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
   }
 
   .NavBarRight {
@@ -20,10 +27,20 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-
+      margin-right: 5em;
       li {
-        font-weight: 700;
+        font-weight: 400;
         padding-right: var(--general-padding);
+        font-size: 0.7rem;
+
+        a {
+          color: #848895;
+          transition: color 0.3s ease;
+          &:hover,
+          &:active {
+            color: var(--clr-primary);
+          }
+        }
       }
       @media screen and (max-width: 767px) {
         display: none;

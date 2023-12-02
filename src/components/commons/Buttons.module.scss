@@ -1,19 +1,16 @@
 button {
   cursor: pointer;
   border: none;
-  border-radius: var(--radius);
+  // border-radius: var(--radius);
   background: transparent;
+  padding: 5px 10px;
+  width: fit-content;
 }
 
 .PrimaryBtn {
   background-color: var(--clr-primary);
-  padding: 5px 10px;
-  width: fit-content;
-  color: var(--clr-primary-dark);
-  a {
-    color: var(--clr-black);
-    font-weight: 700;
-  }
+  color: var(--clr-black);
+  padding: 13px 20px;
 }
 
 // .secondary {
@@ -21,3 +18,9 @@ button {
 //   background-color: red;
 //   color: white;
 // }
+
+.SellYourPhoneBtn {
+  background-color: var(--clr-black);
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+}
