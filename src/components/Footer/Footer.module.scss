@@ -39,6 +39,9 @@
     }
     a {
       margin-bottom: 0.5em;
+      &:hover {
+        color: var(--clr-primary);
+      }
     }
   }
   .SocialSection {
