@@ -65,8 +65,11 @@
 
     .MiniCartContainer {
       position: relative;
-      right: 35px;
-      bottom: -2px;
+      top: 10px;
+      @media screen and (max-width: 767px) {
+        right: 15px;
+        top: 0px;
+      }
       .MiniCartCount {
         position: absolute;
         top: -8px;
