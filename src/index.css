@@ -55,7 +55,12 @@ h3 {
 }
 
 body {
-  background-color: var(--clr-black);
+  background: radial-gradient(
+      farthest-corner at bottom right,
+      rgba(58, 35, 63, 0.6),
+      transparent 250px
+    ),
+    linear-gradient(180deg, #000 70%, #181222);
   color: var(--clr-white);
   font-family: "Share Tech", "Poppins", "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
