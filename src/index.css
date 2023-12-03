@@ -206,9 +206,16 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
 
 .AddToCartBtn {
   background-color: var(--clr-secondary);
-  padding: 5px 10px;
-  width: fit-content;
   color: var(--clr-black);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+}
+
+.AddToCartBtn:hover {
+  background-color: transparent;
+  color: var(--clr-secondary);
+  border: 1px solid var(--clr-secondary);
 }
 
 .AddToCartBtn a {
@@ -219,12 +226,18 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
 
 .GoBackBtn {
   position: absolute;
-  top: 80px;
-  left: 10px;
+  top: 90px;
+  left: 35px;
   cursor: pointer;
   svg {
     height: 1.5rem;
     width: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .GoBackBtn {
+    top: 120px;
   }
 }
 
