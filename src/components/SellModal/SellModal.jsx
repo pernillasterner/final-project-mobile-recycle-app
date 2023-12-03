@@ -24,6 +24,7 @@ export const SellModal = ({ onClose }) => {
       screenCondition: false,
       functionCondition: false,
       phoneCondition: false,
+      visualCondition: "",
     },
     peer2peer: true,
   });
@@ -37,7 +38,7 @@ export const SellModal = ({ onClose }) => {
   };
 
   const validateComment = (option) => {
-    const invalidCharsRegex = /<[^>]*>|[^a-zA-Z0-9\s.,!?]/g;
+    const invalidCharsRegex = /<[^>]*>|[^a-zA-Z0-9åäöÅÄÖ\s.,!?'"-]/g;
 
     if (!invalidCharsRegex.test(option) && option.length <= 250) {
       return true;
