@@ -16,9 +16,9 @@ export const Footer = () => {
         </button>
       </div>
       <div className={`${styles.FooterSection} ${styles.LinksSection}`}>
-        <Link to="/">Refurbished phones</Link>
+        <Link to="/refurbished">Refurbished phones</Link>
         <Link to="/">Community market</Link>
-        <Link to="/">About</Link>
+        <Link to="/about-us">About</Link>
       </div>
       <div className={`${styles.FooterSection} ${styles.SocialSection}`}>
         <Link to="facebook" className={styles.IconCartLink}>
