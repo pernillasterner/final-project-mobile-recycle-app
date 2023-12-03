@@ -30,7 +30,7 @@
   },
   {
     "question": "In what visual condition is the phone's screen and frame?",
-    "name": "phoneCondition",
+    "name": "visualCondition",
     "phoneDescription": true,
     "options": ["Like new", "Very good", "Good", "Okay"]
   },
