@@ -25,6 +25,7 @@ export const Summery = ({ details, onClose }) => {
               screenCondition: desc.screenCondition,
               functionCondition: desc.functionCondition,
               phoneCondition: desc.phoneCondition,
+              visualCondition: desc.visualCondition,
             },
           ],
         },
@@ -57,6 +58,7 @@ export const Summery = ({ details, onClose }) => {
           <p>Phone Damage: {desc.phoneDamage ? "Yes" : "No"}</p>
           <p>Screen Condition: {desc.screenCondition ? "Yes" : "No"}</p>
           <p>Storage: {desc.storage}</p>
+          <p>Visual Condition: {desc.visualCondition}</p>
 
           <button
             className={styles.FormButton}
