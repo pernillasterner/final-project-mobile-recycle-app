@@ -33,6 +33,7 @@ Variables
   --z-index-modal: 9000;
   --z-index-hamburger: 8500;
   --z-index-navbar: 8000;
+  --z-index-gobackbtn: 7500;
   --z-index-sortby: 7000;
   --z-index-filter: 6000;
   --z-index-product-image: 5000;
@@ -229,6 +230,7 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
   top: 90px;
   left: 35px;
   cursor: pointer;
+  z-index: var(--z-index-gobackbtn);
   svg {
     height: 1.5rem;
     width: auto;
