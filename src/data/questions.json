@@ -32,7 +32,7 @@
     "question": "In what visual condition is the phone's screen and frame?",
     "name": "visualCondition",
     "phoneDescription": false,
-    "options": ["Like new", "Very good", "Good", "Okay"]
+    "options": ["Like New", "Very Good", "Good", "Okay"]
   },
   {
     "question": "Are any of the mobile's glass parts broken (back glass or camera lens)?",
@@ -41,7 +41,7 @@
     "options": ["Yes", "No"]
   },
   {
-    "question": "Is your phone bent, water damaged, or is the fingerprint reader broken??",
+    "question": "Is your phone bent, water damaged, or is the fingerprint reader broken?",
     "name": "phoneCondition",
     "phoneDescription": true,
     "options": ["Yes", "No"]
