@@ -16,19 +16,19 @@ export const SellModal = ({ onClose }) => {
     brandValue: "",
     imageUrl: "",
     priceValue: "",
+    visualCondition: "",
+    comment: "",
+    storage: "",
     phoneDescription: {
-      comment: "",
-      storage: "",
       glassCondition: false,
       phoneDamage: false,
       screenCondition: false,
       functionCondition: false,
       phoneCondition: false,
-      visualCondition: "",
     },
     peer2peer: true,
   });
-
+  console.log(phoneDetails);
   const validatePriceValue = (option) => {
     if (/^[0-9]+$/.test(option) && option.length <= 6) {
       return true;

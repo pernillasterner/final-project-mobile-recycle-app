@@ -13,7 +13,7 @@
   {
     "question": " What is the storage capacity of the phone?",
     "name": "storage",
-    "phoneDescription": true,
+    "phoneDescription": false,
     "options": ["512GB", "256GB", "128GB"]
   },
   {
@@ -31,7 +31,7 @@
   {
     "question": "In what visual condition is the phone's screen and frame?",
     "name": "visualCondition",
-    "phoneDescription": true,
+    "phoneDescription": false,
     "options": ["Like new", "Very good", "Good", "Okay"]
   },
   {
@@ -55,7 +55,7 @@
   {
     "question": "Please leave a comment",
     "name": "comment",
-    "phoneDescription": true,
+    "phoneDescription": false,
     "input": ""
   }
 ]

@@ -14,18 +14,19 @@ export const Summery = ({ details, onClose }) => {
         {
           modelValue: details.modelValue,
           brandValue: details.brandValue,
-          imageUrl: "https://cdn.webhallen.com/images/product/345101?trim",
+          imageUrl:
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1678371941/Croma%20Assets/Communication/Mobiles/Images/270413_bjxs29.png?tr=w-640",
           priceValue: details.priceValue,
+          storage: details.storage,
+          comment: details.comment,
+          visualCondition: details.visualCondition,
           phoneDescription: [
             {
-              comment: desc.comment,
-              storage: desc.storage,
               glassCondition: desc.glassCondition,
               phoneDamage: desc.phoneDamage,
               screenCondition: desc.screenCondition,
               functionCondition: desc.functionCondition,
               phoneCondition: desc.phoneCondition,
-              visualCondition: desc.visualCondition,
             },
           ],
         },
@@ -51,14 +52,14 @@ export const Summery = ({ details, onClose }) => {
           <p>Model:{details.modelValue}</p>
           <p>Brand:{details.brandValue}</p>
           <p>Price: {details.priceValue} kr</p>
-          <p>Comment: {desc.comment}</p>
+          <p>Comment: {details.comment}</p>
           <p>Functional Conditions: {desc.functionCondition ? "Yes" : "No"}</p>
           <p>Glass Condition: {desc.glassCondition ? "Yes" : "No"}</p>
           <p>Phone Condition: {desc.phoneCondition ? "Yes" : "No"}</p>
           <p>Phone Damage: {desc.phoneDamage ? "Yes" : "No"}</p>
           <p>Screen Condition: {desc.screenCondition ? "Yes" : "No"}</p>
-          <p>Storage: {desc.storage}</p>
-          <p>Visual Condition: {desc.visualCondition}</p>
+          <p>Storage: {details.storage}</p>
+          <p>Visual Condition: {details.visualCondition}</p>
 
           <button
             className={styles.FormButton}
