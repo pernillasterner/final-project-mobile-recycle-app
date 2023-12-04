@@ -6,6 +6,7 @@ import {
   setFilter,
   calculatePriceRange,
   sortProducts,
+  setPriceRange,
 } from "../../../reducers/productSlice";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -17,11 +18,19 @@ export const Filter = () => {
   const [isSortByActive, setSortByActive] = useState(false);
   const [sort, setSort] = useState(null);
   const priceRange = useSelector((state) => state.product.filter.priceRange);
+  // const [sliderValue, setSliderValue] = useState([
+  //   priceRange.priceLow,
+  //   priceRange.priceHigh,
+  // ]);
+  const [sliderValue, setSliderValue] = useState([
+    priceRange.priceLow,
+    priceRange.priceHigh,
+  ]);
 
   const handleFilterToggle = () => {
     setFilterActive((last) => !last);
     dispatch(calculatePriceRange());
-    dispatch(calculatePriceRange());
+    setSliderValue(priceRange);
   };
 
   const handleSortByFilter = () => {
@@ -51,6 +60,13 @@ export const Filter = () => {
     // dispatch(setFilter());
   };
 
+  const submitSlider = (e) => {
+    // console.log(sliderValue);
+    setSliderValue((value) => e);
+    // console.log(priceRange.priceLow);
+    dispatch(setPriceRange(e));
+  };
+
   return (
     <aside className={styles.FilterAside}>
       <div className="FilterBox">
@@ -78,14 +94,22 @@ export const Filter = () => {
             <div className={styles.RangeBox}>
               <h4>Price Range</h4>
               <div>
-                <span>{priceRange.priceLow}</span>
-
-                <span>{priceRange.priceHigh}</span>
-                <Slider range />
+                <div className={styles.SliderInfo}>
+                  <span>Low:{sliderValue[0]}</span>
+                  <span>High:{sliderValue[1]}</span>
+                </div>
+                <Slider
+                  allowCross={false}
+                  range
+                  defaultValue={[priceRange.priceLow, priceRange.priceHigh]}
+                  step={100}
+                  min={priceRange.priceLow}
+                  max={priceRange.priceHigh}
+                  // onChange={(e) => setSliderValue(e)}
+                  // onChangeComplete={(e) => submitSlider(e)}
+                  onChange={(e) => submitSlider(e)}
+                />
               </div>
-
-              {/* <span className={styles.LowRange}></span>
-              <span className={styles.HighRange}></span> */}
             </div>
             <div className={styles.ClearFilterBox}>
               <button

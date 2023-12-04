@@ -9,13 +9,12 @@ import { setInitialState } from "../../reducers/productSlice";
 export const ProductList = ({ category }) => {
   const [fetchError, setFetchError] = useState(null);
   const filterArray = useSelector((state) => state.product.filterArray);
-  const prods = useSelector((state) => {
-    return state.product.filterArray.length > 0
-      ? state.product.filterArray
-      : state.product.products;
-  });
+  // const prods = useSelector((state) => {
+  //   return state.product.filterArray.length > 0
+  //     ? state.product.filterArray
+  //     : state.product.products;
+  // });
   const dispatch = useDispatch();
-
   useEffect(() => {
     const fetchProds = async () => {
       try {
@@ -48,9 +47,9 @@ export const ProductList = ({ category }) => {
       <Filter />
       <div className={styles.ProductList}>
         {fetchError && <p>{fetchError}</p>}
-        {prods && (
+        {filterArray && (
           <div className={styles.FlexContainer}>
-            {prods.map((prod) => (
+            {filterArray.map((prod) => (
               <div
                 key={prod.id}
                 className={styles.ProdCard}

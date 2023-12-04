@@ -45,6 +45,20 @@ const productSlice = createSlice({
       );
       state.filterArray = updatedProducts;
     },
+    setPriceRange: (state, action) => {
+      const resetProducts = state.products.filter(
+        (product) =>
+          state.filter.brandValue.length === 0 ||
+          state.filter.brandValue.includes(product.brandValue)
+      );
+      const range = action.payload;
+      const updatedProducts = resetProducts.filter((item) => {
+        // return item.priceValue > range[0] && item.priceValue < range[1];
+        return item.priceValue >= range[0] && item.priceValue <= range[1];
+      });
+
+      state.filterArray = updatedProducts;
+    },
     clearFilters: (state) => {
       state.filter = initialState.filter;
       state.filterArray = state.products;
@@ -104,6 +118,7 @@ export const {
   clearFilters,
   calculatePriceRange,
   sortProducts,
+  setPriceRange,
 } = productSlice.actions;
 
 export default productSlice.reducer;

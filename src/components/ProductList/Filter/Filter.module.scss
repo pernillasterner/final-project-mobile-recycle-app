@@ -45,6 +45,12 @@
       justify-content: right;
       align-items: end;
     }
+
+    .SliderInfo {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
   }
 
   .SortDropdown {
