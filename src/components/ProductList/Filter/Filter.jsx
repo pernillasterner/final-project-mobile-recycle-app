@@ -1,4 +1,4 @@
-import { useEffect, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
 import {
@@ -11,7 +11,6 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 export const Filter = () => {
-  const dispatch = useDispatch();
   const dispatch = useDispatch();
   const filterArray = useSelector((state) => state.product.filterArray);
   const [isFilterActive, setFilterActive] = useState(false);
@@ -85,21 +84,10 @@ export const Filter = () => {
                 <Slider range />
               </div>
 
-              <div>
-                <span>{priceRange.priceLow}</span>
-
-                <span>{priceRange.priceHigh}</span>
-                <Slider range />
-              </div>
-
               {/* <span className={styles.LowRange}></span>
               <span className={styles.HighRange}></span> */}
             </div>
             <div className={styles.ClearFilterBox}>
-              <button
-                className="FilterDropdownBtn"
-                onClick={() => handleClearFilter()}
-              ></button>
               <button
                 className="FilterDropdownBtn"
                 onClick={() => handleClearFilter()}
