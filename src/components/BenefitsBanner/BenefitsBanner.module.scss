@@ -1,8 +1,13 @@
 .BenefitsBanner {
   display: flex;
-  background-color: var(--clr-primary);
-  color: var(--clr-primary-dark);
-
+  // background-color: var(--clr-primary-dark);
+  color: var(--clr-white);
+  background-image: radial-gradient(
+      farthest-side at bottom left,
+      #271d3b,
+      transparent 900px
+    ),
+    radial-gradient(farthest-corner at top right, #000, transparent 1000px);
   .Box {
     border-left: 1px solid var(--clr-primary-dark);
     flex-basis: 33.33%;
@@ -20,13 +25,14 @@
   svg {
     height: 1.5rem;
     width: auto;
+    fill: var(--clr-primary);
   }
 
   @media screen and (max-width: 1024px) {
     flex-direction: row;
 
     .Box {
-      border-bottom: 1px solid var(--clr-primary-dark);
+      // border-bottom: 1px solid var(--clr-primary-dark);
       flex-basis: 100%;
       padding: 3%;
     }
@@ -40,7 +46,7 @@
     flex-direction: column;
 
     .Box {
-      border-bottom: 1px solid var(--clr-primary-dark);
+      // border-bottom: 1px solid var(--clr-primary-dark);
       flex-basis: 100%;
     }
 

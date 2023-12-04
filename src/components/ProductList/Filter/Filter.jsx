@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
 import {
@@ -12,6 +12,7 @@ import "rc-slider/assets/index.css";
 
 export const Filter = () => {
   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const filterArray = useSelector((state) => state.product.filterArray);
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
@@ -20,6 +21,7 @@ export const Filter = () => {
 
   const handleFilterToggle = () => {
     setFilterActive((last) => !last);
+    dispatch(calculatePriceRange());
     dispatch(calculatePriceRange());
   };
 
@@ -83,10 +85,21 @@ export const Filter = () => {
                 <Slider range />
               </div>
 
+              <div>
+                <span>{priceRange.priceLow}</span>
+
+                <span>{priceRange.priceHigh}</span>
+                <Slider range />
+              </div>
+
               {/* <span className={styles.LowRange}></span>
               <span className={styles.HighRange}></span> */}
             </div>
             <div className={styles.ClearFilterBox}>
+              <button
+                className="FilterDropdownBtn"
+                onClick={() => handleClearFilter()}
+              ></button>
               <button
                 className="FilterDropdownBtn"
                 onClick={() => handleClearFilter()}
@@ -101,6 +114,39 @@ export const Filter = () => {
         <button className="FilterBtn" onClick={handleSortByFilter}>
           {isSortByActive ? "CLOSE" : "SORT BY"}
         </button>
+        {isSortByActive && (
+          <div className={styles.SortBox}>
+            <form>
+              <label>
+                <input
+                  type="radio"
+                  value="high-low"
+                  onChange={handleSort}
+                  checked={sort === "high-low"}
+                />
+                Price: High to low
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="low-high"
+                  onChange={handleSort}
+                  checked={sort === "low-high"}
+                />
+                Price: Low to high
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="newest"
+                  onChange={handleSort}
+                  checked={sort === "newest"}
+                />
+                Newest
+              </label>
+            </form>
+          </div>
+        )}
         {isSortByActive && (
           <div className={styles.SortBox}>
             <form>

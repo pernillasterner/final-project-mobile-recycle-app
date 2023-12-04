@@ -1,0 +1,64 @@
+button {
+  cursor: pointer;
+  border: none;
+  // border-radius: var(--radius);
+  background: transparent;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.PrimaryBtn {
+  background-color: var(--clr-primary);
+  color: var(--clr-black);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+  &:hover {
+    background-color: transparent;
+    color: var(--clr-primary);
+    border: 1px solid var(--clr-primary);
+  }
+}
+
+.ReversePrimaryBtn {
+  background-color: transparent;
+  color: var(--clr-primary);
+  padding: 13px 20px;
+  border: 1px solid var(--clr-primary);
+  transition: 0.5s ease;
+  &:hover {
+    color: var(--clr-black);
+    background-color: var(--clr-primary);
+    border: 1px solid transparent;
+  }
+}
+
+// .secondary {
+//   // @extend .button;
+//   background-color: red;
+//   color: white;
+// }
+
+.SellYourPhoneBtn {
+  background-color: var(--clr-black);
+  border: 1px solid var(--clr-primary);
+  color: var(--clr-primary);
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.SellYourPhoneBanner {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: var(--clr-primary);
+  color: var(--clr-black);
+  display: none;
+  width: 100%;
+  font-weight: 700;
+  height: 40px;
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
