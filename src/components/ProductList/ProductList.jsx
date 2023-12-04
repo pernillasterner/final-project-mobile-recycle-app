@@ -14,8 +14,8 @@ export const ProductList = ({ category }) => {
       ? state.product.filterArray
       : state.product.products;
   });
-
   const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchProds = async () => {
       try {
