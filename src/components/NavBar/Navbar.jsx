@@ -72,7 +72,7 @@ export const NavBar = () => {
             <Link to="cart" className={styles.IconCartLink}>
               <IconCart />
             </Link>
-            <span className={styles.MiniCartCount}>{totalItems}</span>
+            <span className={styles.MiniCartCount}></span>
           </div>
         )}
         <div
