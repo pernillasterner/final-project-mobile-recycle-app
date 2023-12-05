@@ -184,17 +184,3 @@ export const Filter = () => {
     </aside>
   );
 };
-
-// switch (sorting) {
-//   case "high-low":
-//     state.filterArray.sort((a, b) => b.priceValue - a.priceValue);
-//     break;
-//   case "low-high":
-//     state.filterArray.sort((a, b) => a.priceValue - b.priceValue);
-//     break;
-//   case "newest":
-//     state.filterArray.sort(
-//       (a, b) => new Date(b.created_at) - new Date(a.created_at)
-//     );
-//     break;
-// }
