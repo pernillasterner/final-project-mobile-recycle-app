@@ -1,24 +1,35 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./NavBar.module.scss";
 import buttonStyles from "../commons/Buttons.module.scss";
 import { IconCart } from "../../assets/Icons";
 import { SellModal } from "../SellModal/SellModal";
+import { modalActive, modalNotActive } from "../../reducers/modalSlice";
 
 export const NavBar = () => {
-  const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
+  const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  const [isSellModalOpen, setIsSellModalOpen] = useState(false);
   const totalItems = useSelector((state) => state.cart.totalItems);
+  const isModalActive = useSelector((state) => state.modal.isActive);
 
   const handleDropdown = () => {
-    setIsActive(!isActive);
+    setIsDropdownActive(!isDropdownActive);
+    setIsBurgerOpen(!isBurgerOpen);
+  };
+
+  const handleNavLinkClick = () => {
+    setIsDropdownActive(!isDropdownActive);
     setIsBurgerOpen(!isBurgerOpen);
   };
 
   const handleIsSellModalOpen = () => {
-    setIsSellModalOpen(!isSellModalOpen);
+    if (!isModalActive) {
+      dispatch(modalActive());
+    } else {
+      dispatch(modalNotActive());
+    }
   };
 
   return (
@@ -45,18 +56,16 @@ export const NavBar = () => {
           className={buttonStyles.SellYourPhoneBanner}
           onClick={handleIsSellModalOpen}
         >
-          SELL YOUR PHONE
+          {isModalActive ? "CLOSE" : "SELL YOUR PHONE"}
         </button>
 
         <button
           className={buttonStyles.SellYourPhoneBtn}
           onClick={handleIsSellModalOpen}
         >
-          SELL YOUR PHONE
+          {isModalActive ? "CLOSE" : "SELL YOUR PHONE"}
         </button>
-        {isSellModalOpen && (
-          <SellModal onClose={() => setIsSellModalOpen(false)} />
-        )}
+        {isModalActive && <SellModal />}
 
         {totalItems !== 0 && (
           <div className={styles.MiniCartContainer}>
@@ -77,20 +86,26 @@ export const NavBar = () => {
           <span></span>
           <span></span>
         </div>
-        {isActive && (
+        {isDropdownActive && (
           <ul
             className={`${styles.HamburgerMenu} ${
-              isActive ? styles.isActive : "is-active"
+              isDropdownActive ? styles.isActive : "is-active"
             }`}
           >
             <li>
-              <NavLink to="/refurbished">Refurbished</NavLink>
+              <NavLink to="/refurbished" onClick={handleNavLinkClick}>
+                Refurbished
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/peertopeer">Peer2Peer</NavLink>
+              <NavLink to="/peertopeer" onClick={handleNavLinkClick}>
+                Peer2Peer
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about-us">About Us</NavLink>
+              <NavLink to="/about-us" onClick={handleNavLinkClick}>
+                About Us
+              </NavLink>
             </li>
           </ul>
         )}
