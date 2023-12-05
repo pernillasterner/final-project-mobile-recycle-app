@@ -5,7 +5,7 @@ export const RefurbishedPage = () => {
   return (
     <>
       <SmallHero title={"Refurbished"} />
-      <ProductList />
+      <ProductList category={"refurbished"} />
     </>
   );
 };
