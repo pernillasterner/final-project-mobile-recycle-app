@@ -268,3 +268,11 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
     width: auto;
   }
 }
+
+/* MEDIA QEUREIS */
+
+@media screen and (max-width: 767px) {
+  main {
+    padding-top: 110px;
+  }
+}
