@@ -1,7 +1,11 @@
 import styles from "./CartRightColumn.module.scss";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import {
+  IconMaestro,
+  IconMaster,
+  IconVisaMethod,
+} from "../../../../assets/Icons";
 
 export const CartRightColumn = ({ cartItems }) => {
   const [totalCartItems, setTotalCartItems] = useState([]);
@@ -41,16 +45,16 @@ export const CartRightColumn = ({ cartItems }) => {
           </div>
           <div className={styles.SummeryRowTotal}>
             <div className={styles.SummeryRow}>
-              <span className={styles.TotalText}>Total</span>
+              <span className={styles.TotalText}>Total:</span>
               <span className={styles.TotalPrice}>{totalSum + 59} kr</span>
             </div>
           </div>
         </div>
-        <button className={buttonStyles.PrimaryBtn}>
-          <Link to="/checkout">Go to checkoute</Link>
-        </button>
+        <button className={buttonStyles.PrimaryBtn}>GO TO CHECKOUT</button>
         <div className={styles.PaymentLogosContainer}>
-          <div className={styles.PaymentLogos}>PAYMENT ICONS</div>
+          <IconVisaMethod />
+          <IconMaestro />
+          <IconMaster />
         </div>
       </div>
     </section>

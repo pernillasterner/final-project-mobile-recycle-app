@@ -4,9 +4,11 @@
   border-radius: 20px;
   overflow: hidden;
   margin: 0 0.75rem;
+  font-family: "Roboto";
 
   @media screen and (max-width: 767px) {
     margin: 1.5rem 0px;
+    padding: var(--general-padding) var(--general-mini-padding);
   }
 
   .CartSummeryContainer {
@@ -19,7 +21,7 @@
       flex-direction: column;
       gap: 0.25rem;
       font-size: 0.8725rem;
-      padding: 0px 0.25rem 1rem;
+      padding: 0px 0.25rem 2rem;
       width: 100%;
 
       .SummerListItem {
@@ -62,8 +64,29 @@
       border-bottom: medium;
       .TotalText,
       .TotalPrice {
-        font-weight: 500;
         font-size: 1rem;
+      }
+      .TotalPrice {
+        color: rgb(34, 44, 155);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+
+    .PrimaryBtn {
+      background-color: rgb(34, 44, 155);
+      color: var(--clr-white);
+      border: 1px solid rgba(34, 44, 155, 0.634);
+      &:hover {
+        background-color: rgb(109, 118, 215);
+        border: 1px solid rgb(109, 118, 215);
+        color: rgb(255, 255, 255);
+      }
+    }
+    .PaymentLogosContainer {
+      margin: 1em auto;
+      svg {
+        margin: 0.5em;
       }
     }
   }
