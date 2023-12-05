@@ -121,6 +121,7 @@ button {
   background: transparent;
   padding: 10px 15px;
   width: fit-content;
+  min-width: 100px;
 }
 
 .small-text {
