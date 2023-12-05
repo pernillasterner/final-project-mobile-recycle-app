@@ -1,3 +1,11 @@
+import { ProductList } from "../../components/ProductList/ProductList";
+import { SmallHero } from "./SmallHero/SmallHero";
+
 export const RefurbishedPage = () => {
-  return <div>RefurbishedPage</div>;
+  return (
+    <>
+      <SmallHero title={"Refurbished"} />
+      <ProductList />
+    </>
+  );
 };
