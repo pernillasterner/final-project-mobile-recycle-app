@@ -25,7 +25,8 @@
     left: -200px;
     rotate: 140deg;
     @media screen and (max-width: 767px) {
-      // left: -45px;
+      width: 70%;
+      height: 70%;
       bottom: 0;
     }
   }
@@ -52,7 +53,6 @@
   }
 
   .FormStepContainer {
-    background: #000000ba;
     position: relative;
     z-index: 5555;
   }
