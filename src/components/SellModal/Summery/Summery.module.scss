@@ -43,55 +43,52 @@
     }
   }
 
-  <<<<<<< HEAD .CommentContainer {
-    h5 {
-      font-size: 1rem;
-    }
-    p {
-      color: var(--clr-primary);
-    }
+  h5 {
+    font-size: 1rem;
   }
+  p {
+    color: var(--clr-primary);
+  }
+}
 
-  =======>>>>>>>6754685732938e7d43e52da2a71173a8975c12e5
-    .SummeryTableContainer {
-    position: relative;
-    z-index: 5555;
+.SummeryTableContainer {
+  position: relative;
+  z-index: 5555;
 
-    table {
-      margin: 1.7em 0;
+  table {
+    margin: 1.7em 0;
+    @media screen and (max-width: 767px) {
+      margin: 1.4em 0;
+    }
+    thead th {
+      text-align: start;
+      font-size: 0.8rem;
       @media screen and (max-width: 767px) {
-        margin: 1.4em 0;
+        font-size: 1.2rem;
       }
-      thead th {
-        text-align: start;
-        font-size: 0.8rem;
-        @media screen and (max-width: 767px) {
-          font-size: 1.2rem;
-        }
-      }
+    }
 
-      tbody td {
-        padding: var(--general-mini-padding);
-        border-bottom: 1px solid var(--clr-primary-light);
-        @media screen and (max-width: 767px) {
-          padding: var(--general-mini-padding) 0;
-        }
+    tbody td {
+      padding: var(--general-mini-padding);
+      border-bottom: 1px solid var(--clr-primary-light);
+      @media screen and (max-width: 767px) {
+        padding: var(--general-mini-padding) 0;
       }
     }
   }
+}
 
-  .FormButton {
-    background: var(--clr-primary);
-    padding: 10px 20px;
-    margin: 5px;
-    border: 1px solid transparent;
-    transition: 0.5s ease-in-out;
+.FormButton {
+  background: var(--clr-primary);
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid transparent;
+  transition: 0.5s ease-in-out;
 
-    &:hover {
-      background-color: transparent;
-      border: 1px solid var(--clr-primary);
-      color: var(--clr-primary);
-    }
+  &:hover {
+    background-color: transparent;
+    border: 1px solid var(--clr-primary);
+    color: var(--clr-primary);
   }
 }
 
