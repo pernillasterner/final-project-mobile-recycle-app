@@ -87,8 +87,8 @@ export const ProductPage = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Question</th>
-                    <th>Answer</th>
+                    <th>Questions</th>
+                    <th>Answers</th>
                   </tr>
                 </thead>
                 <tbody>

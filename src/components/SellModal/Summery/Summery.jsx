@@ -1,4 +1,4 @@
-import styles from "../SellModal.module.scss";
+import styles from "./Summery.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
 
@@ -49,17 +49,61 @@ export const Summery = ({ details, onClose }) => {
     <div>
       {submissionStatus === "pending" ? (
         <>
-          <p>Model:{details.modelValue}</p>
-          <p>Brand:{details.brandValue}</p>
+          <div className={styles.HeaderContainer}>
+            <h1 className={styles.ModelValue}>{details.modelValue}</h1>
+            <div className={styles.ModelInfo}>
+              <div className={styles.Info}>
+                <p>Brand: {details.brandValue}</p>
+                <p>Storage: {details.storage}</p>
+                <p>Visual Condition: {details.visualCondition}</p>
+              </div>
+
+              <p className={styles.PriceValue}>
+                <strong>{details.priceValue} kr</strong>
+              </p>
+            </div>
+          </div>
+
+          {/* <p>Brand: {details.brandValue}</p>
           <p>Price: {details.priceValue} kr</p>
           <p>Comment: {details.comment}</p>
-          <p>Functional Conditions: {desc.functionCondition ? "Yes" : "No"}</p>
-          <p>Glass Condition: {desc.glassCondition ? "Yes" : "No"}</p>
-          <p>Phone Condition: {desc.phoneCondition ? "Yes" : "No"}</p>
-          <p>Phone Damage: {desc.phoneDamage ? "Yes" : "No"}</p>
-          <p>Screen Condition: {desc.screenCondition ? "Yes" : "No"}</p>
           <p>Storage: {details.storage}</p>
-          <p>Visual Condition: {details.visualCondition}</p>
+          <p>Visual Condition: {details.visualCondition}</p> */}
+
+          <div className={styles.SummeryTableContainer}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Questions</th>
+                  <th>Answers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Does the phone function normally?</td>
+                  <td>{desc.functionCondition ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>Is the screen intact and undamaged?</td>
+                  <td>{desc.screenCondition ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>
+                    Are any of the mobile's glass parts broken (back glass or
+                    camera lens)?
+                  </td>
+                  <td>{desc.glassCondition ? "Yes" : "No"}</td>
+                </tr>
+                <tr>
+                  <td>
+                    Is your phone bent, water damaged, or is the fingerprint
+                    reader broken?
+                  </td>
+                  <td>{desc.phoneDamage ? "Yes" : "No"}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <button
             className={styles.FormButton}
