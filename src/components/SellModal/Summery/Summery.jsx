@@ -18,8 +18,8 @@ export const Summery = ({ details }) => {
         {
           modelValue: details.modelValue,
           brandValue: details.brandValue,
-          // imageUrl:
-          //   "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1678371941/Croma%20Assets/Communication/Mobiles/Images/270413_bjxs29.png?tr=w-640",
+          imageUrl:
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1678371941/Croma%20Assets/Communication/Mobiles/Images/270413_bjxs29.png?tr=w-640",
           priceValue: details.priceValue,
           storage: details.storage,
           comment: details.comment,
