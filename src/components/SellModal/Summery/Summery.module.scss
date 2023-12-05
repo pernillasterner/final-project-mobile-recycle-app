@@ -43,7 +43,17 @@
     }
   }
 
-  .SummeryTableContainer {
+  <<<<<<< HEAD .CommentContainer {
+    h5 {
+      font-size: 1rem;
+    }
+    p {
+      color: var(--clr-primary);
+    }
+  }
+
+  =======>>>>>>>6754685732938e7d43e52da2a71173a8975c12e5
+    .SummeryTableContainer {
     position: relative;
     z-index: 5555;
 
@@ -71,7 +81,7 @@
   }
 
   .FormButton {
-    background-color: var(--clr-white);
+    background: var(--clr-primary);
     padding: 10px 20px;
     margin: 5px;
     border: 1px solid transparent;

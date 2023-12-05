@@ -73,6 +73,11 @@ export const Summery = ({ details }) => {
             </div>
           </div>
 
+          <div className={styles.CommentContainer}>
+            <h5>Your comment:</h5>
+            <p>{details.comment}</p>
+          </div>
+
           <div className={styles.SummeryTableContainer}>
             <table>
               <thead>
