@@ -8,12 +8,9 @@ import { setInitialState } from "../../reducers/productSlice";
 
 export const ProductList = ({ category }) => {
   const [fetchError, setFetchError] = useState(null);
-  // const [prods, setProds] = useState(null);
-  const prods = useSelector((state) => state.product.products);
-  const [filterProds, setFilterProds] = useState(null);
+  const filterArray = useSelector((state) => state.product.filterArray);
   const dispatch = useDispatch();
-  console.log(prods);
-  // Fetch the data
+
   useEffect(() => {
     const fetchProds = async () => {
       try {
@@ -22,24 +19,18 @@ export const ProductList = ({ category }) => {
             .from("phones")
             .select()
             .is("peer2peer", false);
-          // setProds(data);
           dispatch(setInitialState(data));
-          console.log(data);
-          // setFilterProds(data);
           setFetchError(null);
         } else if (category === "peer2peer") {
           const { data } = await supabase
             .from("phones")
             .select()
             .is("peer2peer", true);
-          // setProds(data);
           dispatch(setInitialState(data));
-          setFilterProds(data);
           setFetchError(null);
         }
       } catch (error) {
         setFetchError("Could not fetch products");
-        // setProds(null);
         console.log(error);
       }
       console.log(prods);
@@ -53,9 +44,9 @@ export const ProductList = ({ category }) => {
       <Filter />
       <div className={styles.ProductList}>
         {fetchError && <p>{fetchError}</p>}
-        {prods && (
+        {filterArray && (
           <div className={styles.FlexContainer}>
-            {prods.map((prod) => (
+            {filterArray.map((prod) => (
               <div
                 key={prod.id}
                 className={styles.ProdCard}
@@ -66,7 +57,7 @@ export const ProductList = ({ category }) => {
                   <span>{prod.brandValue}</span>
                   <span>{prod.priceValue}kr</span>
                   <button className="BuyBtn">
-                    <Link to="/">Buy</Link>
+                    <Link to={`/product/${prod.id}`}>Buy</Link>
                   </button>
                 </div>
               </div>

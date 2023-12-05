@@ -1,33 +1,60 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
+import {
+  clearFilters,
+  setFilter,
+  calculatePriceRange,
+  sortProducts,
+  setPriceRange,
+} from "../../../reducers/productSlice";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 export const Filter = () => {
   const dispatch = useDispatch();
+  // const filterArray = useSelector((state) => state.product.filterArray);
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
-  const brandValue = "iPhone";
+  const [sort, setSort] = useState(null);
+  const priceRange = useSelector((state) => state.product.filter.priceRange);
+  const [sliderValue, setSliderValue] = useState(null);
 
   const handleFilterToggle = () => {
-    console.log("Open filter");
-    setFilterActive(!isFilterActive);
-    // Add dropdown to sort by filter
+    setFilterActive((last) => !last);
+    dispatch(calculatePriceRange());
+    setSliderValue(priceRange);
   };
 
   const handleSortByFilter = () => {
-    // Add dropdown to sort by filter
-    console.log("Open sort by");
     setSortByActive(!isSortByActive);
   };
 
   const handleClearFilter = () => {
-    // Use dispatch to clear the active filter
-    // dispatch.clearFilter();
+    document.querySelectorAll(".FilterDropdownBtn").forEach((button) => {
+      button.classList.remove("FilterBrandBtnActive");
+    });
+    dispatch(clearFilters());
+    setFilterActive(false);
   };
 
-  const handleDropdownItem = (value) => {
-    // Find all items with brandValue = item
-    console.log(value);
+  const handleFilterBrand = (value) => {
+    document
+      .querySelector(`.${value}`)
+      .classList.toggle("FilterBrandBtnActive");
+    dispatch(setFilter(value));
+  };
+
+  const handleSort = (e) => {
+    const sorting = e.target.value;
+    setSort(sorting);
+    dispatch(sortProducts(sorting));
+  };
+
+  const submitSlider = (e) => {
+    setSliderValue((value) => e);
+
+    dispatch(setPriceRange(e));
   };
 
   return (
@@ -41,14 +68,14 @@ export const Filter = () => {
             <div className={styles.BrandBox}>
               <h4>Brand</h4>
               <button
-                className="FilterDropdownBtn"
-                onClick={handleDropdownItem(brandValue)}
+                className="FilterDropdownBtn Apple"
+                onClick={() => handleFilterBrand("Apple")}
               >
                 iPhone
               </button>
               <button
-                className="FilterDropdownBtn"
-                onClick={handleDropdownItem(brandValue)}
+                className="FilterDropdownBtn Samsung"
+                onClick={() => handleFilterBrand("Samsung")}
               >
                 Samsung
               </button>
@@ -56,24 +83,103 @@ export const Filter = () => {
 
             <div className={styles.RangeBox}>
               <h4>Price Range</h4>
-              <span className={styles.LowRange}></span>
-              <span className={styles.HighRange}></span>
+              <div>
+                <div className={styles.SliderInfo}>
+                  <span>Low:{sliderValue[0] || priceRange.priceLow} kr</span>
+                  <span>High:{sliderValue[1] || priceRange.priceHigh} kr</span>
+                </div>
+                <Slider
+                  allowCross={false}
+                  range
+                  defaultValue={[priceRange.priceLow, priceRange.priceHigh]}
+                  step={100}
+                  min={priceRange.priceLow}
+                  max={priceRange.priceHigh}
+                  onChange={(e) => submitSlider(e)}
+                />
+              </div>
             </div>
             <div className={styles.ClearFilterBox}>
-              <button className="FilterDropdownBtn" onClick={handleClearFilter}>
+              <button
+                className="FilterDropdownBtn"
+                onClick={() => handleClearFilter()}
+              >
                 Clear filter
               </button>
             </div>
           </div>
         )}
       </div>
-      <div className="SortBox">
+      <div className={styles.SortDropdown}>
         <button className="FilterBtn" onClick={handleSortByFilter}>
-          SORT BY
+          {isSortByActive ? "CLOSE" : "SORT BY"}
         </button>
-        {/* {isSortByActive && (
-            // TODO: Add dropdown
-        )} */}
+        {isSortByActive && (
+          <div className={styles.SortBox}>
+            <form>
+              <label>
+                <input
+                  type="radio"
+                  value="high-low"
+                  onChange={handleSort}
+                  checked={sort === "high-low"}
+                />
+                Price: High to low
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="low-high"
+                  onChange={handleSort}
+                  checked={sort === "low-high"}
+                />
+                Price: Low to high
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="newest"
+                  onChange={handleSort}
+                  checked={sort === "newest"}
+                />
+                Newest
+              </label>
+            </form>
+          </div>
+        )}
+        {isSortByActive && (
+          <div className={styles.SortBox}>
+            <form>
+              <label>
+                <input
+                  type="radio"
+                  value="high-low"
+                  onChange={handleSort}
+                  checked={sort === "high-low"}
+                />
+                Price: High to low
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="low-high"
+                  onChange={handleSort}
+                  checked={sort === "low-high"}
+                />
+                Price: Low to high
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="newest"
+                  onChange={handleSort}
+                  checked={sort === "newest"}
+                />
+                Newest
+              </label>
+            </form>
+          </div>
+        )}
       </div>
     </aside>
   );
