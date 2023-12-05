@@ -17,6 +17,7 @@ Variables
   --clr-white: #fff;
   --clr-black: #000;
   --clr-text: #333;
+  --clr-red-light: hsl(360, 71%, 66%);
   /* --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --transition: all 0.3s linear;
@@ -131,7 +132,8 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
   border: none;
   background-color: var(--clr-primary-dark);
   color: var(--clr-white);
