@@ -33,7 +33,6 @@ export const ProductList = ({ category }) => {
         setFetchError("Could not fetch products");
         console.log(error);
       }
-      console.log(prods);
     };
 
     fetchProds();
