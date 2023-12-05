@@ -9,11 +9,6 @@ import { setInitialState } from "../../reducers/productSlice";
 export const ProductList = ({ category }) => {
   const [fetchError, setFetchError] = useState(null);
   const filterArray = useSelector((state) => state.product.filterArray);
-  // const prods = useSelector((state) => {
-  //   return state.product.filterArray.length > 0
-  //     ? state.product.filterArray
-  //     : state.product.products;
-  // });
   const dispatch = useDispatch();
 
   useEffect(() => {
