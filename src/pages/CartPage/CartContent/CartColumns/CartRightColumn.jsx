@@ -1,7 +1,11 @@
 import styles from "./CartRightColumn.module.scss";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import {
+  IconMaestro,
+  IconMaster,
+  IconVisaMethod,
+} from "../../../../assets/Icons";
 
 export const CartRightColumn = ({ cartItems }) => {
   const [totalCartItems, setTotalCartItems] = useState([]);
@@ -37,20 +41,34 @@ export const CartRightColumn = ({ cartItems }) => {
           ))}
           <div className={styles.SummeryRow}>
             <span className={styles.ShippingText}>Shipping</span>
-            <span className={styles.ShippingPrice}>59 kr</span>
+            <span className={styles.ShippingPrice}>
+              {totalSum ? -59 : 0} kr
+            </span>
+          </div>
+          <div className={styles.SummeryRow}>
+            <span className={styles.RecycleText}>Recycle</span>
+            <span className={styles.RecyclePrice}>
+              {totalSum ? -130 : 0} kr
+            </span>
           </div>
           <div className={styles.SummeryRowTotal}>
             <div className={styles.SummeryRow}>
-              <span className={styles.TotalText}>Total</span>
-              <span className={styles.TotalPrice}>{totalSum + 59} kr</span>
+              <span className={styles.TotalText}>Total:</span>
+              <span className={styles.TotalPrice}>
+                {totalSum ? totalSum + 59 - 130 : 0} kr
+              </span>
             </div>
           </div>
         </div>
-        <button className={buttonStyles.PrimaryBtn}>
-          <Link to="/checkout">Go to checkoute</Link>
+        <button
+          className={`${styles.PrimaryBtn} ${totalSum ? "" : "not-active"}`}
+        >
+          GO TO CHECKOUT
         </button>
         <div className={styles.PaymentLogosContainer}>
-          <div className={styles.PaymentLogos}>PAYMENT ICONS</div>
+          <IconVisaMethod />
+          <IconMaestro />
+          <IconMaster />
         </div>
       </div>
     </section>
