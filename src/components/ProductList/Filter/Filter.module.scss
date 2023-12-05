@@ -5,6 +5,10 @@
   justify-content: space-between;
   position: relative;
 
+  .FilterBox {
+    position: relative;
+  }
+
   .FilterDropdown {
     display: flex;
     flex-direction: row;
@@ -12,11 +16,10 @@
     position: absolute;
     background-color: var(--clr-white);
     border-radius: 10px;
-    top: 70px;
-    width: calc(100% - 75px);
-    margin-right: 35px;
+    width: calc(100% - (var(--general-padding) * 2));
     padding: var(--general-padding);
     z-index: var(--z-index-filter);
+    box-shadow: 0px 0px 2px var(--clr-black);
 
     h4 {
       color: var(--clr-black);
@@ -24,20 +27,14 @@
 
     .BrandBox,
     .RangeBox,
-    .ClearFilterBox {
+    .ClearFilterBox,
+    .SortBox {
       width: 100%;
     }
 
     .RangeBox {
       position: relative;
       color: var(--clr-black);
-      .LowRange,
-      .HighRange {
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        background-color: var(--clr-black);
-      }
     }
 
     .ClearFilterBox {
@@ -45,64 +42,49 @@
       justify-content: right;
       align-items: end;
     }
+
+    .SliderInfo {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
   }
 
   .SortDropdown {
+    position: relative;
     .SortBox {
       position: absolute;
       color: var(--clr-black);
       background-color: var(--clr-white);
       font-size: 0.83rem;
       padding: 1rem;
+      right: 0;
       z-index: var(--z-index-sortby);
+      border-radius: 10px;
+      box-shadow: 0px 0px 1px var(--clr-black);
+    }
+
+    .SortBox label {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .SortBox input {
+      width: min-content;
+    }
+
+    .SortBox label {
+      width: max-content;
+      margin-bottom: 1rem;
+    }
+
+    .SortBox label:last-child {
+      margin-bottom: 0rem;
     }
   }
 }
-// .FilterAside {
-//   padding: var(--general-smaller-padding) var(--general-padding);
-//   background-color: var(--clr-white);
-//   display: flex;
-//   justify-content: space-between;
-//   position: relative;
-
-//   .FilterDropdown {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     position: absolute;
-//     background-color: var(--clr-white);
-//     border-radius: 10px;
-//     top: 70px;
-//     width: calc(100% - 75px);
-//     margin-right: 35px;
-//     padding: var(--general-padding);
-
-//     h4 {
-//       color: var(--clr-black);
-//     }
-
-//     .BrandBox,
-//     .RangeBox,
-//     .ClearFilterBox {
-//       width: 100%;
-//     }
-
-//     .RangeBox {
-//       position: relative;
-
-//       .LowRange,
-//       .HighRange {
-//         position: absolute;
-//         height: 2px;
-//         width: 100%;
-//         background-color: var(--clr-black);
-//       }
-//     }
-
-//     .ClearFilterBox {
-//       display: flex;
-//       justify-content: right;
-//       align-items: end;
-//     }
-//   }
-// }
