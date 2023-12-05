@@ -1,8 +1,12 @@
 .SmallHeroContainer {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-black);
   width: 100%;
-  min-height: 500px;
   display: flex;
   align-items: center;
   padding: var(--general-padding);
+
+  @media screen and (max-width: 767px) {
+    min-height: 20vh;
+    margin-top: 40px;
+  }
 }
