@@ -4,6 +4,12 @@
   border-radius: 20px;
   overflow: hidden;
   font-family: "Roboto";
+  width: 60%;
+  height: fit-content;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 
   /* Cart Title */
   .CartTitle {
@@ -112,6 +118,13 @@
         }
       }
     }
+    .EmptyMessageContainer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
   }
 
   /* Cart Item Offer */
@@ -123,6 +136,7 @@
     background-color: var(--clr-primary);
     color: var(--clr-black);
     padding: var(--general-smaller-padding);
+    margin-top: 2em;
 
     @media screen and (max-width: 767px) {
       padding: var(--general-mini-padding);

@@ -10,6 +10,7 @@ button {
 .PrimaryBtn {
   background-color: var(--clr-primary);
   color: var(--clr-black);
+  font-weight: 600;
   padding: 13px 20px;
   border: 1px solid transparent;
   transition: 0.5s ease;
@@ -32,12 +33,6 @@ button {
     border: 1px solid transparent;
   }
 }
-
-// .secondary {
-//   // @extend .button;
-//   background-color: red;
-//   color: white;
-// }
 
 .SellYourPhoneBtn {
   background-color: var(--clr-black);

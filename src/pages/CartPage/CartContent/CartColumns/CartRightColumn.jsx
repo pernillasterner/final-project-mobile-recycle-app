@@ -41,16 +41,30 @@ export const CartRightColumn = ({ cartItems }) => {
           ))}
           <div className={styles.SummeryRow}>
             <span className={styles.ShippingText}>Shipping</span>
-            <span className={styles.ShippingPrice}>59 kr</span>
+            <span className={styles.ShippingPrice}>
+              {totalSum ? -59 : 0} kr
+            </span>
+          </div>
+          <div className={styles.SummeryRow}>
+            <span className={styles.RecycleText}>Recycle</span>
+            <span className={styles.RecyclePrice}>
+              {totalSum ? -130 : 0} kr
+            </span>
           </div>
           <div className={styles.SummeryRowTotal}>
             <div className={styles.SummeryRow}>
               <span className={styles.TotalText}>Total:</span>
-              <span className={styles.TotalPrice}>{totalSum + 59} kr</span>
+              <span className={styles.TotalPrice}>
+                {totalSum ? totalSum + 59 - 130 : 0} kr
+              </span>
             </div>
           </div>
         </div>
-        <button className={buttonStyles.PrimaryBtn}>GO TO CHECKOUT</button>
+        <button
+          className={`${styles.PrimaryBtn} ${totalSum ? "" : "not-active"}`}
+        >
+          GO TO CHECKOUT
+        </button>
         <div className={styles.PaymentLogosContainer}>
           <IconVisaMethod />
           <IconMaestro />

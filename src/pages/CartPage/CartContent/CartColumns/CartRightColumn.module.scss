@@ -5,16 +5,32 @@
   overflow: hidden;
   margin: 0 0.75rem;
   font-family: "Roboto";
+  width: 38%;
+  margin: 0;
+  height: fit-content;
 
   @media screen and (max-width: 767px) {
     margin: 1.5rem 0px;
     padding: var(--general-padding) var(--general-mini-padding);
+    width: 100%;
   }
 
   .CartSummeryContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .PrimaryBtn {
+      background-color: var(--clr-primary);
+      color: var(--clr-black);
+      font-weight: 600;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      transition: 0.5s ease;
+      &.not-active {
+        background-color: grey !important;
+      }
+    }
 
     .CartSummery {
       display: flex;
@@ -52,8 +68,10 @@
     }
 
     .ShippingText,
-    .ShippingPrice {
-      font-weight: 700;
+    .ShippingPrice,
+    .RecycleText,
+    .RecyclePrice {
+      font-weight: 500;
       font-size: 1rem;
     }
 
@@ -67,26 +85,16 @@
         font-size: 1rem;
       }
       .TotalPrice {
-        color: rgb(34, 44, 155);
+        color: #7710f9;
         font-size: 1.2rem;
         font-weight: 700;
       }
     }
 
-    .PrimaryBtn {
-      background-color: rgb(34, 44, 155);
-      color: var(--clr-white);
-      border: 1px solid rgba(34, 44, 155, 0.634);
-      &:hover {
-        background-color: rgb(109, 118, 215);
-        border: 1px solid rgb(109, 118, 215);
-        color: rgb(255, 255, 255);
-      }
-    }
     .PaymentLogosContainer {
-      margin: 1em auto;
+      margin-top: 1em;
       svg {
-        margin: 0.5em;
+        margin: 0 0.5em;
       }
     }
   }
