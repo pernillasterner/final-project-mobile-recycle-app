@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
 import {
@@ -13,19 +13,12 @@ import "rc-slider/assets/index.css";
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filterArray = useSelector((state) => state.product.filterArray);
+  // const filterArray = useSelector((state) => state.product.filterArray);
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
   const [sort, setSort] = useState(null);
   const priceRange = useSelector((state) => state.product.filter.priceRange);
-  // const [sliderValue, setSliderValue] = useState([
-  //   priceRange.priceLow,
-  //   priceRange.priceHigh,
-  // ]);
-  const [sliderValue, setSliderValue] = useState([
-    priceRange.priceLow,
-    priceRange.priceHigh,
-  ]);
+  const [sliderValue, setSliderValue] = useState(null);
 
   const handleFilterToggle = () => {
     setFilterActive((last) => !last);
@@ -34,8 +27,6 @@ export const Filter = () => {
   };
 
   const handleSortByFilter = () => {
-    // Add dropdown to sort by filter
-    console.log("Open sort by");
     setSortByActive(!isSortByActive);
   };
 
@@ -44,6 +35,7 @@ export const Filter = () => {
       button.classList.remove("FilterBrandBtnActive");
     });
     dispatch(clearFilters());
+    setFilterActive(false);
   };
 
   const handleFilterBrand = (value) => {
@@ -57,13 +49,11 @@ export const Filter = () => {
     const sorting = e.target.value;
     setSort(sorting);
     dispatch(sortProducts(sorting));
-    // dispatch(setFilter());
   };
 
   const submitSlider = (e) => {
-    // console.log(sliderValue);
     setSliderValue((value) => e);
-    // console.log(priceRange.priceLow);
+
     dispatch(setPriceRange(e));
   };
 
@@ -95,8 +85,8 @@ export const Filter = () => {
               <h4>Price Range</h4>
               <div>
                 <div className={styles.SliderInfo}>
-                  <span>Low:{sliderValue[0]}</span>
-                  <span>High:{sliderValue[1]}</span>
+                  <span>Low:{sliderValue[0] || priceRange.priceLow} kr</span>
+                  <span>High:{sliderValue[1] || priceRange.priceHigh} kr</span>
                 </div>
                 <Slider
                   allowCross={false}
@@ -105,8 +95,6 @@ export const Filter = () => {
                   step={100}
                   min={priceRange.priceLow}
                   max={priceRange.priceHigh}
-                  // onChange={(e) => setSliderValue(e)}
-                  // onChangeComplete={(e) => submitSlider(e)}
                   onChange={(e) => submitSlider(e)}
                 />
               </div>
