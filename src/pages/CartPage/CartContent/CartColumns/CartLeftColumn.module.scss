@@ -1,8 +1,11 @@
+/* Cart Container */
 .Cart__LeftColumn {
   background-color: var(--clr-white);
   border-radius: 20px;
   overflow: hidden;
+  font-family: "Roboto";
 
+  /* Cart Title */
   .CartTitle {
     display: flex;
     justify-content: space-between;
@@ -11,19 +14,37 @@
     font-weight: 600;
     padding: var(--general-padding);
     padding-bottom: 0;
+
+    @media screen and (max-width: 767px) {
+      padding: var(--general-smaller-padding);
+    }
+
+    span {
+      text-transform: lowercase;
+      font-size: 1rem;
+      color: var(--clr-grey-5);
+    }
   }
 
+  /* Single Cart Item */
   .SingleCartItem {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
     padding: var(--general-padding);
 
+    @media screen and (max-width: 767px) {
+      padding: var(--general-mini-padding);
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Cart Item Image */
     a {
-      height: 80px;
-      width: 80px;
+      height: 100px;
+      width: 100px;
       position: relative;
+
       .ProdCardImg {
         flex-basis: calc(25% - var(--general-padding));
         background-size: auto 100%;
@@ -34,12 +55,18 @@
       }
     }
 
+    /* Cart Item Info */
     .SingleCartItemInfo {
       display: flex;
       justify-content: space-between;
       width: 100%;
       padding-left: var(--general-padding);
 
+      @media screen and (max-width: 767px) {
+        padding: var(--general-mini-padding);
+      }
+
+      /* Item Details */
       .DetailsContainer {
         .ItemBrand {
           font-weight: 600;
@@ -53,18 +80,41 @@
           padding-right: 0.5rem;
           width: 100%;
         }
+
+        .AdditionalInfo {
+          font-size: 0.9rem;
+        }
+
+        label.AdditionalInfo {
+          margin-top: 0.5em;
+        }
       }
 
+      /* Price Container */
       .PriceContainer {
-        text-align: end;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: space-between;
+
         .ItemPrice {
           font-weight: 600;
           white-space: nowrap;
+          font-size: 1.2rem;
+        }
+
+        button {
+          padding: 0;
+
+          svg {
+            height: 1.3rem;
+          }
         }
       }
     }
   }
 
+  /* Cart Item Offer */
   .CartItemOffer {
     display: flex;
     justify-content: space-around;
@@ -73,9 +123,28 @@
     background-color: var(--clr-primary);
     color: var(--clr-black);
     padding: var(--general-smaller-padding);
+
+    @media screen and (max-width: 767px) {
+      padding: var(--general-mini-padding);
+    }
+
     p {
       font-size: 0.8rem;
       margin-bottom: 0;
+    }
+
+    .IconRecycle {
+      margin-right: 0.5em;
+    }
+
+    .OfferBanner {
+      input {
+        margin: 0;
+      }
+
+      label {
+        font-size: 0.8rem;
+      }
     }
   }
 }

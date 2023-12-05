@@ -36,12 +36,14 @@ export const CartLeftColumn = ({ cartItems }) => {
               </Link>
               <div className={styles.SingleCartItemInfo}>
                 <div className={styles.DetailsContainer}>
-                  <p>Total Items {item.quantity}</p>
                   <div className={styles.ItemBrand}>{item.modelValue}</div>
                   <div className={styles.AdditionalInfo}>
                     Brand: {item.brandValue}
                   </div>
-                  <div className={styles.AdditionalInfo}>State: Okej</div>
+                  <div className={styles.AdditionalInfo}>Status: Okej</div>
+                  <label className={styles.AdditionalInfo}>
+                    Total items: {item.quantity}
+                  </label>
                 </div>
 
                 <div className={styles.PriceContainer}>
@@ -50,7 +52,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                     className="IconTrash"
                     onClick={() => handleRemoveItem(item.id)}
                   >
-                    {<IconTrash />}remove
+                    {<IconTrash />} Remove
                   </button>
                 </div>
               </div>
@@ -59,10 +61,13 @@ export const CartLeftColumn = ({ cartItems }) => {
       </div>
       <div className={styles.CartItemOffer}>
         <div>
-          <span className="IconRecycle">{<IconRecycle />}</span>
+          <span className={styles.IconRecycle}>{<IconRecycle />}</span>
         </div>
         <p>Send us an old phone and get 300 kr off this order</p>
-        <div>CHECKBOX</div>
+        <div className={styles.OfferBanner}>
+          <input type="checkbox" id="points" name="points" checked />
+          <label htmlFor="points">Yes!</label>
+        </div>
       </div>
     </section>
   );
