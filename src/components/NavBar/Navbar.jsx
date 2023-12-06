@@ -46,6 +46,15 @@ export const NavBar = () => {
               </li>
             </ul>
 
+            {/* For mobiles */}
+            <button
+              className={buttonStyles.SellYourPhoneBanner}
+              onClick={() => dispatch(modalActive())}
+            >
+              Sell your phone
+            </button>
+            {/* End */}
+
             <button
               className={buttonStyles.SellYourPhoneBtn}
               onClick={() => dispatch(modalActive())}
