@@ -1,7 +1,6 @@
 .HomeHero {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   padding: var(--general-padding) 0;
 
   .Text {
@@ -9,38 +8,31 @@
     padding: 0 var(--general-padding);
   }
 
+  .Text p {
+    max-width: 45ch;
+  }
+
   .Image {
-    flex-basis: 30%;
-    min-height: 70vh;
-    background: url(../techcycle_logo.svg);
-    background-size: 100% auto;
+    flex-basis: 40%;
+    min-height: 50vh;
+    background: url("../TechCycle.png");
     background-repeat: no-repeat;
-    // background-position: -150% 0%;
-    background-position: -150% 36%;
+    background-size: contain;
   }
 
-  @media screen and (max-width: 1024px) {
-    .Text {
-      flex-basis: 100%;
-      padding: var(--general-padding);
-    }
-
-    .Image {
-      min-height: 50vh;
-      flex-basis: 100%;
-      background-size: auto 100%;
-      background-repeat: no-repeat;
-      background-position: -50% 0%;
-    }
-  }
-
-  @media screen and (max-width: 667px) {
+  @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
+
+    .Text {
+      padding: var(--general-mini-padding);
+    }
+
     .Image {
-      min-height: 20vh;
+      min-height: 30vh;
       min-width: 100%;
       flex-basis: 100%;
-      background-size: cover;
+      background-size: 70% auto;
+      background-position: top center;
     }
   }
 }
