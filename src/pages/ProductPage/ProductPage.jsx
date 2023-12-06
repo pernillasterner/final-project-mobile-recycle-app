@@ -73,7 +73,8 @@ export const ProductPage = () => {
             </div>
 
             <div className="ProdDetails">
-              <p>Release year: 2023</p>
+              {/* TODO: Add release year */}
+              {/* <p>Release year: 2023</p> */}
             </div>
 
             <div className={styles.CommentContainer}>
@@ -87,8 +88,8 @@ export const ProductPage = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Question</th>
-                    <th>Answer</th>
+                    <th>Questions</th>
+                    <th>Answers</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -126,7 +127,7 @@ export const ProductPage = () => {
               className="AddToCartBtn"
               onClick={() => handleAddToCart(prod)}
             >
-              ADD TO CART
+              Add to cart
             </button>
           </div>
         </article>

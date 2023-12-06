@@ -15,14 +15,15 @@ export const CartContent = () => {
         <IconGoBack />
       </div>
       <div className={styles.CartContainer}>
-        {cartItems.length !== 0 ? (
-          <div className={styles.CartColumns}>
-            <CartLeftColumn cartItems={cartItems} />
-            <CartRightColumn cartItems={cartItems} />
-          </div>
+        {cartItems.length === 0 ? (
+          <CartLeftColumn cartItems={cartItems} />
         ) : (
-          // TODO: Prompt
-          <h1>OPPS NOTHING IN CART. PROPS PAGE</h1>
+          <>
+            <CartLeftColumn cartItems={cartItems} />
+            {cartItems.length !== 0 && (
+              <CartRightColumn cartItems={cartItems} />
+            )}
+          </>
         )}
       </div>
     </>
