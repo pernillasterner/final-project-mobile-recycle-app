@@ -57,23 +57,27 @@
   }
 
   @media screen and (max-width: 767px) {
-    padding: var(--general-padding);
+    padding: var(--general-padding) var(--general-mini-padding);
 
     span {
       font-size: 1rem;
     }
     .ProdCard {
       flex-basis: 100%;
-      background-position: 1rem center;
+      background-position: left center;
       background-size: auto 90%;
       height: 20vh;
     }
 
     .ProdInfo {
-      width: 50%;
+      width: 55%;
       bottom: -1rem;
-      left: 50%;
+      left: 45%;
       box-shadow: 1px 1px 2px var(--clr-black);
+    }
+
+    .ProdInfo p {
+      font-size: 16px;
     }
   }
 }
