@@ -1,14 +1,16 @@
 .CartContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: start;
   color: var(--clr-text);
   min-height: calc(100vh - 70px);
   padding: var(--general-smaller-padding);
+  margin-top: 4rem;
 
   @media screen and (max-width: 767px) {
     min-height: fit-content;
     flex-direction: column;
+    margin-top: 20px;
   }
 
   .CartColumns {
