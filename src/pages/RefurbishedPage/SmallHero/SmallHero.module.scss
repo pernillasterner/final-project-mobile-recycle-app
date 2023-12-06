@@ -1,0 +1,18 @@
+.SmallHeroContainer {
+  background-color: var(--clr-black);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--general-padding);
+  background-image: url("./refurbished-background.jpg");
+  background-size: 100% auto;
+  background-position: left bottom;
+  background-color: var(--clr-secondary);
+  background-blend-mode: multiply;
+
+  @media screen and (max-width: 767px) {
+    min-height: 20vh;
+    background-size: auto 100%;
+    background-position: left center;
+  }
+}

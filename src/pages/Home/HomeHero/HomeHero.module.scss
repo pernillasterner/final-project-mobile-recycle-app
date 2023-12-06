@@ -10,12 +10,14 @@
   }
 
   .Image {
-    flex-basis: 40%;
-    min-height: 70vh;
-    background: url(./home-hero-img.jpg);
-    background-size: 100% auto;
+    flex-basis: 50%;
+    min-height: 50vh;
+    background: url("../TechCycle.png");
+    // background-size: 100% auto;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: -150% 0%;
+    // background-position: -150% 0%;
+    // background-position: -150% 36%;
   }
 
   @media screen and (max-width: 1024px) {

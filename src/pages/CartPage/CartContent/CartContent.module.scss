@@ -1,0 +1,26 @@
+.CartContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-text);
+  min-height: calc(100vh - 70px);
+
+  @media screen and (max-width: 767px) {
+    min-height: fit-content;
+  }
+
+  .CartColumns {
+    width: 100%;
+    padding: var(--general-padding);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 1200px;
+    height: fit-content;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      padding: var(--general-smaller-padding);
+    }
+  }
+}
