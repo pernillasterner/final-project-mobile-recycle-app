@@ -151,7 +151,7 @@ export const SellModal = () => {
                     required
                   >
                     <option value="" disabled hidden>
-                      {questions[steps].question}
+                      {questions[steps].placeholder}
                     </option>
                     {phoneModels.map((modelValue, index) => (
                       <option key={index} value={modelValue.modelValue}>
@@ -180,17 +180,15 @@ export const SellModal = () => {
                 <>
                   <InputOption
                     name={questions[steps].name}
-                    placeholder={questions[steps].question}
+                    placeholder={questions[steps].placeholder}
                     onButtonClick={(data) =>
                       handleButtonClick({
                         ...data,
                         phoneDescription: questions[steps].phoneDescription,
                       })
                     }
+                    errorMessage={errorMessage}
                   />
-                  {errorMessage && (
-                    <p className={styles.ErrorMessage}>{errorMessage}</p>
-                  )}
                 </>
               ) : (
                 "options" in questions[steps] &&
