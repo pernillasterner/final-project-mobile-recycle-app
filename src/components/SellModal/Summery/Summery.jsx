@@ -112,7 +112,7 @@ export const Summery = ({ details }) => {
             className={styles.FormButton}
             onClick={(e) => handleSubmit(e)}
           >
-            SEND
+            Send
           </button>
         </>
       ) : submissionStatus === "success" ? (
@@ -122,7 +122,7 @@ export const Summery = ({ details }) => {
             className={styles.FormButton}
             onClick={() => dispatch(modalNotActive())}
           >
-            BROWSE PHONES
+            Browse phones
           </button>
         </div>
       ) : (

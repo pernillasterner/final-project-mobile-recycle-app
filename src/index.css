@@ -234,7 +234,7 @@ select {
   cursor: pointer;
   z-index: var(--z-index-gobackbtn);
   svg {
-    height: 1.5rem;
+    height: 1rem;
     width: auto;
   }
 }
