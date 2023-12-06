@@ -1,6 +1,5 @@
 import styles from "./CartRightColumn.module.scss";
 import { useState, useEffect } from "react";
-import buttonStyles from "../../../../components/commons/Buttons.module.scss";
 import {
   IconMaestro,
   IconMaster,
@@ -63,7 +62,7 @@ export const CartRightColumn = ({ cartItems }) => {
         <button
           className={`${styles.PrimaryBtn} ${totalSum ? "" : "not-active"}`}
         >
-          GO TO CHECKOUT
+          Go to checkout
         </button>
         <div className={styles.PaymentLogosContainer}>
           <IconVisaMethod />

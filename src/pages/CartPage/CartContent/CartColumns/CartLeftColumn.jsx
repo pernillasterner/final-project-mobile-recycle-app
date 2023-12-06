@@ -32,7 +32,7 @@ export const CartLeftColumn = ({ cartItems }) => {
         {cartItems && cartItems.length !== 0 ? (
           cartItems.map((item) => (
             <>
-              <Link to={"/"}>
+              <Link to={"/"} className={styles.ImageLink}>
                 <div
                   key={item.id}
                   className={styles.ProdCardImg}
@@ -66,9 +66,11 @@ export const CartLeftColumn = ({ cartItems }) => {
         ) : (
           <div className={styles.EmptyMessageContainer}>
             <p className={styles.EmptyCartMessage}>Your cart is empty.</p>
-            <button className={buttonStyles.PrimaryBtn}>
-              <Link to={"/"}>GO TO PRODUCTS</Link>
-            </button>
+            <Link to={"/"}>
+              <button className={buttonStyles.PrimaryBtn}>
+                Go to products
+              </button>
+            </Link>
           </div>
         )}
       </div>

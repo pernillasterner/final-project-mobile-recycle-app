@@ -1,13 +1,12 @@
 import styles from "./Summery.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { modalNotActive } from "../../../reducers/modalSlice";
 
 export const Summery = ({ details }) => {
   const dispatch = useDispatch();
   const [submissionStatus, setSubmissionStatus] = useState("pending");
-  const isModalActive = useSelector((state) => state.modal.isActive);
   const desc = details.phoneDescription;
 
   const handleSubmit = async (e) => {
@@ -113,15 +112,17 @@ export const Summery = ({ details }) => {
             className={styles.FormButton}
             onClick={(e) => handleSubmit(e)}
           >
-            SEND
+            Send
           </button>
         </>
       ) : submissionStatus === "success" ? (
         <div className={styles.ThankYouContainer}>
           <h1>Thank you for choosing TechCycle!</h1>
-          <h2>Saving the planet, one phone at a time.</h2>
-          <button className={styles.FormButton} onClick={handleCloseModal}>
-            CLOSE
+          <button
+            className={styles.FormButton}
+            onClick={() => dispatch(modalNotActive())}
+          >
+            Browse phones
           </button>
         </div>
       ) : (

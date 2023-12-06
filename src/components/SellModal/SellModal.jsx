@@ -125,7 +125,7 @@ export const SellModal = () => {
         id={styles.CloseBtnSellModal}
         onClick={() => dispatch(modalNotActive())}
       >
-        CLOSE
+        Close
       </button>
       <div className={styles.FormStepContainer}>
         {questions[steps] ? (
@@ -166,7 +166,7 @@ export const SellModal = () => {
                       })
                     }
                   >
-                    CONTINUE
+                    Continue
                   </button>
                 </div>
               ) : "input" in questions[steps] ? (
