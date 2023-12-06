@@ -119,17 +119,11 @@ export const Summery = ({ details }) => {
       ) : submissionStatus === "success" ? (
         <div className={styles.ThankYouContainer}>
           <h1>Thank you for choosing TechCycle!</h1>
-<<<<<<< HEAD
           <button
             className={styles.FormButton}
             onClick={() => dispatch(modalNotActive())}
           >
             BROWSE PHONES
-=======
-          <h2>Saving the planet, one phone at a time.</h2>
-          <button className={styles.FormButton} onClick={handleCloseModal}>
-            CLOSE
->>>>>>> 5d3ee116d90f0372729c6d569a28007bea56dab2
           </button>
         </div>
       ) : (
