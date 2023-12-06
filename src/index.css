@@ -47,6 +47,7 @@ Variables
 
 html {
   font-size: clamp(16px, 1.5vw, 32px);
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -125,14 +126,6 @@ button {
   min-width: 100px;
 }
 
-.small-text {
-  font-size: 0.83rem;
-}
-
-.is-hidden {
-  display: none;
-}
-
 input,
 textarea,
 select {
@@ -147,18 +140,18 @@ select {
   font-weight: 600;
 }
 
-/* __________________________ */
+.small-text {
+  font-size: 0.83rem;
+}
 
-/* 
-All buttons should have 
-- cursor: pointer 
-- font-weight: 700
-- width: fit-content;
+.is-hidden {
+  display: none;
+}
 
+.active {
+  color: var(--clr-white) !important;
+}
 
-
-Ska vi ha uppercase eller capitalize text på knapparna eller både och?
-*/
 /* TODO: Remove */
 /* GLOBALS */
 .PrimaryBtn {
