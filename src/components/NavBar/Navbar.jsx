@@ -50,11 +50,7 @@ export const NavBar = () => {
               className={buttonStyles.SellYourPhoneBtn}
               onClick={() => dispatch(modalActive())}
             >
-<<<<<<< HEAD
               Sell your phone
-=======
-              SELL YOUR PHONE
->>>>>>> e6d938b0d3166c701f4b7b5b5dac5292694087c8
             </button>
 
             {totalItems !== 0 && (
@@ -103,18 +99,6 @@ export const NavBar = () => {
         </nav>
       ) : (
         <>
-<<<<<<< HEAD
-=======
-          {/* <button
-            className={[
-              buttonStyles.SellYourPhoneBtn,
-              styles.ButtonCloseModal,
-            ].join(" ")}
-            onClick={handleIsSellModalOpen}
-          >
-            {isModalActive ? "CLOSE" : "SELL YOUR PHONE"}
-          </button> */}
->>>>>>> e6d938b0d3166c701f4b7b5b5dac5292694087c8
           <SellModal />
         </>
       )}
