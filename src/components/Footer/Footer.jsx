@@ -14,7 +14,7 @@ export const Footer = () => {
         <p>On a mission to consume less and re-use more.</p>
         <HashLink to={"/#allProducts"}>
           <button className={buttonStyles.ReversePrimaryBtn}>
-            BROWSE PHONES
+            Browse phones
           </button>
         </HashLink>
       </div>
