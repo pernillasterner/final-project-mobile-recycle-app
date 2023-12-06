@@ -42,10 +42,13 @@
           color: #848895;
           transition: color 0.3s ease;
           &:hover,
-          &:active {
-            color: var(--clr-primary);
+          &:active,
+          &:focus {
+            color: var(--clr-white);
           }
-
+          &.active {
+            color: var(--clr-white);
+          }
           @media screen and (max-width: 1024px) {
             font-size: 1.2rem;
           }
@@ -155,8 +158,14 @@
         border-bottom: 1px solid #848895;
         position: relative;
 
-        a:hover {
-          color: var(--clr-primary);
+        a {
+          color: #848895;
+          &:hover,
+          &:focus,
+          &:active,
+          &:target {
+            color: var(--clr-white);
+          }
         }
       }
     }

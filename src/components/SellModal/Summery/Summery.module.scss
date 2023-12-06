@@ -18,16 +18,16 @@
 
       .Info {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         p {
           margin-right: 0.5em;
-          &::after {
-            content: "|";
-            margin-left: 0.5em;
-            @media screen and (max-width: 767px) {
-              content: "";
-            }
-          }
+          // &::after {
+          //   content: "|";
+          //   margin-left: 0.5em;
+          //   @media screen and (max-width: 767px) {
+          //     content: "";
+          //   }
+          // }
           &:last-child::after {
             content: "";
             margin-left: 0;
@@ -42,12 +42,14 @@
       }
     }
   }
-
-  h5 {
-    font-size: 1rem;
-  }
-  p {
-    color: var(--clr-primary);
+  .CommentContainer {
+    margin: 2.5em 0;
+    h5 {
+      font-size: 1rem;
+    }
+    p {
+      color: var(--clr-primary);
+    }
   }
 }
 
@@ -62,7 +64,7 @@
     }
     thead th {
       text-align: start;
-      font-size: 0.8rem;
+      font-size: 1rem;
       @media screen and (max-width: 767px) {
         font-size: 1.2rem;
       }
