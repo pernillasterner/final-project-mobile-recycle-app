@@ -48,11 +48,7 @@ export const Summery = ({ details }) => {
       setSubmissionStatus("error");
     }
   };
-  const handleCloseModal = () => {
-    if (isModalActive) {
-      dispatch(modalNotActive());
-    }
-  };
+
   return (
     <div className={styles.SummeryContainer}>
       {submissionStatus === "pending" ? (
@@ -123,8 +119,11 @@ export const Summery = ({ details }) => {
       ) : submissionStatus === "success" ? (
         <div className={styles.ThankYouContainer}>
           <h1>Thank you for choosing TechCycle!</h1>
-          <button className={styles.FormButton} onClick={handleCloseModal}>
-            CLOSE
+          <button
+            className={styles.FormButton}
+            onClick={() => dispatch(modalNotActive())}
+          >
+            BROWSE PHONES
           </button>
         </div>
       ) : (
