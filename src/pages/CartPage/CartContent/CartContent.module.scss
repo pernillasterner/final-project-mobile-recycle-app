@@ -4,9 +4,11 @@
   align-items: center;
   color: var(--clr-text);
   min-height: calc(100vh - 70px);
+  padding: var(--general-smaller-padding);
 
   @media screen and (max-width: 767px) {
     min-height: fit-content;
+    flex-direction: column;
   }
 
   .CartColumns {
