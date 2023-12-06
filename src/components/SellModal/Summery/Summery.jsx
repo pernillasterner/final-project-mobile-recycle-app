@@ -1,13 +1,12 @@
 import styles from "./Summery.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { modalNotActive } from "../../../reducers/modalSlice";
 
 export const Summery = ({ details }) => {
   const dispatch = useDispatch();
   const [submissionStatus, setSubmissionStatus] = useState("pending");
-  const isModalActive = useSelector((state) => state.modal.isActive);
   const desc = details.phoneDescription;
 
   const handleSubmit = async (e) => {
