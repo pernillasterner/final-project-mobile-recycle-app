@@ -53,7 +53,18 @@ button {
   width: 100%;
   font-weight: 700;
   height: 40px;
+  z-index: 9999;
   @media screen and (max-width: 767px) {
     display: block;
   }
+}
+
+#CloseBannerSellModal {
+  top: 0;
+}
+
+#CloseBtnSellModal {
+  position: absolute;
+  top: 15px;
+  right: 35px;
 }

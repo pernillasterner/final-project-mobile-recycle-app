@@ -121,8 +121,15 @@ export const SellModal = () => {
   return (
     <div className={styles.SellModalContainer}>
       <button
+        id={buttonStyles.CloseBannerSellModal}
+        className={buttonStyles.SellYourPhoneBanner}
+        onClick={() => dispatch(modalNotActive())}
+      >
+        Close
+      </button>
+      <button
         className={buttonStyles.SellYourPhoneBtn}
-        id={styles.CloseBtnSellModal}
+        id={buttonStyles.CloseBtnSellModal}
         onClick={() => dispatch(modalNotActive())}
       >
         Close
