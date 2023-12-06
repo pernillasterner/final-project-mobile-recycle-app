@@ -274,3 +274,11 @@ select {
     padding-top: 110px;
   }
 }
+
+/* MEDIA QEUREIS */
+
+@media screen and (max-width: 767px) {
+  main {
+    padding-top: 110px;
+  }
+}
