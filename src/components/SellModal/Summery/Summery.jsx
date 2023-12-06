@@ -1,18 +1,17 @@
 import styles from "./Summery.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { modalNotActive } from "../../../reducers/modalSlice";
 
 export const Summery = ({ details }) => {
   const dispatch = useDispatch();
   const [submissionStatus, setSubmissionStatus] = useState("pending");
-  const isModalActive = useSelector((state) => state.modal.isActive);
   const desc = details.phoneDescription;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // TODO: REmove imageUrl from the obejct
     try {
       const { data, error } = await supabase.from("phones").insert([
         {
@@ -48,11 +47,7 @@ export const Summery = ({ details }) => {
       setSubmissionStatus("error");
     }
   };
-  const handleCloseModal = () => {
-    if (isModalActive) {
-      dispatch(modalNotActive());
-    }
-  };
+
   return (
     <div className={styles.SummeryContainer}>
       {submissionStatus === "pending" ? (
@@ -71,6 +66,11 @@ export const Summery = ({ details }) => {
                 <strong>{details.priceValue} kr</strong>
               </p>
             </div>
+          </div>
+
+          <div className={styles.CommentContainer}>
+            <h5>Your comment:</h5>
+            <p>{details.comment}</p>
           </div>
 
           <div className={styles.SummeryTableContainer}>
@@ -112,14 +112,17 @@ export const Summery = ({ details }) => {
             className={styles.FormButton}
             onClick={(e) => handleSubmit(e)}
           >
-            SEND
+            Send
           </button>
         </>
       ) : submissionStatus === "success" ? (
         <div className={styles.ThankYouContainer}>
           <h1>Thank you for choosing TechCycle!</h1>
-          <button className={styles.FormButton} onClick={handleCloseModal}>
-            CLOSE
+          <button
+            className={styles.FormButton}
+            onClick={() => dispatch(modalNotActive())}
+          >
+            Browse phones
           </button>
         </div>
       ) : (

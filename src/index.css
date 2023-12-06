@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800&family=Poppins:wght@100;300;400;700;900&family=Share+Tech&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700;800&family=Poppins:wght@100;300;400;700;900&family=Roboto:wght@100;400;500;700;900&family=Share+Tech&display=swap");
 /*
 =============== 
 Variables
@@ -48,6 +47,7 @@ Variables
 
 html {
   font-size: clamp(16px, 1.5vw, 32px);
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -108,6 +108,8 @@ h4 {
 }
 p {
   margin-bottom: 1.25rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 ul li {
@@ -124,14 +126,6 @@ button {
   min-width: 100px;
 }
 
-.small-text {
-  font-size: 0.83rem;
-}
-
-.is-hidden {
-  display: none;
-}
-
 input,
 textarea,
 select {
@@ -146,18 +140,18 @@ select {
   font-weight: 600;
 }
 
-/* __________________________ */
+.small-text {
+  font-size: 0.83rem;
+}
 
-/* 
-All buttons should have 
-- cursor: pointer 
-- font-weight: 700
-- width: fit-content;
+.is-hidden {
+  display: none;
+}
 
+.active {
+  color: var(--clr-white) !important;
+}
 
-
-Ska vi ha uppercase eller capitalize text på knapparna eller både och?
-*/
 /* TODO: Remove */
 /* GLOBALS */
 .PrimaryBtn {
@@ -240,7 +234,7 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
   cursor: pointer;
   z-index: var(--z-index-gobackbtn);
   svg {
-    height: 1.5rem;
+    height: 1rem;
     width: auto;
   }
 }
@@ -261,11 +255,23 @@ Ska vi ha uppercase eller capitalize text på knapparna eller både och?
 
 .IconTrash {
   display: flex;
+  align-items: center;
   svg {
     flex-shrink: 0;
 
     height: 1.5rem;
     width: auto;
+  }
+  @media screen and (max-width: 767px) {
+    justify-content: end;
+  }
+}
+
+/* MEDIA QEUREIS */
+
+@media screen and (max-width: 767px) {
+  main {
+    padding-top: 110px;
   }
 }
 

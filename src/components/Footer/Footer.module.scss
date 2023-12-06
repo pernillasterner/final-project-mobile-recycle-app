@@ -13,7 +13,7 @@
   padding: var(--general-padding);
   display: flex;
   flex-wrap: wrap;
-  margin-top: auto;
+  margin-top: 50px;
 
   @media screen and (max-width: 567px) {
     flex-direction: column;
@@ -53,6 +53,9 @@
     justify-content: start;
     a {
       padding-left: var(--general-smaller-padding);
+      svg:hover {
+        scale: 1.1;
+      }
     }
     @media screen and (max-width: 567px) {
       position: absolute;

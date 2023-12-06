@@ -41,7 +41,7 @@ export const ProductList = ({ category }) => {
   return (
     <>
       <Filter />
-      <div className={styles.ProductList}>
+      <div className={styles.ProductList} id="allProducts">
         {fetchError && <p>{fetchError}</p>}
         {filterArray && (
           <div className={styles.FlexContainer}>

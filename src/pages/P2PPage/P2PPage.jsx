@@ -34,9 +34,9 @@ export const P2PPage = () => {
   }, []);
 
   return (
-    <>
+    <div id="peertopeer">
       <SmallHero title={"Peer2Peer"} />
       <ProductList />
-    </>
+    </div>
   );
 };

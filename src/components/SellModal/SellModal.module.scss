@@ -7,9 +7,11 @@
   min-height: 100vh;
   left: 0;
   right: 0;
-  top: 70px;
+  top: 0;
   padding: var(--general-mini-padding);
   overflow: hidden;
+  z-index: 8888;
+
   @media screen and (max-width: 767px) {
     overflow: auto;
   }
@@ -45,6 +47,12 @@
     }
   }
 
+  #CloseBtnSellModal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+  }
+
   h2 {
     font-size: 1.5rem;
     @media screen and (max-width: 767px) {
@@ -78,7 +86,6 @@
   .SelectContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   .ErrorMessage {

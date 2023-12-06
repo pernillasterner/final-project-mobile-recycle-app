@@ -4,8 +4,12 @@ import supabase from "../../config/supabaseClient";
 import questions from "../../data/questions.json";
 import { InputOption } from "./InputOption/InputOption";
 import { Summery } from "./Summery/Summery";
+import buttonStyles from "../commons/Buttons.module.scss";
+import { modalNotActive } from "../../reducers/modalSlice";
+import { useDispatch } from "react-redux";
 
 export const SellModal = () => {
+  const dispatch = useDispatch();
   const [fetchError, setFetchError] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
@@ -116,6 +120,13 @@ export const SellModal = () => {
 
   return (
     <div className={styles.SellModalContainer}>
+      <button
+        className={buttonStyles.SellYourPhoneBtn}
+        id={styles.CloseBtnSellModal}
+        onClick={() => dispatch(modalNotActive())}
+      >
+        Close
+      </button>
       <div className={styles.FormStepContainer}>
         {questions[steps] ? (
           <>
@@ -155,7 +166,7 @@ export const SellModal = () => {
                       })
                     }
                   >
-                    CONTINUE
+                    Continue
                   </button>
                 </div>
               ) : "input" in questions[steps] ? (
