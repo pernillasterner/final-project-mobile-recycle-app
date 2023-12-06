@@ -9,7 +9,6 @@ export const SellModal = () => {
   const [fetchError, setFetchError] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
-  const [inputValue, setInputValue] = useState("");
   const [phoneModels, setPhoneModels] = useState(null);
   const [steps, setSteps] = useState(0);
   const [phoneDetails, setPhoneDetails] = useState({
@@ -143,7 +142,7 @@ export const SellModal = () => {
                     ))}
                   </select>
                   {errorMessage && (
-                    <div className={styles.ErrorMessage}>{errorMessage}</div>
+                    <p className={styles.ErrorMessage}>{errorMessage}</p>
                   )}
                   <button
                     className={styles.FormButton}
@@ -172,7 +171,7 @@ export const SellModal = () => {
                     }
                   />
                   {errorMessage && (
-                    <div className={styles.ErrorMessage}>{errorMessage}</div>
+                    <p className={styles.ErrorMessage}>{errorMessage}</p>
                   )}
                 </>
               ) : (
@@ -198,7 +197,6 @@ export const SellModal = () => {
           </>
         ) : (
           <>
-            <h2>Summery</h2>
             <Summery details={phoneDetails} />
           </>
         )}

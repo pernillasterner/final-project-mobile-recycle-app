@@ -4,9 +4,15 @@
   border-radius: 20px;
   overflow: hidden;
   margin: 0 0.75rem;
+  font-family: "Roboto";
+  width: 38%;
+  margin: 0;
+  height: fit-content;
 
   @media screen and (max-width: 767px) {
     margin: 1.5rem 0px;
+    padding: var(--general-padding) var(--general-mini-padding);
+    width: 100%;
   }
 
   .CartSummeryContainer {
@@ -14,12 +20,24 @@
     flex-direction: column;
     align-items: center;
 
+    .PrimaryBtn {
+      background-color: var(--clr-primary);
+      color: var(--clr-black);
+      font-weight: 600;
+      padding: 13px 20px;
+      border: 1px solid transparent;
+      transition: 0.5s ease;
+      &.not-active {
+        background-color: grey !important;
+      }
+    }
+
     .CartSummery {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
       font-size: 0.8725rem;
-      padding: 0px 0.25rem 1rem;
+      padding: 0px 0.25rem 2rem;
       width: 100%;
 
       .SummerListItem {
@@ -50,8 +68,10 @@
     }
 
     .ShippingText,
-    .ShippingPrice {
-      font-weight: 700;
+    .ShippingPrice,
+    .RecycleText,
+    .RecyclePrice {
+      font-weight: 500;
       font-size: 1rem;
     }
 
@@ -62,8 +82,19 @@
       border-bottom: medium;
       .TotalText,
       .TotalPrice {
-        font-weight: 500;
         font-size: 1rem;
+      }
+      .TotalPrice {
+        color: #7710f9;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+    }
+
+    .PaymentLogosContainer {
+      margin-top: 1em;
+      svg {
+        margin: 0 0.5em;
       }
     }
   }

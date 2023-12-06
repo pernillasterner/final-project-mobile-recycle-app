@@ -1,14 +1,18 @@
 import styles from "./Summery.module.scss";
 import { useState } from "react";
 import supabase from "../../../config/supabaseClient";
+import { useSelector, useDispatch } from "react-redux";
+import { modalNotActive } from "../../../reducers/modalSlice";
 
-export const Summery = ({ details, onClose }) => {
+export const Summery = ({ details }) => {
+  const dispatch = useDispatch();
   const [submissionStatus, setSubmissionStatus] = useState("pending");
+  const isModalActive = useSelector((state) => state.modal.isActive);
   const desc = details.phoneDescription;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // TODO: REmove imageUrl from the obejct
     try {
       const { data, error } = await supabase.from("phones").insert([
         {
@@ -44,11 +48,16 @@ export const Summery = ({ details, onClose }) => {
       setSubmissionStatus("error");
     }
   };
-
+  const handleCloseModal = () => {
+    if (isModalActive) {
+      dispatch(modalNotActive());
+    }
+  };
   return (
-    <div>
+    <div className={styles.SummeryContainer}>
       {submissionStatus === "pending" ? (
         <>
+          <h2>Summery</h2>
           <div className={styles.HeaderContainer}>
             <h1 className={styles.ModelValue}>{details.modelValue}</h1>
             <div className={styles.ModelInfo}>
@@ -64,11 +73,10 @@ export const Summery = ({ details, onClose }) => {
             </div>
           </div>
 
-          {/* <p>Brand: {details.brandValue}</p>
-          <p>Price: {details.priceValue} kr</p>
-          <p>Comment: {details.comment}</p>
-          <p>Storage: {details.storage}</p>
-          <p>Visual Condition: {details.visualCondition}</p> */}
+          <div className={styles.CommentContainer}>
+            <h5>Your comment:</h5>
+            <p>{details.comment}</p>
+          </div>
 
           <div className={styles.SummeryTableContainer}>
             <table>
@@ -109,14 +117,16 @@ export const Summery = ({ details, onClose }) => {
             className={styles.FormButton}
             onClick={(e) => handleSubmit(e)}
           >
-            Send
+            SEND
           </button>
         </>
       ) : submissionStatus === "success" ? (
-        <>
-          <h1>THANK YOU FOR SELLING your phone at techcycle</h1>
-          <button onClick={onClose}>Close</button>
-        </>
+        <div className={styles.ThankYouContainer}>
+          <h1>Thank you for choosing TechCycle!</h1>
+          <button className={styles.FormButton} onClick={handleCloseModal}>
+            CLOSE
+          </button>
+        </div>
       ) : (
         <>
           <h1>Error submissioning the product. Please try again!</h1>

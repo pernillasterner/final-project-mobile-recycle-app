@@ -1,7 +1,9 @@
 .ProductList {
   background-color: #f5f5f5;
   color: var(--clr-black);
-  padding: var(--general-padding);
+  padding-top: var(--general-padding);
+  padding-bottom: var(--general-padding);
+  padding-left: var(--general-padding);
 
   span {
     display: block;
@@ -16,7 +18,6 @@
 
   .FlexContainer {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--general-padding);
   }
@@ -24,7 +25,8 @@
   .ProdCard {
     position: relative;
     flex-basis: calc(25% - var(--general-padding));
-    background-size: auto 100%;
+
+    background-size: auto 60%;
     background-repeat: no-repeat;
     background-position: center 1rem;
     height: 40vh;
@@ -40,29 +42,38 @@
     bottom: 0;
     left: 0;
     right: 0;
-    box-shadow: 1px 1px 5px lightcoral;
+  }
+
+  @media screen and (min-width: 1440px) {
+    .ProdCard {
+      flex-basis: calc(20% - var(--general-padding));
+    }
   }
 
   @media screen and (max-width: 1024px) {
     .ProdCard {
-      flex-basis: calc(33% - var(--general-padding));
+      flex-basis: calc(33.33% - var(--general-padding));
     }
   }
 
   @media screen and (max-width: 767px) {
+    padding: var(--general-padding);
+
     span {
       font-size: 1rem;
     }
     .ProdCard {
       flex-basis: 100%;
-      background-position: left bottom;
-      background-size: auto 100%;
+      background-position: 1rem center;
+      background-size: auto 90%;
+      height: 20vh;
     }
 
     .ProdInfo {
       width: 50%;
       bottom: -1rem;
       left: 50%;
+      box-shadow: 1px 1px 2px var(--clr-black);
     }
   }
 }

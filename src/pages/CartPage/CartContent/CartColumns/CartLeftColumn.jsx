@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
+import buttonStyles from "../../../../components/commons/Buttons.module.scss";
 
 export const CartLeftColumn = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ export const CartLeftColumn = ({ cartItems }) => {
     if (itemId) {
       dispatch(removeFromCart(itemId));
     }
+  };
+
+  const handleChecked = () => {
+    // Give 300 points when purchase
   };
 
   return (
@@ -24,7 +29,7 @@ export const CartLeftColumn = ({ cartItems }) => {
         </span>
       </h2>
       <div className={styles.SingleCartItem}>
-        {cartItems &&
+        {cartItems && cartItems.length !== 0 ? (
           cartItems.map((item) => (
             <>
               <Link to={"/"}>
@@ -36,12 +41,14 @@ export const CartLeftColumn = ({ cartItems }) => {
               </Link>
               <div className={styles.SingleCartItemInfo}>
                 <div className={styles.DetailsContainer}>
-                  <p>Total Items {item.quantity}</p>
                   <div className={styles.ItemBrand}>{item.modelValue}</div>
                   <div className={styles.AdditionalInfo}>
                     Brand: {item.brandValue}
                   </div>
-                  <div className={styles.AdditionalInfo}>State: Okej</div>
+                  <div className={styles.AdditionalInfo}>Status: Okej</div>
+                  <label className={styles.AdditionalInfo}>
+                    Total items: {item.quantity}
+                  </label>
                 </div>
 
                 <div className={styles.PriceContainer}>
@@ -50,19 +57,36 @@ export const CartLeftColumn = ({ cartItems }) => {
                     className="IconTrash"
                     onClick={() => handleRemoveItem(item.id)}
                   >
-                    {<IconTrash />}remove
+                    {<IconTrash />} Remove
                   </button>
                 </div>
               </div>
             </>
-          ))}
+          ))
+        ) : (
+          <div className={styles.EmptyMessageContainer}>
+            <p className={styles.EmptyCartMessage}>Your cart is empty.</p>
+            <button className={buttonStyles.PrimaryBtn}>
+              <Link to={"/"}>GO TO PRODUCTS</Link>
+            </button>
+          </div>
+        )}
       </div>
       <div className={styles.CartItemOffer}>
         <div>
-          <span className="IconRecycle">{<IconRecycle />}</span>
+          <span className={styles.IconRecycle}>{<IconRecycle />}</span>
         </div>
         <p>Send us an old phone and get 300 kr off this order</p>
-        <div>CHECKBOX</div>
+        <div className={styles.OfferBanner}>
+          <input
+            type="checkbox"
+            id="points"
+            name="points"
+            checked
+            onChange={handleChecked}
+          />
+          <label htmlFor="points">Yes!</label>
+        </div>
       </div>
     </section>
   );
