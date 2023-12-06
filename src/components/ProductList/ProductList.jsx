@@ -51,6 +51,17 @@ export const ProductList = ({ category }) => {
                 className={styles.ProdCard}
                 style={{ backgroundImage: `url(${prod.imageUrl})` }}
               >
+                {/* <div
+                key={prod.id}
+                className={styles.ProdCard}
+                style={{
+                  backgroundImage: `url(${
+                    prod.brandValue.toLowerCase() === "apple"
+                      ? "../iphone_placholder.svg"
+                      : "../samsung_placeholder.svg"
+                  })`,
+                }}
+              > */}
                 <div className={styles.ProdInfo}>
                   <p>{prod.modelValue}</p>
                   <span>{prod.brandValue}</span>
