@@ -127,7 +127,7 @@ export const ProductPage = () => {
               className="AddToCartBtn"
               onClick={() => handleAddToCart(prod)}
             >
-              ADD TO CART
+              Add to cart
             </button>
           </div>
         </article>
