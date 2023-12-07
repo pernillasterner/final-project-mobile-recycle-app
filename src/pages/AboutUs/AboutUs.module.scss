@@ -1,11 +1,58 @@
-.AboutUsContainer {
-  height: 100vh;
-  padding: var(--general-padding);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.AboutUs {
+  color: var(--clr-black);
+  min-height: calc(100vh - 70px);
 
   h1 {
     color: var(--clr-primary);
+    text-align: center;
+  }
+
+  h2 {
+    letter-spacing: 0.02em;
+  }
+
+  img {
+    width: 33%;
+    height: auto;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    filter: drop-shadow(0px 5px 5px var(--clr-primary));
+  }
+
+  svg {
+    margin-right: 1rem;
+    cursor: pointer;
+    // filter: drop-shadow(0px 2px 4px var(--clr-primary));
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .AboutUsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: var(--general-padding);
+    gap: var(--general-padding);
+
+    @media screen and (max-width: 767px) {
+      padding: var(--general-mini-padding);
+    }
+  }
+
+  .AboutUsCard {
+    flex-basis: 50%;
+    flex: 1;
+    background-color: var(--clr-white);
+    min-width: 375px;
+    border-radius: 30px;
+    padding: var(--general-padding);
+
+    @media screen and (max-width: 767px) {
+      padding: var(--general-smaller-padding);
+    }
   }
 }

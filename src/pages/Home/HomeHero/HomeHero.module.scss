@@ -1,7 +1,6 @@
 .HomeHero {
   display: flex;
   align-items: center;
-  padding: var(--general-padding) 0;
 
   .Text {
     flex-basis: 60%;
@@ -15,7 +14,7 @@
   .Image {
     flex-basis: 40%;
     min-height: 50vh;
-    background: url("../TechCycle.png");
+    background: url("../TechCycle.jpg");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -31,8 +30,10 @@
       min-height: 30vh;
       min-width: 100%;
       flex-basis: 100%;
-      background-size: 70% auto;
-      background-position: top center;
+      background: url("../hero-img-mobile.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
   }
 }

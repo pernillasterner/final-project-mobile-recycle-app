@@ -67,3 +67,16 @@ button {
   top: 15px;
   right: 35px;
 }
+
+.BuyBtn {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 3px;
+
+  a {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

@@ -1,6 +1,7 @@
 import { ProductList } from "../../components/ProductList/ProductList";
 import { HomeHero } from "../Home/HomeHero/HomeHero";
 import { useSelector } from "react-redux";
+import { Community } from "./Community/Community";
 
 export const Home = () => {
   const isModalActive = useSelector((state) => state.modal.isActive);
@@ -11,11 +12,9 @@ export const Home = () => {
         <>
           <HomeHero />
           <ProductList category={"refurbished"} />
+          <Community />
         </>
       )}
     </>
   );
 };
-// export const Home = () => {
-//   return <ProductList />;
-// };

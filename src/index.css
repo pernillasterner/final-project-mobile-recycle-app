@@ -190,19 +190,6 @@ select {
   color: var(--clr-white);
 }
 
-.BuyBtn {
-  background-color: var(--clr-black);
-  color: var(--clr-white);
-  width: fit-content;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
-
-.BuyBtn a {
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 .AddToCartBtn {
   background-color: var(--clr-secondary);
   color: var(--clr-black);
