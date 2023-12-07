@@ -39,6 +39,15 @@ export const ProductPage = () => {
   const handleAddToCart = (prod) => {
     if (prod) {
       dispatch(addToCart(prod));
+
+      // Get current cart from localstorage
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Add new prod to cart
+      const updatedCart = [...storedCart, prod];
+
+      // Update the local storage with the new cart
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
 
