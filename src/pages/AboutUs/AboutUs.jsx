@@ -1,5 +1,4 @@
 import { IconGitHub, IconLinkedin } from "../../assets/Icons";
-import { IconGitHub, IconLinkedin } from "../../assets/Icons";
 import styles from "./AboutUs.module.scss";
 
 export const AboutUs = () => {
