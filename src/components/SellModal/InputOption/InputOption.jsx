@@ -6,6 +6,7 @@ export const InputOption = ({
   placeholder,
   onButtonClick,
   errorMessage,
+  onChange,
 }) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -15,6 +16,12 @@ export const InputOption = ({
     // Clear input value after handling the button click
     setInputValue("");
   };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    onChange();
+  };
+
   return (
     <>
       <input
@@ -23,7 +30,7 @@ export const InputOption = ({
         placeholder={placeholder}
         value={inputValue}
         required
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleInputChange}
       />
       {errorMessage && <p className={styles.ErrorMessage}>{errorMessage}</p>}
       <button className={styles.FormButton} onClick={handleButtonClick}>

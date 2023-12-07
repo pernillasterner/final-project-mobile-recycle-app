@@ -12,13 +12,9 @@
   overflow: hidden;
   z-index: 8888;
 
-  @media screen and (max-width: 767px) {
-<<<<<<< HEAD
-=======
-    // overflow: scroll;
->>>>>>> c559a2c023900be0483a1668a138af5a78d772cc
-    top: 40px;
-  }
+  // @media screen and (max-width: 767px) {
+  //   top: 50px;
+  // }
 
   &::before {
     content: "";
@@ -54,8 +50,19 @@
   h2 {
     font-size: 1.5rem;
     @media screen and (max-width: 767px) {
-      font-size: initial;
+      font-size: 1.3rem;
+      margin-bottom: 1.5em;
     }
+  }
+
+  h4 {
+    @media screen and (max-width: 767px) {
+      font-size: 1rem;
+    }
+  }
+
+  input[type="text"] {
+    font-size: 0.7rem;
   }
 
   .FormStepContainer {
@@ -69,7 +76,7 @@
     margin: 5px;
     border: 1px solid transparent;
     transition: 0.5s ease-in-out;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
     @media screen and (min-width: 767px) {
       &:hover {
@@ -89,13 +96,17 @@
     flex-direction: column;
 
     select {
-      height: 50px;
+      height: 40px;
       font-size: 0.7rem;
+
+      @media screen and (min-width: 767px) {
+        height: 50px;
+      }
     }
   }
 
   .ErrorMessage {
     color: var(--clr-red-light);
-    font-size: initial;
+    font-size: 0.8rem;
   }
 }

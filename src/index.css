@@ -120,7 +120,7 @@ button {
   padding: 10px 15px;
   width: fit-content;
   min-width: 100px;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   color: var(--clr-black);
 }
 
@@ -254,7 +254,7 @@ select {
 
 @media screen and (max-width: 767px) {
   main {
-    padding-top: 110px;
+    padding-top: 120px;
   }
 
   button {
