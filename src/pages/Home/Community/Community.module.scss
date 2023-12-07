@@ -1,0 +1,87 @@
+.CommunitySection {
+  padding: var(--general-padding);
+  background: linear-gradient(10% var(--clr-secondary), black);
+  @media screen and (max-width: 767px) {
+    padding: 0px var(--general-mini-padding);
+  }
+  .CommunityDeal {
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+
+    .CommunityDealImg {
+      flex-basis: 40%;
+
+      img {
+        height: 40vh;
+        width: auto;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      .CommunityDealImg {
+        display: none;
+      }
+    }
+  }
+}
+
+.CommunityDealText {
+  flex-basis: 60%;
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    max-width: 40ch;
+  }
+}
+
+.CommunityRecyle {
+  padding: 100px 0;
+}
+
+.CommunityLatest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--general-padding);
+  padding: 100px 0px;
+
+  p {
+    font-weight: bold;
+    min-width: max-content;
+  }
+
+  .CommunityLatestCard {
+    position: relative;
+    background-color: #14171e;
+    padding: var(--general-padding);
+    border-radius: 30px;
+    max-width: 400px;
+    flex-basis: calc(33% - var(--general-padding));
+
+    img:first-of-type {
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      width: 100%;
+      height: auto;
+    }
+
+    img:last-of-type {
+      width: 10%;
+      height: auto;
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 50px 0;
+    justify-content: flex-start;
+  }
+}
