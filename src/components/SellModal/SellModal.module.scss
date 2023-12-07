@@ -67,10 +67,12 @@
     transition: 0.5s ease-in-out;
     font-size: 0.7rem;
 
-    &:hover {
-      background-color: transparent;
-      border: 1px solid var(--clr-primary);
-      color: var(--clr-primary);
+    @media screen and (min-width: 767px) {
+      &:hover {
+        background-color: transparent;
+        border: 1px solid var(--clr-primary);
+        color: var(--clr-primary);
+      }
     }
   }
 
