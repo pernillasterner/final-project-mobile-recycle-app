@@ -13,7 +13,10 @@
   z-index: 8888;
 
   @media screen and (max-width: 767px) {
+<<<<<<< HEAD
+=======
     // overflow: scroll;
+>>>>>>> c559a2c023900be0483a1668a138af5a78d772cc
     top: 40px;
   }
 
@@ -68,10 +71,12 @@
     transition: 0.5s ease-in-out;
     font-size: 0.7rem;
 
-    &:hover {
-      background-color: transparent;
-      border: 1px solid var(--clr-primary);
-      color: var(--clr-primary);
+    @media screen and (min-width: 767px) {
+      &:hover {
+        background-color: transparent;
+        border: 1px solid var(--clr-primary);
+        color: var(--clr-primary);
+      }
     }
   }
 
