@@ -13,7 +13,9 @@ export const HomeHero = () => {
             smartphone market.{" "}
           </p>
           <HashLink to="/#allProducts">
-            <button className={buttonStyles.PrimaryBtn}>BROWSE PHONES</button>
+            <button className={buttonStyles.ReversePrimaryBtn}>
+              BROWSE PHONES
+            </button>
           </HashLink>
         </div>
         <div className={styles.Image}></div>
