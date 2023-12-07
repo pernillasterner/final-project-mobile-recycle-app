@@ -6,12 +6,6 @@
   box-sizing: border-box;
 }
 
-/*
-=============== 
-Variables
-===============
-*/
-
 :root {
   --clr-primary: #14f194;
   --clr-secondary: #d45bff;
@@ -19,19 +13,13 @@ Variables
   --clr-primary-light: #262a35;
   --clr-grey-1: #102a42;
   --clr-grey-5: #7c7c7c;
+  --clr-grey-6: #64666a;
   --clr-grey-10: #f1f5f8;
   --clr-white: #fff;
   --clr-black: #000;
   --clr-text: #333;
   --clr-red-light: hsl(360, 71%, 66%);
-  /* --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
-  --transition: all 0.3s linear;
-  --spacing: 0.25rem;
- 
-  --large-screen-width: 1170px;
-  --small-screen-width: 90vw;
-  --fixed-width: 50rem; */
+
   --radius: 1.5rem;
   --general-padding: 35px;
   --general-smaller-padding: 20px;
@@ -58,12 +46,18 @@ h3 {
 }
 
 body {
+  background: -webkit-radial-gradient(
+    farthest-corner at bottom right,
+    rgba(58, 35, 63, 0.6),
+    transparent 250px
+  );
   background: radial-gradient(
       farthest-corner at bottom right,
       rgba(58, 35, 63, 0.6),
       transparent 250px
     ),
     linear-gradient(180deg, #000 70%, #181222);
+
   color: var(--clr-white);
   font-family: "Share Tech", "Poppins", "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -75,6 +69,8 @@ body {
 
 main {
   padding-top: 70px;
+  max-width: 2560px;
+  margin: 0 auto;
 }
 
 a {
@@ -151,15 +147,13 @@ select {
 }
 
 .active {
-  color: var(--clr-white) !important;
+  font-weight: 700 !important;
 }
 
 /* TODO: Remove */
 /* GLOBALS */
 .PrimaryBtn {
   background-color: var(--clr-primary);
-  /* padding: 5px 10px;
-  width: fit-content; */
   color: var(--clr-primary-dark);
 }
 
