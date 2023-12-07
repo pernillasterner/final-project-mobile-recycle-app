@@ -1,10 +1,16 @@
 button {
   cursor: pointer;
   border: none;
-  // border-radius: var(--radius);
   background: transparent;
-  padding: 5px 10px;
+  padding: 10px 15px;
   width: fit-content;
+  min-width: 100px;
+  font-size: 0.8rem;
+  color: var(--clr-black);
+  button {
+    font-size: 0.9rem;
+    min-width: 70px;
+  }
 }
 
 .PrimaryBtn {
@@ -78,5 +84,36 @@ button {
   a {
     font-weight: 700;
     text-transform: uppercase;
+  }
+}
+
+.AddToCartBtn {
+  background-color: var(--clr-secondary);
+  color: var(--clr-black);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--clr-secondary);
+    border: 1px solid var(--clr-secondary);
+  }
+}
+
+.GoBackBtn {
+  position: absolute;
+  top: 90px;
+  left: 35px;
+  cursor: pointer;
+  z-index: var(--z-index-gobackbtn);
+
+  svg {
+    height: 1rem;
+    width: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    top: 120px;
   }
 }
