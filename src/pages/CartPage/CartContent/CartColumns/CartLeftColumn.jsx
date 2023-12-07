@@ -32,33 +32,35 @@ export const CartLeftColumn = ({ cartItems }) => {
         {cartItems && cartItems.length !== 0 ? (
           cartItems.map((item) => (
             <>
-              <Link to={"/"} className={styles.ImageLink}>
-                <div
-                  key={item.id}
-                  className={styles.ProdCardImg}
-                  style={{ backgroundImage: `url(${item.imageUrl})` }}
-                ></div>
-              </Link>
-              <div className={styles.SingleCartItemInfo}>
-                <div className={styles.DetailsContainer}>
-                  <div className={styles.ItemBrand}>{item.modelValue}</div>
-                  <div className={styles.AdditionalInfo}>
-                    Brand: {item.brandValue}
+              <div className={styles.ItemContainer}>
+                <Link to={"/"} className={styles.ImageLink}>
+                  <div
+                    key={item.id}
+                    className={styles.ProdCardImg}
+                    style={{ backgroundImage: `url(${item.imageUrl})` }}
+                  ></div>
+                </Link>
+                <div className={styles.SingleCartItemInfo}>
+                  <div className={styles.DetailsContainer}>
+                    <div className={styles.ItemBrand}>{item.modelValue}</div>
+                    <div className={styles.AdditionalInfo}>
+                      Brand: {item.brandValue}
+                    </div>
+                    <div className={styles.AdditionalInfo}>Status: Okej</div>
+                    <label className={styles.AdditionalInfo}>
+                      Total items: {item.quantity}
+                    </label>
                   </div>
-                  <div className={styles.AdditionalInfo}>Status: Okej</div>
-                  <label className={styles.AdditionalInfo}>
-                    Total items: {item.quantity}
-                  </label>
-                </div>
 
-                <div className={styles.PriceContainer}>
-                  <div className={styles.ItemPrice}>{item.priceValue} kr</div>
-                  <button
-                    className="IconTrash"
-                    onClick={() => handleRemoveItem(item.id)}
-                  >
-                    {<IconTrash />} Remove
-                  </button>
+                  <div className={styles.PriceContainer}>
+                    <div className={styles.ItemPrice}>{item.priceValue} kr</div>
+                    <button
+                      className="IconTrash"
+                      onClick={() => handleRemoveItem(item.id)}
+                    >
+                      {<IconTrash />} Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </>
