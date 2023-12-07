@@ -7,6 +7,7 @@ import { Summery } from "./Summery/Summery";
 import buttonStyles from "../commons/Buttons.module.scss";
 import { modalNotActive } from "../../reducers/modalSlice";
 import { useDispatch } from "react-redux";
+import { validatePriceValue, validateComment } from "../../utils/validation";
 
 export const SellModal = () => {
   const dispatch = useDispatch();
@@ -33,24 +34,6 @@ export const SellModal = () => {
     peer2peer: true,
   });
 
-  const validatePriceValue = (option) => {
-    if (/^[0-9]+$/.test(option) && option.length < 6) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const validateComment = (option) => {
-    const invalidCharsRegex = /<[^>]*>|[^a-zA-Z0-9åäöÅÄÖ\s.,!?'"-]/g;
-
-    if (!invalidCharsRegex.test(option) && option.length <= 250) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const handleButtonClick = ({ name, option, e, phoneDescription }) => {
     e.preventDefault();
 
@@ -69,7 +52,7 @@ export const SellModal = () => {
     const handleAsyncLogic = async () => {
       const updatedDetails = { ...phoneDetails };
 
-      //   Validation for input fields
+      // Validation for input fields
       if (name === "priceValue" && option !== "") {
         if (!validatePriceValue(option)) {
           setErrorMessage(
@@ -134,7 +117,9 @@ export const SellModal = () => {
       >
         Close
       </button>
+
       <div className={styles.FormStepContainer}>
+        {/* Loop through all the steps in the array  */}
         {questions[steps] ? (
           <>
             <h2>Sell you phone by following these steps</h2>
