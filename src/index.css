@@ -121,6 +121,7 @@ button {
   width: fit-content;
   min-width: 100px;
   font-size: 0.6rem;
+  color: var(--clr-black);
 }
 
 input,
@@ -152,7 +153,7 @@ select {
 
 /* TODO: Remove */
 /* GLOBALS */
-.PrimaryBtn {
+/* .PrimaryBtn {
   background-color: var(--clr-primary);
   color: var(--clr-primary-dark);
 }
@@ -160,7 +161,7 @@ select {
 .PrimaryBtn a {
   color: var(--clr-black);
   font-weight: 700;
-}
+} */
 
 /* FILTER BTN */
 .FilterBtn {
@@ -216,10 +217,11 @@ select {
   left: 35px;
   cursor: pointer;
   z-index: var(--z-index-gobackbtn);
-  svg {
-    height: 1rem;
-    width: auto;
-  }
+}
+
+.GoBackBtn svg {
+  height: 1rem;
+  width: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -230,24 +232,22 @@ select {
 
 .IconRecycle {
   display: flex;
-  svg {
-    /* height: 1.5rem; */
-    width: auto;
-  }
+}
+
+.IconRecycle svg {
+  /* height: 1.5rem; */
+  width: auto;
 }
 
 .IconTrash {
   display: flex;
   align-items: center;
-  svg {
-    flex-shrink: 0;
+}
 
-    height: 1.5rem;
-    width: auto;
-  }
-  @media screen and (max-width: 767px) {
-    justify-content: end;
-  }
+.IconTrash svg {
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: auto;
 }
 
 /* MEDIA QEUREIS */
@@ -260,5 +260,8 @@ select {
   button {
     font-size: 0.9rem;
     min-width: 70px;
+  }
+  .IconTrash {
+    justify-content: end;
   }
 }
