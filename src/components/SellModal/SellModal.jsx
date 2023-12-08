@@ -5,8 +5,10 @@ import questions from "../../data/questions.json";
 import { InputOption } from "./InputOption/InputOption";
 import { Summery } from "./Summery/Summery";
 import buttonStyles from "../commons/Buttons.module.scss";
+import loaderStyles from "../commons/Loader.module.scss";
 import { modalNotActive } from "../../reducers/modalSlice";
 import { useDispatch } from "react-redux";
+import { validatePriceValue, validateComment } from "../../utils/validation";
 
 export const SellModal = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ export const SellModal = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const [phoneModels, setPhoneModels] = useState(null);
   const [steps, setSteps] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [phoneDetails, setPhoneDetails] = useState({
     modelValue: "",
     brandValue: "",
@@ -33,24 +36,6 @@ export const SellModal = () => {
     peer2peer: true,
   });
 
-  const validatePriceValue = (option) => {
-    if (/^[0-9]+$/.test(option) && option.length < 6) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const validateComment = (option) => {
-    const invalidCharsRegex = /<[^>]*>|[^a-zA-Z0-9åäöÅÄÖ\s.,!?'"-]/g;
-
-    if (!invalidCharsRegex.test(option) && option.length <= 250) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const handleButtonClick = ({ name, option, e, phoneDescription }) => {
     e.preventDefault();
 
@@ -67,14 +52,17 @@ export const SellModal = () => {
     }
 
     const handleAsyncLogic = async () => {
+      setIsLoading(true);
+
       const updatedDetails = { ...phoneDetails };
 
-      //   Validation for input fields
+      // Validation for input fields
       if (name === "priceValue" && option !== "") {
         if (!validatePriceValue(option)) {
           setErrorMessage(
             "Please enter a valid price. Price must be 5 digits or fewer."
           );
+          setIsLoading(false);
           return;
         }
       }
@@ -84,12 +72,11 @@ export const SellModal = () => {
           setErrorMessage(
             "Comment must be 250 characters or fewer. Please avoid special symbols."
           );
+          setIsLoading(false);
           return;
         }
       }
-
-      const updatedOption =
-        option === "Yes" ? true : option === "No" ? false : option;
+      const updatedOption = getUpdatedOption(name, option);
 
       try {
         if (name === "brandValue") {
@@ -110,12 +97,23 @@ export const SellModal = () => {
         }
       } catch (error) {
         setFetchError("Could not fetch product models");
+      } finally {
+        // Resetting loader
+        setIsLoading(false);
       }
 
       setPhoneDetails(updatedDetails);
     };
     setErrorMessage("");
     handleAsyncLogic();
+  };
+
+  const getUpdatedOption = (name, option) => {
+    return option === "Yes" ? true : option === "No" ? false : option;
+  };
+
+  const handleInputChange = () => {
+    setErrorMessage("");
   };
 
   return (
@@ -134,10 +132,13 @@ export const SellModal = () => {
       >
         Close
       </button>
+
       <div className={styles.FormStepContainer}>
-        {questions[steps] ? (
+        {isLoading && <div className={loaderStyles.Loader}>Loading...</div>}
+        {/* Loop through all the steps in the array  */}
+        {!isLoading && questions[steps] ? (
           <>
-            <h2>Sell you phone by following these steps</h2>
+            <h2>Sell your phone by following these steps</h2>
             <form>
               <h4>{questions[steps].question}</h4>
               {questions[steps].name === "modelValue" ? (
@@ -147,6 +148,7 @@ export const SellModal = () => {
                     value={selectedValue}
                     onChange={(e) => {
                       setSelectedValue(e.target.value);
+                      handleInputChange();
                     }}
                     required
                   >
@@ -188,6 +190,8 @@ export const SellModal = () => {
                       })
                     }
                     errorMessage={errorMessage}
+                    // Reset error message when user click in input field
+                    onChange={handleInputChange}
                   />
                 </>
               ) : (
@@ -212,9 +216,7 @@ export const SellModal = () => {
             </form>
           </>
         ) : (
-          <>
-            <Summery details={phoneDetails} />
-          </>
+          <>{!isLoading && <Summery details={phoneDetails} />}</>
         )}
       </div>
     </div>

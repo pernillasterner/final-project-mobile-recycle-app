@@ -4,6 +4,7 @@ import { IconGoBack } from "../../assets/Icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../reducers/cartSlice";
+import buttonStyles from "../../components/commons/Buttons.module.scss";
 import React from "react";
 
 import supabase from "../../config/supabaseClient";
@@ -39,17 +40,26 @@ export const ProductPage = () => {
   const handleAddToCart = (prod) => {
     if (prod) {
       dispatch(addToCart(prod));
+
+      // Get current cart from localstorage
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Add new prod to cart
+      const updatedCart = [...storedCart, prod];
+
+      // Update the local storage with the new cart
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
 
   return (
     // TODO: Add class and set color depengin on that
     <>
-      <div className="GoBackBtn" onClick={() => navigate(-1)}>
-        <IconGoBack />
-      </div>
       {prod && (
         <article className={styles.ProdContainer}>
+          <div className={buttonStyles.GoBackBtn} onClick={() => navigate(-1)}>
+            <IconGoBack />
+          </div>
           <div className={styles.Prod__LeftColumn}>
             <div
               className={styles.ProdCardImg}
@@ -124,7 +134,7 @@ export const ProductPage = () => {
               </table>
             </div>
             <button
-              className="AddToCartBtn"
+              className={buttonStyles.AddToCartBtn}
               onClick={() => handleAddToCart(prod)}
             >
               Add to cart

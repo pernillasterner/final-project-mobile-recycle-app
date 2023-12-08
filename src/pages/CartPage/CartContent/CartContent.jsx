@@ -1,4 +1,5 @@
 import styles from "./CartContent.module.scss";
+import buttonStyles from "../../../components/commons/Buttons.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { IconGoBack } from "../../../assets/Icons";
@@ -11,7 +12,7 @@ export const CartContent = () => {
 
   return (
     <>
-      <div className="GoBackBtn" onClick={() => navigate(-1)}>
+      <div className={buttonStyles.GoBackBtn} onClick={() => navigate(-1)}>
         <IconGoBack />
       </div>
       <div className={styles.CartContainer}>
