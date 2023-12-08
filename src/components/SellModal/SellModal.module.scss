@@ -13,7 +13,7 @@
   z-index: 8888;
 
   @media screen and (max-width: 767px) {
-    overflow: auto;
+    top: 50px;
   }
 
   &::before {
@@ -48,28 +48,57 @@
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     @media screen and (max-width: 767px) {
-      font-size: initial;
+      font-size: 1.3rem;
+      margin-bottom: 1.5em;
     }
+    @media screen and (max-width: 2024px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5em;
+    @media screen and (max-width: 2024px) {
+      font-size: 1rem;
+    }
+  }
+
+  input[type="text"] {
+    font-size: 0.7rem;
   }
 
   .FormStepContainer {
     position: relative;
     z-index: 5555;
+
+    form {
+      padding: var(--general-large-padding) 0;
+      @media screen and (max-width: 2024px) {
+        padding: var(--general-padding) 0;
+      }
+    }
   }
 
   .FormButton {
-    background-color: var(--clr-white);
-    padding: 10px 20px;
-    margin: 5px;
-    border: 1px solid transparent;
-    transition: 0.5s ease-in-out;
-
+    margin: 0.6em 0;
+    margin-right: 0.6em;
+    transition: 0.3s ease-in-out;
+    font-size: 0.7rem;
+    min-width: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--clr-black);
     &:hover {
-      background-color: transparent;
-      border: 1px solid var(--clr-primary);
-      color: var(--clr-primary);
+      background-color: var(--clr-white);
+    }
+
+    @media screen and (min-width: 2024px) {
+      font-size: 1rem;
+      min-width: 200px;
+      margin: 1em 0;
+      margin-right: 1em;
     }
   }
 
@@ -80,10 +109,23 @@
   .SelectContainer {
     display: flex;
     flex-direction: column;
+
+    select {
+      height: 40px;
+      font-size: 0.7rem;
+
+      @media screen and (min-width: 2024px) {
+        height: 70px;
+        font-size: 1rem;
+      }
+    }
   }
 
   .ErrorMessage {
     color: var(--clr-red-light);
-    font-size: initial;
+    font-size: 0.6rem;
+    @media screen and (min-width: 2024px) {
+      font-size: 0.8rem;
+    }
   }
 }

@@ -35,14 +35,22 @@
   /* Single Cart Item */
   .SingleCartItem {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     padding: var(--general-padding);
 
     @media screen and (max-width: 767px) {
       padding: var(--general-mini-padding);
-      flex-direction: column;
+
       align-items: center;
+    }
+    .ItemContainer {
+      display: flex;
+      width: 100%;
+      padding: var(--general-padding);
+      @media screen and (max-width: 767px) {
+        padding: var(--general-mini-padding) 0;
+      }
     }
 
     /* Cart Item Image */
@@ -100,7 +108,6 @@
       .PriceContainer {
         display: flex;
         flex-direction: column;
-        align-items: end;
         justify-content: space-between;
 
         .ItemPrice {

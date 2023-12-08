@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import iconStyles from "../../../../components/commons/Icons.module.scss";
 
 export const CartLeftColumn = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -12,6 +13,20 @@ export const CartLeftColumn = ({ cartItems }) => {
   const handleRemoveItem = (itemId) => {
     if (itemId) {
       dispatch(removeFromCart(itemId));
+
+      // Get current cart from localstorage
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Find the index of the item in the cart to remove
+      const itemIndex = storedCart.findIndex((item) => item.id === itemId);
+
+      if (itemIndex !== -1) {
+        // Remove the item
+        storedCart.splice(itemIndex, 1);
+
+        // Update the local storage
+        localStorage.setItem("cart", JSON.stringify(storedCart));
+      }
     }
   };
 
@@ -32,33 +47,35 @@ export const CartLeftColumn = ({ cartItems }) => {
         {cartItems && cartItems.length !== 0 ? (
           cartItems.map((item) => (
             <>
-              <Link to={"/"} className={styles.ImageLink}>
-                <div
-                  key={item.id}
-                  className={styles.ProdCardImg}
-                  style={{ backgroundImage: `url(${item.imageUrl})` }}
-                ></div>
-              </Link>
-              <div className={styles.SingleCartItemInfo}>
-                <div className={styles.DetailsContainer}>
-                  <div className={styles.ItemBrand}>{item.modelValue}</div>
-                  <div className={styles.AdditionalInfo}>
-                    Brand: {item.brandValue}
+              <div className={styles.ItemContainer}>
+                <Link to={"/"} className={styles.ImageLink}>
+                  <div
+                    key={item.id}
+                    className={styles.ProdCardImg}
+                    style={{ backgroundImage: `url(${item.imageUrl})` }}
+                  ></div>
+                </Link>
+                <div className={styles.SingleCartItemInfo}>
+                  <div className={styles.DetailsContainer}>
+                    <div className={styles.ItemBrand}>{item.modelValue}</div>
+                    <div className={styles.AdditionalInfo}>
+                      Brand: {item.brandValue}
+                    </div>
+                    <div className={styles.AdditionalInfo}>Status: Okej</div>
+                    <label className={styles.AdditionalInfo}>
+                      Total items: {item.quantity}
+                    </label>
                   </div>
-                  <div className={styles.AdditionalInfo}>Status: Okej</div>
-                  <label className={styles.AdditionalInfo}>
-                    Total items: {item.quantity}
-                  </label>
-                </div>
 
-                <div className={styles.PriceContainer}>
-                  <div className={styles.ItemPrice}>{item.priceValue} kr</div>
-                  <button
-                    className="IconTrash"
-                    onClick={() => handleRemoveItem(item.id)}
-                  >
-                    {<IconTrash />} Remove
-                  </button>
+                  <div className={styles.PriceContainer}>
+                    <div className={styles.ItemPrice}>{item.priceValue} kr</div>
+                    <button
+                      className={iconStyles.IconTrash}
+                      onClick={() => handleRemoveItem(item.id)}
+                    >
+                      {<IconTrash />} Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </>
@@ -76,7 +93,7 @@ export const CartLeftColumn = ({ cartItems }) => {
       </div>
       <div className={styles.CartItemOffer}>
         <div>
-          <span className={styles.IconRecycle}>{<IconRecycle />}</span>
+          <span className={iconStyles.IconRecycle}>{<IconRecycle />}</span>
         </div>
         <p>Send us an old phone and get 300 kr off this order</p>
         <div className={styles.OfferBanner}>

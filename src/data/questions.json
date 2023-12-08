@@ -7,6 +7,7 @@
   },
   {
     "question": "Choose your model",
+    "placeholder": "All phone models",
     "name": "modelValue",
     "phoneDescription": false
   },
@@ -49,11 +50,13 @@
   {
     "question": "What is your price?",
     "name": "priceValue",
+    "placeholder": "Add between 3 and 5 digit number",
     "phoneDescription": false,
     "input": ""
   },
   {
-    "question": "Please leave a comment",
+    "question": "Describe the current status of your device",
+    "placeholder": "Please leave a comment",
     "name": "comment",
     "phoneDescription": false,
     "input": ""

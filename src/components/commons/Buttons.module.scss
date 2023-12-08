@@ -1,10 +1,18 @@
 button {
   cursor: pointer;
   border: none;
-  // border-radius: var(--radius);
   background: transparent;
-  padding: 5px 10px;
+  padding: var(--general-smaller-padding) var(--general-padding);
+  padding: 15px 20px;
   width: fit-content;
+  min-width: 100px;
+  font-size: 0.9rem;
+  color: var(--clr-black);
+  @media screen and (max-width: 2024px) {
+    font-size: 0.8rem;
+    min-width: 70px;
+    padding: 10px 15px;
+  }
 }
 
 .PrimaryBtn {
@@ -38,33 +46,86 @@ button {
   background-color: var(--clr-black);
   border: 1px solid var(--clr-primary);
   color: var(--clr-primary);
+
   @media screen and (max-width: 767px) {
     display: none;
   }
 }
 
 .SellYourPhoneBanner {
-  position: absolute;
-  top: -40px;
+  position: fixed;
+  top: 0;
   left: 0;
   background-color: var(--clr-primary);
   color: var(--clr-black);
   display: none;
   width: 100%;
   font-weight: 700;
-  height: 40px;
+  height: 50px;
   z-index: 9999;
+  font-size: 1.1rem;
   @media screen and (max-width: 767px) {
     display: block;
+    font-size: 0.9rem;
   }
-}
-
-#CloseBannerSellModal {
-  top: 0;
 }
 
 #CloseBtnSellModal {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 20px;
+  right: 100px;
+  z-index: var(--z-index-modal);
+  min-width: 200px;
+  @media screen and (max-width: 2024px) {
+    top: 15px;
+    right: 35px;
+    min-width: 100px;
+  }
+}
+
+.BuyBtn {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 3px;
+
+  a {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.AddToCartBtn {
+  background-color: var(--clr-secondary);
+  color: var(--clr-black);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--clr-secondary);
+    border: 1px solid var(--clr-secondary);
+  }
+}
+
+.GoBackBtn {
+  position: absolute;
+  top: 50px;
+  left: -20px;
+  cursor: pointer;
+  z-index: var(--z-index-gobackbtn);
+
+  svg {
+    height: 1rem;
+    width: auto;
+  }
+  @media screen and (max-width: 2024px) {
+    left: 20px;
+    top: 20px;
+  }
+  @media screen and (max-width: 767px) {
+    top: 0;
+  }
 }

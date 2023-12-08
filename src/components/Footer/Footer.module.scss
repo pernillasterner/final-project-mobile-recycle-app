@@ -10,11 +10,18 @@
       #3a233f,
       transparent 1000px
     );
-  padding: var(--general-padding);
+  padding: var(--general-large-padding);
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
 
+  @media screen and (max-width: 2024px) {
+    padding: var(--general-padding);
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: var(--general-smaller-padding);
+  }
   @media screen and (max-width: 567px) {
     flex-direction: column;
   }
@@ -31,6 +38,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    p {
+      font-size: 0.9rem;
+      @media screen and (max-width: 2024px) {
+        font-size: 0.7rem;
+      }
+    }
   }
 
   .LinksSection {
@@ -53,6 +67,17 @@
     justify-content: start;
     a {
       padding-left: var(--general-smaller-padding);
+      height: 20px;
+
+      svg {
+        height: 1.5rem;
+        width: auto;
+
+        @media screen and (max-width: 567px) {
+          height: 1.2rem;
+          width: auto;
+        }
+      }
       svg:hover {
         scale: 1.1;
       }

@@ -1,7 +1,13 @@
 import styles from "./../SellModal.module.scss";
 import { useState } from "react";
 
-export const InputOption = ({ name, placeholder, onButtonClick }) => {
+export const InputOption = ({
+  name,
+  placeholder,
+  onButtonClick,
+  errorMessage,
+  onChange,
+}) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = (e) => {
@@ -10,6 +16,12 @@ export const InputOption = ({ name, placeholder, onButtonClick }) => {
     // Clear input value after handling the button click
     setInputValue("");
   };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    onChange();
+  };
+
   return (
     <>
       <input
@@ -18,8 +30,9 @@ export const InputOption = ({ name, placeholder, onButtonClick }) => {
         placeholder={placeholder}
         value={inputValue}
         required
-        onChange={(e) => setInputValue(e.target.value)}
+        onChange={handleInputChange}
       />
+      {errorMessage && <p className={styles.ErrorMessage}>{errorMessage}</p>}
       <button className={styles.FormButton} onClick={handleButtonClick}>
         OK
       </button>

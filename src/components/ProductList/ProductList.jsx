@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Filter } from "../../components/ProductList/Filter/Filter";
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialState } from "../../reducers/productSlice";
+import buttons from "../../components/commons/Buttons.module.scss";
 
 export const ProductList = ({ category }) => {
   const [fetchError, setFetchError] = useState(null);
@@ -18,6 +19,7 @@ export const ProductList = ({ category }) => {
           const { data } = await supabase
             .from("phones")
             .select()
+            .limit(15)
             .is("peer2peer", false);
           dispatch(setInitialState(data));
           setFetchError(null);
@@ -25,6 +27,7 @@ export const ProductList = ({ category }) => {
           const { data } = await supabase
             .from("phones")
             .select()
+            .limit(15)
             .is("peer2peer", true);
           dispatch(setInitialState(data));
           setFetchError(null);
@@ -49,24 +52,19 @@ export const ProductList = ({ category }) => {
               <div
                 key={prod.id}
                 className={styles.ProdCard}
-                style={{ backgroundImage: `url(${prod.imageUrl})` }}
-              >
-                {/* <div
-                key={prod.id}
-                className={styles.ProdCard}
                 style={{
                   backgroundImage: `url(${
                     prod.brandValue.toLowerCase() === "apple"
-                      ? "../iphone_placholder.svg"
-                      : "../samsung_placeholder.svg"
+                      ? "./iphone_placholder.svg"
+                      : "./samsung_placeholder.svg"
                   })`,
                 }}
-              > */}
+              >
                 <div className={styles.ProdInfo}>
                   <p>{prod.modelValue}</p>
                   <span>{prod.brandValue}</span>
                   <span>{prod.priceValue}kr</span>
-                  <button className="BuyBtn">
+                  <button className={buttons.BuyBtn}>
                     <Link to={`/product/${prod.id}`}>Buy</Link>
                   </button>
                 </div>

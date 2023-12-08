@@ -54,7 +54,6 @@ const productSlice = createSlice({
       );
       const range = action.payload;
       const updatedProducts = resetProducts.filter((item) => {
-        // return item.priceValue > range[0] && item.priceValue < range[1];
         return item.priceValue >= range[0] && item.priceValue <= range[1];
       });
 
@@ -65,50 +64,19 @@ const productSlice = createSlice({
       state.filterArray = state.products;
     },
     calculatePriceRange: (state) => {
-      let highestPrice = state.products[0].priceValue;
-      let lowestPrice = state.products[0].priceValue;
-      state.products.forEach((element) => {
+      let highestPrice = 0;
+      let lowestPrice = 999999;
+      state.filterArray.forEach((element) => {
         if (highestPrice < element.priceValue) {
           state.filter.priceRange.priceHigh = element.priceValue;
           highestPrice = element.priceValue;
-        } else if (lowestPrice > element.priceValue) {
+        }
+
+        if (lowestPrice > element.priceValue) {
           state.filter.priceRange.priceLow = element.priceValue;
           lowestPrice = element.priceValue;
         }
       });
-    },
-    sortProducts: (state, action) => {
-      const sorting = action.payload;
-
-      switch (sorting) {
-        case "high-low":
-          state.filter.sort.priceHigh = true;
-          state.filter.sort.priceLow = false;
-          state.filter.sort.newest = false;
-          break;
-        case "low-high":
-          state.filter.sort.priceLow = true;
-          state.filter.sort.priceHigh = false;
-          state.filter.sort.newest = false;
-          break;
-        case "newest":
-          state.filter.sort.newest = true;
-          state.filter.sort.priceLow = false;
-          state.filter.sort.priceHigh = false;
-          break;
-      }
-
-      if (state.filter.sort.priceLow) {
-        state.filterArray.sort((a, b) => a.priceValue - b.priceValue);
-      } else if (state.filter.sort.priceHigh) {
-        state.filterArray.sort((a, b) => b.priceValue - a.priceValue);
-      } else if (state.filter.sort.newest) {
-        state.filterArray.sort(
-          (a, b) => new Date(b.created_at) - new Date(a.created_at)
-        );
-      } else {
-        state.filterArray = updatedProducts;
-      }
     },
     sortProducts: (state, action) => {
       const sorting = action.payload;
@@ -156,31 +124,3 @@ export const {
 } = productSlice.actions;
 
 export default productSlice.reducer;
-
-// switch (sorting) {
-//   case "high-low":
-//     state.filterArray.sort((a, b) => b.priceValue - a.priceValue);
-//     break;
-//   case "low-high":
-//     state.filterArray.sort((a, b) => a.priceValue - b.priceValue);
-//     break;
-//   case "newest":
-//     state.filterArray.sort(
-//       (a, b) => new Date(b.created_at) - new Date(a.created_at)
-//     );
-//     break;
-// }
-
-// switch (sorting) {
-//   case "high-low":
-//     state.filterArray.sort((a, b) => b.priceValue - a.priceValue);
-//     break;
-//   case "low-high":
-//     state.filterArray.sort((a, b) => a.priceValue - b.priceValue);
-//     break;
-//   case "newest":
-//     state.filterArray.sort(
-//       (a, b) => new Date(b.created_at) - new Date(a.created_at)
-//     );
-//     break;
-// }
