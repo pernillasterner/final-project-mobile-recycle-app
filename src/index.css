@@ -36,7 +36,7 @@
 }
 
 html {
-  font-size: clamp(16px, 1.5vw, 32px);
+  font-size: clamp(16px, 1.2vw, 32px);
   scroll-behavior: smooth;
 }
 

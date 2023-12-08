@@ -55,4 +55,8 @@
       padding: var(--general-smaller-padding);
     }
   }
+
+  @media screen and (min-width: 2025px) {
+    padding: var(--general-padding) var(--general-large-padding);
+  }
 }
