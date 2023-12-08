@@ -53,6 +53,8 @@
     @media screen and (max-width: 767px) {
       flex-wrap: wrap;
       gap: 1rem;
+      padding: var(--general-mini-padding);
+      width: calc(100% - (var(--general-mini-padding) * 2));
     }
   }
 
@@ -87,5 +89,9 @@
     .SortBox label:last-child {
       margin-bottom: 0rem;
     }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: var(--general-mini-padding);
   }
 }
