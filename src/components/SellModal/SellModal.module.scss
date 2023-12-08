@@ -67,7 +67,12 @@
   }
 
   input[type="text"] {
-    font-size: 0.7rem;
+    font-size: 1rem;
+    padding: var(--general-padding);
+    @media screen and (max-width: 2024px) {
+      font-size: 0.7rem;
+      padding: var(--general-mini-padding);
+    }
   }
 
   .FormStepContainer {
