@@ -181,6 +181,65 @@ select {
   color: var(--clr-white);
 }
 
+.AddToCartBtn {
+  background-color: var(--clr-secondary);
+  color: var(--clr-black);
+  padding: 13px 20px;
+  border: 1px solid transparent;
+  transition: 0.5s ease;
+}
+
+.AddToCartBtn:hover {
+  background-color: transparent;
+  color: var(--clr-secondary);
+  border: 1px solid var(--clr-secondary);
+}
+
+.AddToCartBtn a {
+  font-weight: 700;
+}
+
+/* GLOBAL STYLING ICONS */
+
+.GoBackBtn {
+  position: absolute;
+  top: 90px;
+  left: 35px;
+  cursor: pointer;
+  z-index: var(--z-index-gobackbtn);
+}
+
+.GoBackBtn svg {
+  height: 1rem;
+  width: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .GoBackBtn {
+    top: 120px;
+  }
+}
+
+.IconRecycle {
+  display: flex;
+}
+
+.IconRecycle svg {
+  /* height: 1.5rem; */
+  width: auto;
+}
+
+.IconTrash {
+  display: flex;
+  align-items: center;
+}
+
+.IconTrash svg {
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: auto;
+}
+
 /* MEDIA QEUREIS */
 
 @media screen and (max-width: 2024px) {
@@ -192,5 +251,8 @@ select {
 @media screen and (max-width: 767px) {
   main {
     padding-top: 120px;
+  }
+  .IconTrash {
+    justify-content: end;
   }
 }
