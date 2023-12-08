@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filter.module.scss";
 import {
@@ -13,17 +13,16 @@ import "rc-slider/assets/index.css";
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  // const filterArray = useSelector((state) => state.product.filterArray);
   const [isFilterActive, setFilterActive] = useState(false);
   const [isSortByActive, setSortByActive] = useState(false);
   const [sort, setSort] = useState(null);
   const priceRange = useSelector((state) => state.product.filter.priceRange);
+  const brandValue = useSelector((state) => state.product.filter.brandValue);
   const [sliderValue, setSliderValue] = useState(null);
 
   const handleFilterToggle = () => {
     setFilterActive((last) => !last);
     dispatch(calculatePriceRange());
-    setSliderValue(priceRange);
   };
 
   const handleSortByFilter = () => {
@@ -31,18 +30,14 @@ export const Filter = () => {
   };
 
   const handleClearFilter = () => {
-    document.querySelectorAll(".FilterDropdownBtn").forEach((button) => {
-      button.classList.remove("FilterBrandBtnActive");
-    });
     dispatch(clearFilters());
     setFilterActive(false);
   };
 
   const handleFilterBrand = (value) => {
-    document
-      .querySelector(`.${value}`)
-      .classList.toggle("FilterBrandBtnActive");
+    handleActiveFilter(value);
     dispatch(setFilter(value));
+    dispatch(calculatePriceRange());
   };
 
   const handleSort = (e) => {
@@ -53,9 +48,32 @@ export const Filter = () => {
 
   const submitSlider = (e) => {
     setSliderValue((value) => e);
-
     dispatch(setPriceRange(e));
   };
+
+  const handleActiveFilter = (phonebrand) => {
+    const brandString = phonebrand.toString();
+    if (brandValue?.includes(brandString)) {
+      document
+        .querySelector(`.${brandString}`)
+        .classList.add("FilterBrandBtnActive");
+    } else {
+      document
+        .querySelector(`.${brandString}`)
+        .classList.remove("FilterBrandBtnActive");
+    }
+  };
+
+  useEffect(() => {
+    // dispatch(calculatePriceRange());
+    setSliderValue(() => priceRange);
+    console.log(sliderValue);
+
+    if (isFilterActive) {
+      handleActiveFilter("Samsung");
+      handleActiveFilter("Apple");
+    }
+  }, [isFilterActive, brandValue]);
 
   return (
     <aside className={styles.FilterAside}>
@@ -85,8 +103,10 @@ export const Filter = () => {
               <h4>Price Range</h4>
               <div>
                 <div className={styles.SliderInfo}>
-                  <span>Low:{sliderValue[0] || priceRange.priceLow} kr</span>
-                  <span>High:{sliderValue[1] || priceRange.priceHigh} kr</span>
+                  {/* <span>Low:{sliderValue[0] || priceRange.priceLow} kr</span>
+                  <span>High:{sliderValue[1] || priceRange.priceHigh} kr</span> */}
+                  <span>Low:{sliderValue[0] || sliderValue.priceLow} kr</span>
+                  <span>High:{sliderValue[1] || sliderValue.priceHigh} kr</span>
                 </div>
                 <Slider
                   allowCross={false}
