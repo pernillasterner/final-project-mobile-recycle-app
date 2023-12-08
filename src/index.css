@@ -21,6 +21,7 @@
   --clr-red-light: hsl(360, 71%, 66%);
 
   --radius: 1.5rem;
+  --general-large-padding: 100px;
   --general-padding: 35px;
   --general-smaller-padding: 20px;
   --general-mini-padding: 10px;
@@ -68,7 +69,7 @@ body {
 }
 
 main {
-  padding-top: 70px;
+  padding-top: 100px;
   max-width: 2560px;
   margin: 0 auto;
 }
@@ -113,6 +114,7 @@ ul li {
 }
 
 /* TODO: Remove */
+/* Need to remove this code. This code is already in common/Buttons */
 button {
   cursor: pointer;
   border: none;
@@ -180,6 +182,12 @@ select {
 }
 
 /* MEDIA QEUREIS */
+
+@media screen and (max-width: 2024px) {
+  main {
+    padding-top: 70px;
+  }
+}
 
 @media screen and (max-width: 767px) {
   main {

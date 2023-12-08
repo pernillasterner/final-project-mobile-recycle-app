@@ -1,4 +1,8 @@
 .SummeryContainer {
+  padding-top: var(--general-padding);
+  @media screen and (max-width: 767px) {
+    padding-top: 0;
+  }
   .HeaderContainer {
     .ModelValue {
       font-size: 2rem;
@@ -21,13 +25,6 @@
         flex-direction: column;
         p {
           margin-right: 0.5em;
-          // &::after {
-          //   content: "|";
-          //   margin-left: 0.5em;
-          //   @media screen and (max-width: 767px) {
-          //     content: "";
-          //   }
-          // }
           &:last-child::after {
             content: "";
             margin-left: 0;
@@ -43,9 +40,16 @@
     }
   }
   .CommentContainer {
-    margin: 2.5em 0;
+    margin: 2em 0;
+    background: var(--clr-primary-dark);
+    color: var(--clr-white);
+    padding: 20px;
+    @media screen and (min-width: 2024px) {
+      margin: 2em 0;
+    }
     h5 {
       font-size: 1rem;
+      margin-bottom: 0.4em;
     }
     p {
       color: var(--clr-primary);
@@ -109,7 +113,11 @@
 
   h1,
   h2 {
+    font-size: 2rem;
     margin-bottom: 2rem;
+    @media screen and (min-width: 2024px) {
+      font-size: 3rem;
+    }
   }
 
   img {

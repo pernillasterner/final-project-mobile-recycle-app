@@ -2,14 +2,16 @@ button {
   cursor: pointer;
   border: none;
   background: transparent;
-  padding: 10px 15px;
+  padding: var(--general-smaller-padding) var(--general-padding);
+  padding: 15px 20px;
   width: fit-content;
   min-width: 100px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--clr-black);
-  button {
-    font-size: 0.9rem;
+  @media screen and (max-width: 2024px) {
+    font-size: 0.8rem;
     min-width: 70px;
+    padding: 10px 15px;
   }
 }
 
@@ -70,8 +72,15 @@ button {
 
 #CloseBtnSellModal {
   position: absolute;
-  top: 15px;
-  right: 35px;
+  top: 20px;
+  right: 100px;
+  z-index: var(--z-index-modal);
+  min-width: 200px;
+  @media screen and (max-width: 2024px) {
+    top: 15px;
+    right: 35px;
+    min-width: 100px;
+  }
 }
 
 .BuyBtn {
@@ -103,8 +112,8 @@ button {
 
 .GoBackBtn {
   position: absolute;
-  top: 90px;
-  left: 35px;
+  top: 50px;
+  left: -20px;
   cursor: pointer;
   z-index: var(--z-index-gobackbtn);
 
@@ -112,8 +121,11 @@ button {
     height: 1rem;
     width: auto;
   }
-
+  @media screen and (max-width: 2024px) {
+    left: 20px;
+    top: 20px;
+  }
   @media screen and (max-width: 767px) {
-    top: 120px;
+    top: 0;
   }
 }
