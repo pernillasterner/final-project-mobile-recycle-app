@@ -65,15 +65,12 @@ export const Filter = () => {
   };
 
   useEffect(() => {
-    // dispatch(calculatePriceRange());
-    setSliderValue(() => priceRange);
-    console.log(sliderValue);
-
+    setSliderValue([priceRange.priceLow, priceRange.priceHigh]);
     if (isFilterActive) {
       handleActiveFilter("Samsung");
       handleActiveFilter("Apple");
     }
-  }, [isFilterActive, brandValue]);
+  }, [isFilterActive, brandValue, priceRange]);
 
   return (
     <aside className={styles.FilterAside}>
@@ -103,10 +100,10 @@ export const Filter = () => {
               <h4>Price Range</h4>
               <div>
                 <div className={styles.SliderInfo}>
-                  {/* <span>Low:{sliderValue[0] || priceRange.priceLow} kr</span>
-                  <span>High:{sliderValue[1] || priceRange.priceHigh} kr</span> */}
-                  <span>Low:{sliderValue[0] || sliderValue.priceLow} kr</span>
-                  <span>High:{sliderValue[1] || sliderValue.priceHigh} kr</span>
+                  {/* <span>Low:{sliderValue[0] || sliderValue.priceLow} kr</span>
+                  <span>High:{sliderValue[1] || sliderValue.priceHigh} kr</span> */}
+                  <span>Low:{sliderValue[0]} kr</span>
+                  <span>High:{sliderValue[1]} kr</span>
                 </div>
                 <Slider
                   allowCross={false}
