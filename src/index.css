@@ -21,6 +21,7 @@
   --clr-red-light: hsl(360, 71%, 66%);
 
   --radius: 1.5rem;
+  --general-large-padding: 100px;
   --general-padding: 35px;
   --general-smaller-padding: 20px;
   --general-mini-padding: 10px;
@@ -68,7 +69,7 @@ body {
 }
 
 main {
-  padding-top: 70px;
+  padding-top: 100px;
   max-width: 2560px;
   margin: 0 auto;
 }
@@ -113,6 +114,7 @@ ul li {
 }
 
 /* TODO: Remove */
+/* Need to remove this code. This code is already in common/Buttons */
 button {
   cursor: pointer;
   border: none;
@@ -120,7 +122,8 @@ button {
   padding: 10px 15px;
   width: fit-content;
   min-width: 100px;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--clr-black);
 }
 
 input,
@@ -148,18 +151,6 @@ select {
 
 .active {
   font-weight: 700 !important;
-}
-
-/* TODO: Remove */
-/* GLOBALS */
-.PrimaryBtn {
-  background-color: var(--clr-primary);
-  color: var(--clr-primary-dark);
-}
-
-.PrimaryBtn a {
-  color: var(--clr-black);
-  font-weight: 700;
 }
 
 /* FILTER BTN */
@@ -216,10 +207,11 @@ select {
   left: 35px;
   cursor: pointer;
   z-index: var(--z-index-gobackbtn);
-  svg {
-    height: 1rem;
-    width: auto;
-  }
+}
+
+.GoBackBtn svg {
+  height: 1rem;
+  width: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -230,35 +222,37 @@ select {
 
 .IconRecycle {
   display: flex;
-  svg {
-    /* height: 1.5rem; */
-    width: auto;
-  }
+}
+
+.IconRecycle svg {
+  /* height: 1.5rem; */
+  width: auto;
 }
 
 .IconTrash {
   display: flex;
   align-items: center;
-  svg {
-    flex-shrink: 0;
+}
 
-    height: 1.5rem;
-    width: auto;
-  }
-  @media screen and (max-width: 767px) {
-    justify-content: end;
-  }
+.IconTrash svg {
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: auto;
 }
 
 /* MEDIA QEUREIS */
 
+@media screen and (max-width: 2024px) {
+  main {
+    padding-top: 70px;
+  }
+}
+
 @media screen and (max-width: 767px) {
   main {
-    padding-top: 110px;
+    padding-top: 120px;
   }
-
-  button {
-    font-size: 0.9rem;
-    min-width: 70px;
+  .IconTrash {
+    justify-content: end;
   }
 }

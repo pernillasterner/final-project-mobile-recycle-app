@@ -1,0 +1,28 @@
+.IconRecycle {
+  display: flex;
+  svg {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+.IconTrash {
+  display: flex;
+  align-items: center;
+  svg {
+    flex-shrink: 0;
+    height: 1.5rem;
+    width: auto;
+  }
+  @media screen and (max-width: 767px) {
+    justify-content: end;
+  }
+}
+
+.IconFacebook,
+.IconInstagram,
+.IconLinkedin {
+  svg {
+    height: 1rem;
+  }
+}

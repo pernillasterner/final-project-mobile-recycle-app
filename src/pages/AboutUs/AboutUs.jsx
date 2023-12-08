@@ -15,11 +15,14 @@ export const AboutUs = () => {
             studied web development with a focus on e-commerce. There, I gained
             a solid foundation and was able to incorporate many different
             aspects of development that have been valuable during my time
-            working for a startup company. Now, with diverse experience, I feel
-            that the time is right to focus on my initial interest in React and
-            frontend development. I look forward to continuing to learn and
-            constantly evolve in this exciting tech world. Thanks for stopping
-            by, and I hope you enjoyed the page.
+            working for a startup company.
+          </p>
+          <p>
+            Now, with diverse experience, I feel that the time is right to focus
+            on my initial interest in React and frontend development. I look
+            forward to continuing to learn and constantly evolve in this
+            exciting tech world. Thanks for stopping by, and I hope you enjoyed
+            the page.
           </p>
           <a href="https://github.com/pernillasterner">
             <IconGitHub color={"black"} />
