@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import iconStyles from "../../../../components/commons/Icons.module.scss";
 
 export const CartLeftColumn = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -69,7 +70,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                   <div className={styles.PriceContainer}>
                     <div className={styles.ItemPrice}>{item.priceValue} kr</div>
                     <button
-                      className="IconTrash"
+                      className={iconStyles.IconTrash}
                       onClick={() => handleRemoveItem(item.id)}
                     >
                       {<IconTrash />} Remove
@@ -92,7 +93,7 @@ export const CartLeftColumn = ({ cartItems }) => {
       </div>
       <div className={styles.CartItemOffer}>
         <div>
-          <span className={styles.IconRecycle}>{<IconRecycle />}</span>
+          <span className={iconStyles.IconRecycle}>{<IconRecycle />}</span>
         </div>
         <p>Send us an old phone and get 300 kr off this order</p>
         <div className={styles.OfferBanner}>

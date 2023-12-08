@@ -1,15 +1,21 @@
 .NavBar {
-  height: 70px;
+  height: 100px;
   background-color: rgb(0, 0, 0);
   width: 100%;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--general-smaller-padding) var(--general-padding);
+  padding: var(--general-padding) var(--general-large-padding);
   z-index: var(--z-index-navbar);
+
+  @media screen and (max-width: 2024px) {
+    padding: var(--general-padding);
+    height: 70px;
+  }
   @media screen and (max-width: 767px) {
-    margin-top: 40px;
+    padding: var(--general-smaller-padding);
+    margin-top: 50px;
   }
 
   /* Navbar Brand */

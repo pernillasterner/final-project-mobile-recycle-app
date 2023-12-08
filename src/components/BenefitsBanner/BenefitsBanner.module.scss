@@ -1,6 +1,5 @@
 .BenefitsBanner {
   display: flex;
-  // background-color: var(--clr-primary-dark);
   color: var(--clr-white);
   background-image: radial-gradient(
       farthest-side at bottom left,
@@ -32,9 +31,8 @@
     flex-direction: row;
 
     .Box {
-      // border-bottom: 1px solid var(--clr-primary-dark);
       flex-basis: 100%;
-      padding: 3%;
+      padding: 4%;
     }
 
     .BenefitText {
@@ -46,12 +44,12 @@
     flex-direction: column;
 
     .Box {
-      // border-bottom: 1px solid var(--clr-primary-dark);
       flex-basis: 100%;
     }
 
     .BenefitText {
       justify-content: center;
+      font-size: 0.9rem;
     }
   }
 }

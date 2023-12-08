@@ -112,6 +112,10 @@ export const SellModal = () => {
     return option === "Yes" ? true : option === "No" ? false : option;
   };
 
+  const handleInputChange = () => {
+    setErrorMessage("");
+  };
+
   return (
     <div className={styles.SellModalContainer}>
       <button
@@ -144,6 +148,7 @@ export const SellModal = () => {
                     value={selectedValue}
                     onChange={(e) => {
                       setSelectedValue(e.target.value);
+                      handleInputChange();
                     }}
                     required
                   >
@@ -185,6 +190,8 @@ export const SellModal = () => {
                       })
                     }
                     errorMessage={errorMessage}
+                    // Reset error message when user click in input field
+                    onChange={handleInputChange}
                   />
                 </>
               ) : (

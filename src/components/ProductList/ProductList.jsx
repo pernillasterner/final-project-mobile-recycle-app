@@ -19,7 +19,7 @@ export const ProductList = ({ category }) => {
           const { data } = await supabase
             .from("phones")
             .select()
-            .limit(12)
+            .limit(15)
             .is("peer2peer", false);
           dispatch(setInitialState(data));
           setFetchError(null);
@@ -27,7 +27,7 @@ export const ProductList = ({ category }) => {
           const { data } = await supabase
             .from("phones")
             .select()
-            .limit(12)
+            .limit(15)
             .is("peer2peer", true);
           dispatch(setInitialState(data));
           setFetchError(null);

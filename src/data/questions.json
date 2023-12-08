@@ -55,8 +55,8 @@
     "input": ""
   },
   {
-    "question": "Please leave a comment",
-    "placholder": "Describe the current status of your device",
+    "question": "Describe the current status of your device",
+    "placeholder": "Please leave a comment",
     "name": "comment",
     "phoneDescription": false,
     "input": ""
