@@ -8,7 +8,7 @@
 .MiniCartContainer {
   position: relative;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   @media screen and (max-width: 767px) {
     right: 15px;
     top: 0px;
