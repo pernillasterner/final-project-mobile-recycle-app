@@ -53,7 +53,7 @@
     @media screen and (max-width: 767px) {
       flex-wrap: wrap;
       gap: 1rem;
-      padding: var(--general-mini-padding);
+      padding: var(--general-smaller-padding);
       width: calc(100% - (var(--general-mini-padding) * 2));
     }
   }
