@@ -31,12 +31,12 @@ export const CartRightColumn = ({ cartItems }) => {
       <div className={styles.CartSummeryContainer}>
         <div className={styles.CartSummery}>
           {totalCartItems.map((item) => (
-            <>
+            <div key={item.id}>
               <ul className={styles.SummerListItem}>
                 <li className={styles.ListItem__Brand}>{item.modelValue}</li>
                 <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
               </ul>
-            </>
+            </div>
           ))}
           <div className={styles.SummeryRow}>
             <span className={styles.ShippingText}>Shipping</span>

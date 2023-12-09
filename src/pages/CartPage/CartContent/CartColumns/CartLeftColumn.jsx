@@ -46,11 +46,10 @@ export const CartLeftColumn = ({ cartItems }) => {
       <div className={styles.SingleCartItem}>
         {cartItems && cartItems.length !== 0 ? (
           cartItems.map((item) => (
-            <>
+            <div key={item.id}>
               <div className={styles.ItemContainer}>
                 <Link to={"/"} className={styles.ImageLink}>
                   <div
-                    key={item.id}
                     className={styles.ProdCardImg}
                     style={{ backgroundImage: `url(${item.imageUrl})` }}
                   ></div>
@@ -78,7 +77,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           ))
         ) : (
           <div className={styles.EmptyMessageContainer}>
