@@ -1,7 +1,7 @@
 .CartContainer {
   display: flex;
   justify-content: space-around;
-  align-items: start;
+  align-items: flex-start;
   color: var(--clr-text);
   min-height: calc(100vh - 70px);
   padding: var(--general-smaller-padding);

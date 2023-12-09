@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     a {
       padding-left: var(--general-smaller-padding);
       height: 20px;
