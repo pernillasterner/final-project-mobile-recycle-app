@@ -1,4 +1,4 @@
- <img src="./readme-banner.jpg" alt="Project Banner Image">
+ <img src="https://technigo-project-techcycle-app.netlify.app/readme-banner.jpg" alt="Project Banner Image">
 
 # TechCycle - Final Project for Technigo's React/Redux Upskill Course
 
