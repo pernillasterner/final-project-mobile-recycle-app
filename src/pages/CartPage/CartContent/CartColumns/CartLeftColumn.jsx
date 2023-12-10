@@ -36,8 +36,11 @@ export const CartLeftColumn = ({ cartItems }) => {
       <h2 className={styles.CartTitle}>
         Cart
         <span className={styles.CartCount}>
-          {totalItems}
-          {totalItems > 1 ? " products" : " product"}
+          {totalItems > 0 && (
+            <>
+              {totalItems} {totalItems > 1 ? " products" : " product"}
+            </>
+          )}
         </span>
       </h2>
       <div className={styles.SingleCartItem}>
