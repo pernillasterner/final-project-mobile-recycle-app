@@ -5,7 +5,7 @@ export const CartPage = () => {
   return (
     <>
       <CartContent />
-      <BenefitsBanner />
+      {/* <BenefitsBanner /> */}
     </>
   );
 };

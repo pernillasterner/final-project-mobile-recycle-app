@@ -14,18 +14,15 @@ export const CartLeftColumn = ({ cartItems }) => {
     if (itemId) {
       dispatch(removeFromCart(itemId));
 
-      // Get current cart from localstorage
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
       // Find the index of the item in the cart to remove
-      const itemIndex = storedCart.findIndex((item) => item.id === itemId);
+      const itemIndex = cartItems.findIndex((item) => item.id === itemId);
 
       if (itemIndex !== -1) {
         // Remove the item
-        storedCart.splice(itemIndex, 1);
+        cartItems.splice(itemIndex, 1);
 
         // Update the local storage
-        localStorage.setItem("cart", JSON.stringify(storedCart));
+        localStorage.setItem("cart", JSON.stringify(cartItems));
       }
     }
   };

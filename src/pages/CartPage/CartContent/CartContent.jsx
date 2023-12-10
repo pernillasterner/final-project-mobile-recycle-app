@@ -8,7 +8,9 @@ import { CartRightColumn } from "./CartColumns/CartRightColumn";
 
 export const CartContent = () => {
   const navigate = useNavigate();
-  const cartItems = useSelector((store) => store.cart.cartItems);
+  const totalItems = useSelector((store) => store.cart.totalItems);
+  // Get items from local storage
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
   return (
     <>
@@ -16,14 +18,12 @@ export const CartContent = () => {
         <IconGoBack />
       </div>
       <div className={styles.CartContainer}>
-        {cartItems.length === 0 ? (
+        {totalItems === 0 ? (
           <CartLeftColumn cartItems={cartItems} />
         ) : (
           <>
             <CartLeftColumn cartItems={cartItems} />
-            {cartItems.length !== 0 && (
-              <CartRightColumn cartItems={cartItems} />
-            )}
+            {totalItems !== 0 && <CartRightColumn />}
           </>
         )}
       </div>

@@ -1,4 +1,5 @@
 import styles from "./CartRightColumn.module.scss";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useState, useEffect } from "react";
 import {
   IconMaestro,
@@ -6,7 +7,8 @@ import {
   IconVisaMethod,
 } from "../../../../assets/Icons";
 
-export const CartRightColumn = ({ cartItems }) => {
+export const CartRightColumn = () => {
+  const cartItems = useSelector((store) => store.cart.cartItems);
   const [totalCartItems, setTotalCartItems] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
 
@@ -31,12 +33,10 @@ export const CartRightColumn = ({ cartItems }) => {
       <div className={styles.CartSummeryContainer}>
         <div className={styles.CartSummery}>
           {totalCartItems.map((item) => (
-            <>
-              <ul className={styles.SummerListItem}>
-                <li className={styles.ListItem__Brand}>{item.modelValue}</li>
-                <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
-              </ul>
-            </>
+            <ul key={item.id} className={styles.SummerListItem}>
+              <li className={styles.ListItem__Brand}>{item.modelValue}</li>
+              <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
+            </ul>
           ))}
           <div className={styles.SummeryRow}>
             <span className={styles.ShippingText}>Shipping</span>
@@ -47,14 +47,14 @@ export const CartRightColumn = ({ cartItems }) => {
           <div className={styles.SummeryRow}>
             <span className={styles.RecycleText}>Recycle</span>
             <span className={styles.RecyclePrice}>
-              {totalSum ? -130 : 0} kr
+              {totalSum ? -300 : 0} kr
             </span>
           </div>
           <div className={styles.SummeryRowTotal}>
             <div className={styles.SummeryRow}>
               <span className={styles.TotalText}>Total:</span>
               <span className={styles.TotalPrice}>
-                {totalSum ? totalSum + 59 - 130 : 0} kr
+                {totalSum ? totalSum + 59 - 300 : 0} kr
               </span>
             </div>
           </div>
