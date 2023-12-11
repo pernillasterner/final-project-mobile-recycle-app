@@ -30,8 +30,8 @@ export const CartRightColumn = ({ cartItems }) => {
     <section className={styles.Cart__RightColumn}>
       <div className={styles.CartSummeryContainer}>
         <div className={styles.CartSummery}>
-          {totalCartItems.map((item) => (
-            <ul key={item.id} className={styles.SummerListItem}>
+          {totalCartItems.map((item, index) => (
+            <ul key={index} className={styles.SummerListItem}>
               <li className={styles.ListItem__Brand}>{item.modelValue}</li>
               <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
             </ul>

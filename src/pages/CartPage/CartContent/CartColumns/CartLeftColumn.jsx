@@ -5,6 +5,7 @@ import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
 import iconStyles from "../../../../components/commons/Icons.module.scss";
+import React from "react";
 
 export const CartLeftColumn = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -45,8 +46,8 @@ export const CartLeftColumn = ({ cartItems }) => {
       </h2>
       <div className={styles.SingleCartItem}>
         {cartItems && cartItems.length !== 0 ? (
-          cartItems.map((item) => (
-            <>
+          cartItems.map((item, index) => (
+            <React.Fragment key={index}>
               <div className={styles.ItemContainer}>
                 <Link to={"/"} className={styles.ImageLink}>
                   <div
@@ -78,7 +79,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                   </div>
                 </div>
               </div>
-            </>
+            </React.Fragment>
           ))
         ) : (
           <div className={styles.EmptyMessageContainer}>
