@@ -99,9 +99,12 @@ button {
 .AddToCartBtn {
   background-color: var(--clr-secondary);
   color: var(--clr-black);
-  padding: 13px 20px;
+  padding: 20px 30px;
   border: 1px solid transparent;
   transition: 0.5s ease;
+  @media screen and (max-width: 2024px) {
+    padding: 10px 20px;
+  }
 
   &:hover {
     background-color: transparent;

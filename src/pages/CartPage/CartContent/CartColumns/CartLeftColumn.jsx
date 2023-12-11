@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import { updateTotalItems } from "../../../../reducers/cartSlice";
 import iconStyles from "../../../../components/commons/Icons.module.scss";
+import React from "react";
 
 export const CartLeftColumn = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -14,18 +16,18 @@ export const CartLeftColumn = ({ cartItems }) => {
     if (itemId) {
       dispatch(removeFromCart(itemId));
 
-      // Get current cart from localstorage
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-
       // Find the index of the item in the cart to remove
-      const itemIndex = storedCart.findIndex((item) => item.id === itemId);
+      const itemIndex = cartItems.findIndex((item) => item.id === itemId);
 
       if (itemIndex !== -1) {
         // Remove the item
-        storedCart.splice(itemIndex, 1);
+        cartItems.splice(itemIndex, 1);
+
+        // Dispatch action to update totalItems
+        dispatch(updateTotalItems(cartItems.length));
 
         // Update the local storage
-        localStorage.setItem("cart", JSON.stringify(storedCart));
+        localStorage.setItem("cart", JSON.stringify(cartItems));
       }
     }
   };
@@ -39,14 +41,17 @@ export const CartLeftColumn = ({ cartItems }) => {
       <h2 className={styles.CartTitle}>
         Cart
         <span className={styles.CartCount}>
-          {totalItems}
-          {totalItems > 1 ? " products" : " product"}
+          {totalItems > 0 && (
+            <>
+              {totalItems} {totalItems > 1 ? " products" : " product"}
+            </>
+          )}
         </span>
       </h2>
       <div className={styles.SingleCartItem}>
         {cartItems && cartItems.length !== 0 ? (
-          cartItems.map((item) => (
-            <div key={item.id}>
+          cartItems.map((item, index) => (
+            <React.Fragment key={index}>
               <div className={styles.ItemContainer}>
                 <Link to={"/"} className={styles.ImageLink}>
                   <div
@@ -77,7 +82,7 @@ export const CartLeftColumn = ({ cartItems }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </React.Fragment>
           ))
         ) : (
           <div className={styles.EmptyMessageContainer}>

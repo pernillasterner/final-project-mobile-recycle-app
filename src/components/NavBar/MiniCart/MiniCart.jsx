@@ -1,8 +1,10 @@
 import styles from "./MiniCart.module.scss";
 import { Link } from "react-router-dom";
 import { IconCart } from "../../../assets/Icons";
+import { useSelector } from "react-redux";
 
-export const MiniCart = ({ totalItems }) => {
+export const MiniCart = () => {
+  const totalItems = useSelector((state) => state.cart.totalItems);
   return (
     <>
       {totalItems !== 0 && (
