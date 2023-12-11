@@ -46,10 +46,18 @@ const cartSlice = createSlice({
     updateTotalItems: (state, action) => {
       state.totalItems = action.payload;
     },
+    updateCartItems: (state, action) => {
+      state.cartItems = action.payload;
+      // Update totalItems based on the new cartItems
+      state.totalItems = state.cartItems.reduce(
+        (total, item) => total + (item.quantity || 1),
+        0
+      );
+    },
   },
 });
 
-export const { addToCart, removeFromCart, updateTotalItems } =
+export const { addToCart, removeFromCart, updateTotalItems, updateCartItems } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

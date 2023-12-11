@@ -1,5 +1,4 @@
 import styles from "./CartRightColumn.module.scss";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useState, useEffect } from "react";
 import {
   IconMaestro,
@@ -7,8 +6,7 @@ import {
   IconVisaMethod,
 } from "../../../../assets/Icons";
 
-export const CartRightColumn = () => {
-  const cartItems = useSelector((store) => store.cart.cartItems);
+export const CartRightColumn = ({ cartItems }) => {
   const [totalCartItems, setTotalCartItems] = useState([]);
   const [totalSum, setTotalSum] = useState(0);
 

@@ -1,11 +1,10 @@
 import styles from "./CartContent.module.scss";
 import buttonStyles from "../../../components/commons/Buttons.module.scss";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { IconGoBack } from "../../../assets/Icons";
 import { CartLeftColumn } from "./CartColumns/CartLeftColumn";
 import { CartRightColumn } from "./CartColumns/CartRightColumn";
-import { useDispatch } from "react-redux";
 import { updateTotalItems } from "../../../reducers/cartSlice";
 import { useEffect, useMemo } from "react";
 
@@ -38,7 +37,7 @@ export const CartContent = () => {
       ) : (
         <>
           <CartLeftColumn cartItems={cartItems} />
-          {totalItems !== 0 && <CartRightColumn />}
+          {totalItems !== 0 && <CartRightColumn cartItems={cartItems} />}
         </>
       )}
     </div>
