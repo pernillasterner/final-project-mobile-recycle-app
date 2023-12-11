@@ -41,7 +41,7 @@ export const ProductPage = () => {
     if (prod) {
       dispatch(addToCart(prod));
 
-      // Get current cart from localstorage
+      // Get current cart from local storage
       const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
       // Check if item exists in cart
@@ -56,6 +56,13 @@ export const ProductPage = () => {
 
       // Update the local storage with the new cart
       localStorage.setItem("cart", JSON.stringify(storedCart));
+
+      // Update the local storage with the current totalItems from Redux store
+      const newTotalItems = storedCart.reduce(
+        (cartItems, item) => cartItems + (item.quantity || 1),
+        0
+      );
+      localStorage.setItem("totalItems", JSON.stringify(newTotalItems));
     }
   };
 

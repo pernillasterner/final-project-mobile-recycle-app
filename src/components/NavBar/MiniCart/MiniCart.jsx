@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export const MiniCart = () => {
   const totalItems = useSelector((state) => state.cart.totalItems);
+
   return (
     <>
       {totalItems !== 0 && (

@@ -14,19 +14,15 @@ const cartSlice = createSlice({
       );
 
       if (existingItem) {
-        existingItem.quantity = existingItem.quantity || 0;
-        existingItem.quantity += 1;
+        existingItem.quantity = (existingItem.quantity || 0) + 1;
         state.totalItems += 1;
       } else {
-        state.cartItems.push(newItem);
-        newItem.quantity = 1;
+        state.cartItems.push({ ...newItem, quantity: 1 });
         state.totalItems += 1;
       }
     },
     removeFromCart: (state, action) => {
       const itemIdToRemove = action.payload;
-
-      // Find the item to remove
       const existingItem = state.cartItems.find(
         (item) => item.id === itemIdToRemove
       );
@@ -39,9 +35,8 @@ const cartSlice = createSlice({
             (item) => item.id !== itemIdToRemove
           );
         }
+        state.totalItems -= 1;
       }
-
-      state.totalItems -= 1;
     },
     updateTotalItems: (state, action) => {
       state.totalItems = action.payload;

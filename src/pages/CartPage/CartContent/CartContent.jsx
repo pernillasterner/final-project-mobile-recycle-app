@@ -5,27 +5,34 @@ import { useSelector, useDispatch } from "react-redux";
 import { IconGoBack } from "../../../assets/Icons";
 import { CartLeftColumn } from "./CartColumns/CartLeftColumn";
 import { CartRightColumn } from "./CartColumns/CartRightColumn";
-import { updateTotalItems } from "../../../reducers/cartSlice";
-import { useEffect, useMemo } from "react";
+import { updateCartItems, updateTotalItems } from "../../../reducers/cartSlice";
+import { useEffect } from "react";
 
 export const CartContent = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Add this line to get the dispatch function
   const totalItems = useSelector((store) => store.cart.totalItems);
+  const cartItems = useSelector((store) => store.cart.cartItems);
 
-  // Get items from local storage.
-  const cartItems = useMemo(
-    () => JSON.parse(localStorage.getItem("cart")) || [],
-    []
-  );
-
+  // Update totalItems in local storage whenever cartItems in store changes
   useEffect(() => {
-    // Update totalItems in store whenever cartItems changes
-    const newTotalItems = cartItems.length;
-    dispatch(updateTotalItems(newTotalItems));
+    // Save cartItems to local storage
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+
     // Save totalItems to local storage
-    localStorage.setItem("totalItems", newTotalItems.toString());
-  }, [cartItems, dispatch]);
+    localStorage.setItem("totalItems", totalItems.toString());
+  }, [totalItems, cartItems]);
+
+  // Need to initialize store with data from local storage
+  useEffect(() => {
+    // Get items from local storage
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalQuantity = JSON.parse(localStorage.getItem("totalItems")) || 0;
+
+    // Update store with the current data from local storage when mounting the page
+    dispatch(updateCartItems(storedCart));
+    dispatch(updateTotalItems(totalQuantity));
+  }, [dispatch]);
 
   return (
     <div className={styles.CartContainer}>
