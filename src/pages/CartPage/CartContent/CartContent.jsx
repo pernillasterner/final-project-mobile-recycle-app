@@ -13,7 +13,7 @@ export const CartContent = () => {
   const dispatch = useDispatch();
   const totalItems = useSelector((store) => store.cart.totalItems);
 
-  // Get items from local storage. This
+  // Get items from local storage.
   const cartItems = useMemo(
     () => JSON.parse(localStorage.getItem("cart")) || [],
     []

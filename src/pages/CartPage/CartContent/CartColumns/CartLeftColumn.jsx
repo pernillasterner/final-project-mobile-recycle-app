@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../../../reducers/cartSlice";
 import { IconRecycle, IconTrash } from "../../../../assets/Icons";
 import buttonStyles from "../../../../components/commons/Buttons.module.scss";
+import { updateTotalItems } from "../../../../reducers/cartSlice";
 import iconStyles from "../../../../components/commons/Icons.module.scss";
 import React from "react";
 
@@ -21,6 +22,9 @@ export const CartLeftColumn = ({ cartItems }) => {
       if (itemIndex !== -1) {
         // Remove the item
         cartItems.splice(itemIndex, 1);
+
+        // Dispatch action to update totalItems
+        dispatch(updateTotalItems(cartItems.length));
 
         // Update the local storage
         localStorage.setItem("cart", JSON.stringify(cartItems));
