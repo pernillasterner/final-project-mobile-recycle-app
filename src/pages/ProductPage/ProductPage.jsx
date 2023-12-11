@@ -44,11 +44,18 @@ export const ProductPage = () => {
       // Get current cart from localstorage
       const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Add new prod to cart
-      const updatedCart = [...storedCart, prod];
+      // Check if item exists in cart
+      const existingItem = storedCart.find((item) => item.id === prod.id);
+
+      if (existingItem) {
+        // Increase the quantity if already exists
+        existingItem.quantity = (existingItem.quantity || 0) + 1;
+      } else {
+        storedCart.push({ ...prod, quantity: 1 });
+      }
 
       // Update the local storage with the new cart
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      localStorage.setItem("cart", JSON.stringify(storedCart));
     }
   };
 
