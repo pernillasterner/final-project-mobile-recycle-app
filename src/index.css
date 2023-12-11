@@ -36,7 +36,7 @@
 }
 
 html {
-  font-size: clamp(16px, 1.5vw, 32px);
+  font-size: clamp(16px, 1.2vw, 32px);
   scroll-behavior: smooth;
 }
 
@@ -72,6 +72,7 @@ main {
   padding-top: 100px;
   max-width: 2560px;
   margin: 0 auto;
+  letter-spacing: 0.01em;
 }
 
 a {
@@ -87,7 +88,6 @@ h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
   line-height: 1.25;
   margin-bottom: 0.75rem;
 }
@@ -107,6 +107,7 @@ p {
   margin-bottom: 1.25rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  line-height: 1.5em;
 }
 
 ul li {

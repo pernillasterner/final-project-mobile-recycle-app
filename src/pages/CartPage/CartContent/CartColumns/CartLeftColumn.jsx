@@ -55,7 +55,6 @@ export const CartLeftColumn = ({ cartItems }) => {
               <div className={styles.ItemContainer}>
                 <Link to={"/"} className={styles.ImageLink}>
                   <div
-                    key={item.id}
                     className={styles.ProdCardImg}
                     style={{ backgroundImage: `url(${item.imageUrl})` }}
                   ></div>

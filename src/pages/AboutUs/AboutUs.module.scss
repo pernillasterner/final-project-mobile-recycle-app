@@ -47,12 +47,16 @@
     flex-basis: 50%;
     flex: 1;
     background-color: var(--clr-white);
-    min-width: 375px;
+    min-width: 350px;
     border-radius: 30px;
     padding: var(--general-padding);
 
     @media screen and (max-width: 767px) {
       padding: var(--general-smaller-padding);
     }
+  }
+
+  @media screen and (min-width: 2025px) {
+    padding: var(--general-padding) var(--general-large-padding);
   }
 }

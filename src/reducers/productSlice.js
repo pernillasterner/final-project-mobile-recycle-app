@@ -64,13 +64,15 @@ const productSlice = createSlice({
       state.filterArray = state.products;
     },
     calculatePriceRange: (state) => {
-      let highestPrice = state.products[0].priceValue;
-      let lowestPrice = state.products[0].priceValue;
-      state.products.forEach((element) => {
+      let highestPrice = 0;
+      let lowestPrice = 999999;
+      state.filterArray.forEach((element) => {
         if (highestPrice < element.priceValue) {
           state.filter.priceRange.priceHigh = element.priceValue;
           highestPrice = element.priceValue;
-        } else if (lowestPrice > element.priceValue) {
+        }
+
+        if (lowestPrice > element.priceValue) {
           state.filter.priceRange.priceLow = element.priceValue;
           lowestPrice = element.priceValue;
         }

@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCartItems, updateTotalItems } from "../src/reducers/cartSlice";
 import { useEffect } from "react";
+import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 export const App = () => {
   const isModalActive = useSelector((state) => state.modal.isActive);
@@ -27,6 +28,7 @@ export const App = () => {
         <>
           <main>
             <AppRoutes />
+            <ScrollToTop />
           </main>
           <Footer />
         </>

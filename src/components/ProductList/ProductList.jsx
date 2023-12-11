@@ -28,7 +28,8 @@ export const ProductList = ({ category }) => {
             .from("phones")
             .select()
             .limit(15)
-            .is("peer2peer", true);
+            .is("peer2peer", true)
+            .order("id", { ascending: false });
           dispatch(setInitialState(data));
           setFetchError(null);
         }

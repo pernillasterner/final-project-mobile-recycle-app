@@ -1,7 +1,7 @@
 .CartContainer {
   display: flex;
   justify-content: space-around;
-  align-items: start;
+  align-items: flex-start;
   color: var(--clr-text);
   min-height: calc(70vh);
   padding: var(--general-smaller-padding);
@@ -30,5 +30,8 @@
       flex-direction: column;
       padding: var(--general-smaller-padding);
     }
+  }
+  @media screen and (min-width: 2025px) {
+    padding: var(--general-padding) var(--general-large-padding);
   }
 }
