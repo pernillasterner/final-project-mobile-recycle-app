@@ -39,9 +39,43 @@
     background-color: var(--clr-white);
     border-radius: 20px;
     padding: 1rem;
+    padding-bottom: 3rem;
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  .RefurbishedTag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--clr-secondary);
+    color: var(--clr-white);
+    font-weight: 500;
+    padding: 4px 8px;
+    text-align: center;
+    margin-top: 1rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .Peer2PeerTag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--clr-primary);
+    color: var(--clr-black);
+    font-weight: 500;
+    padding: 4px 8px;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+    border: 1px solid transparent;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   @media screen and (min-width: 1440px) {
