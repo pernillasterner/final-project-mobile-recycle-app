@@ -11,6 +11,14 @@
     letter-spacing: 0.02em;
   }
 
+  a {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--clr-black);
+    margin-right: 1rem;
+  }
+
   img {
     width: 33%;
     height: auto;
@@ -22,9 +30,8 @@
   }
 
   svg {
-    margin-right: 1rem;
+    width: 100%;
     cursor: pointer;
-    // filter: drop-shadow(0px 2px 4px var(--clr-primary));
     &:hover {
       transform: scale(1.1);
     }
