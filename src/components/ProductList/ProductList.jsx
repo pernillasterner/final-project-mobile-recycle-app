@@ -66,7 +66,7 @@ export const ProductList = ({ category }) => {
                   <span>{prod.brandValue}</span>
                   <span>{prod.priceValue}kr</span>
                   <button className={buttons.BuyBtn}>
-                    <Link to={`/product/${prod.id}`}>Buy</Link>
+                    <Link to={`/${category}/product/${prod.id}`}>Buy</Link>
                   </button>
                 </div>
               </div>
