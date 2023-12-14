@@ -90,9 +90,9 @@ export const ProductPage = () => {
                   <p>{prod.visualCondition}</p>
                 </div>
 
-                <p className={styles.PriceValue}>
+                <h2 className={styles.PriceValue}>
                   <strong>{prod.priceValue} kr</strong>
-                </p>
+                </h2>
               </div>
             </div>
 
@@ -102,7 +102,7 @@ export const ProductPage = () => {
             </div>
 
             <div className={styles.CommentContainer}>
-              <h4>Comment from user:</h4>
+              <h3>Comment from user:</h3>
               <div className={styles.CommentArea}>
                 <p>{prod.comment}</p>
               </div>
