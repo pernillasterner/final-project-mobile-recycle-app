@@ -23,7 +23,7 @@ export const ProductList = ({ category }) => {
             .is("peer2peer", false);
           dispatch(setInitialState(data));
           setFetchError(null);
-        } else if (category === "peer2peer") {
+        } else if (category === "peertopeer") {
           const { data } = await supabase
             .from("phones")
             .select()
@@ -62,12 +62,20 @@ export const ProductList = ({ category }) => {
                 }}
               >
                 <div className={styles.ProdInfo}>
-                  <p>{prod.modelValue}</p>
+                  <h2>{prod.modelValue}</h2>
                   <span>{prod.brandValue}</span>
+
                   <span>{prod.priceValue}kr</span>
+
                   <button className={buttons.BuyBtn}>
                     <Link to={`/${category}/product/${prod.id}`}>Buy</Link>
                   </button>
+                  {category === "refurbished" && (
+                    <span className={styles.RefurbishedTag}>Refurbished</span>
+                  )}
+                  {category === "peertopeer" && (
+                    <span className={styles.Peer2PeerTag}>Peer2Peer</span>
+                  )}
                 </div>
               </div>
             ))}
