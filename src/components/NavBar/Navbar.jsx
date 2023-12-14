@@ -13,7 +13,7 @@ export const NavBar = () => {
   const navLinksData = {
     refurbished: "Refurbished",
     peertopeer: "Peer2Peer",
-    "about-us": "About Us",
+    about: "About Us",
   };
 
   return (
