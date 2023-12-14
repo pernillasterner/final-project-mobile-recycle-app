@@ -62,7 +62,7 @@ export const ProductList = ({ category }) => {
                 }}
               >
                 <div className={styles.ProdInfo}>
-                  <p>{prod.modelValue}</p>
+                  <h2>{prod.modelValue}</h2>
                   <span>{prod.brandValue}</span>
 
                   <span>{prod.priceValue}kr</span>
