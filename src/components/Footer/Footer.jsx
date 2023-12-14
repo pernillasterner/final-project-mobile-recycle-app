@@ -12,7 +12,7 @@ export const Footer = () => {
           Tech<span>Cycle</span>
         </h3>
         <p>On a mission to consume less and re-use more.</p>
-        <HashLink to={"/#allProducts"}>
+        <HashLink to={"/#all-products"}>
           <button className={buttonStyles.ReversePrimaryBtn}>
             Browse phones
           </button>

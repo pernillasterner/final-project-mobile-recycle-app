@@ -10,9 +10,9 @@ export const HomeHero = () => {
           <h1>Buy and sell used phones</h1>
           <p>
             Change your phone and save the planet’s resources with our peer2peer
-            smartphone market.{" "}
+            smartphone market.
           </p>
-          <HashLink to="/#allProducts">
+          <HashLink to="/#all-products">
             <button className={buttonStyles.ReversePrimaryBtn}>
               BROWSE PHONES
             </button>
