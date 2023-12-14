@@ -41,14 +41,28 @@ export const ProductPage = () => {
     if (prod) {
       dispatch(addToCart(prod));
 
-      // Get current cart from localstorage
+      // Get current cart from local storage
       const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      // Add new prod to cart
-      const updatedCart = [...storedCart, prod];
+      // Check if item exists in cart
+      const existingItem = storedCart.find((item) => item.id === prod.id);
+
+      if (existingItem) {
+        // Increase the quantity if already exists
+        existingItem.quantity = (existingItem.quantity || 0) + 1;
+      } else {
+        storedCart.push({ ...prod, quantity: 1 });
+      }
 
       // Update the local storage with the new cart
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      localStorage.setItem("cart", JSON.stringify(storedCart));
+
+      // Update the local storage with the current totalItems from Redux store
+      const newTotalItems = storedCart.reduce(
+        (cartItems, item) => cartItems + (item.quantity || 1),
+        0
+      );
+      localStorage.setItem("totalItems", JSON.stringify(newTotalItems));
     }
   };
 
@@ -76,9 +90,9 @@ export const ProductPage = () => {
                   <p>{prod.visualCondition}</p>
                 </div>
 
-                <p className={styles.PriceValue}>
+                <h2 className={styles.PriceValue}>
                   <strong>{prod.priceValue} kr</strong>
-                </p>
+                </h2>
               </div>
             </div>
 
@@ -88,7 +102,7 @@ export const ProductPage = () => {
             </div>
 
             <div className={styles.CommentContainer}>
-              <h4>Comment from user:</h4>
+              <h3>Comment from user:</h3>
               <div className={styles.CommentArea}>
                 <p>{prod.comment}</p>
               </div>

@@ -8,11 +8,13 @@
 .MiniCartContainer {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: end;
+  margin-left: 0.5em;
   @media screen and (max-width: 767px) {
     right: 15px;
     top: 0px;
   }
+
   .MiniCartCount {
     position: absolute;
     top: -3px;

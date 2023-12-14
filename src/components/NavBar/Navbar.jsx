@@ -8,7 +8,6 @@ import { Navigation } from "./Navigation/Navigation";
 import { SellPhoneButton } from "./SellPhoneButton/SellPhoneButton";
 
 export const NavBar = () => {
-  const totalItems = useSelector((state) => state.cart.totalItems);
   const isModalActive = useSelector((state) => state.modal.isActive);
 
   const navLinksData = {
@@ -35,7 +34,7 @@ export const NavBar = () => {
             <SellPhoneButton />
 
             {/* Mini Cart */}
-            <MiniCart totalItems={totalItems} />
+            <MiniCart />
 
             {/* Dropdown Menu */}
             <Dropdown navLinksData={navLinksData} />

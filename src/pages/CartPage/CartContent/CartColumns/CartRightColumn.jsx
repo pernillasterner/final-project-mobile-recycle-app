@@ -30,13 +30,11 @@ export const CartRightColumn = ({ cartItems }) => {
     <section className={styles.Cart__RightColumn}>
       <div className={styles.CartSummeryContainer}>
         <div className={styles.CartSummery}>
-          {totalCartItems.map((item) => (
-            <div key={item.id}>
-              <ul className={styles.SummerListItem}>
-                <li className={styles.ListItem__Brand}>{item.modelValue}</li>
-                <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
-              </ul>
-            </div>
+          {totalCartItems.map((item, index) => (
+            <ul key={index} className={styles.SummerListItem}>
+              <li className={styles.ListItem__Brand}>{item.modelValue}</li>
+              <li className={styles.ListItem__Price}>{item.priceValue} kr</li>
+            </ul>
           ))}
           <div className={styles.SummeryRow}>
             <span className={styles.ShippingText}>Shipping</span>
@@ -47,14 +45,14 @@ export const CartRightColumn = ({ cartItems }) => {
           <div className={styles.SummeryRow}>
             <span className={styles.RecycleText}>Recycle</span>
             <span className={styles.RecyclePrice}>
-              {totalSum ? -130 : 0} kr
+              {totalSum ? -300 : 0} kr
             </span>
           </div>
           <div className={styles.SummeryRowTotal}>
             <div className={styles.SummeryRow}>
               <span className={styles.TotalText}>Total:</span>
               <span className={styles.TotalPrice}>
-                {totalSum ? totalSum + 59 - 130 : 0} kr
+                {totalSum ? totalSum + 59 - 300 : 0} kr
               </span>
             </div>
           </div>
