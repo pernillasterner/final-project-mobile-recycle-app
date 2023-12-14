@@ -26,9 +26,11 @@ export const AboutUs = () => {
           </p>
           <a href="https://github.com/pernillasterner">
             <IconGitHub color={"black"} />
+            Github
           </a>
           <a href="https://www.linkedin.com/in/pernilla-sterner/">
             <IconLinkedin color={"black"} />
+            LinkedIn
           </a>
         </div>
         <div className={styles.AboutUsCard}>
@@ -49,9 +51,11 @@ export const AboutUs = () => {
           </p>
           <a href="https://github.com/Seti108">
             <IconGitHub color={"black"} />
+            Github
           </a>
           <a href="https://www.linkedin.com/in/sebastian-tigerschiold/">
             <IconLinkedin color={"black"} />
+            LinkedIn
           </a>
         </div>
       </div>
