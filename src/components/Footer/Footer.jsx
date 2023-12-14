@@ -24,17 +24,25 @@ export const Footer = () => {
         <HashLink to="/about-us">About</HashLink>
       </div>
       <div className={`${styles.FooterSection} ${styles.SocialSection}`}>
-        <Link to="facebook" className={styles.IconCartLink} alt="Facebook Icon">
+        <Link
+          to="facebook"
+          className={styles.IconCartLink}
+          title="Visit our Facebook page"
+        >
           <IconFacebook />
         </Link>
         <Link
           to="instagram"
           className={styles.IconCartLink}
-          alt="Instagram Icon"
+          title="Visit our Instagram page"
         >
           <IconInstagram />
         </Link>
-        <Link to="linkedin" className={styles.IconCartLink} alt="Linkedin Icon">
+        <Link
+          to="linkedin"
+          className={styles.IconCartLink}
+          title="Visit our Linkedin page"
+        >
           <IconLinkedin />
         </Link>
       </div>
