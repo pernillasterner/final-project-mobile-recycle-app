@@ -45,7 +45,7 @@ export const ProductList = ({ category }) => {
   return (
     <>
       <Filter />
-      <div className={styles.ProductList} id="allProducts">
+      <div className={styles.ProductList} id="all-products">
         {fetchError && <p>{fetchError}</p>}
         {filterArray && (
           <div className={styles.FlexContainer}>
@@ -66,7 +66,7 @@ export const ProductList = ({ category }) => {
                   <span>{prod.brandValue}</span>
                   <span>{prod.priceValue}kr</span>
                   <button className={buttons.BuyBtn}>
-                    <Link to={`/product/${prod.id}`}>Buy</Link>
+                    <Link to={`/${category}/product/${prod.id}`}>Buy</Link>
                   </button>
                 </div>
               </div>

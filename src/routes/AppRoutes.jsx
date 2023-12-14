@@ -14,7 +14,8 @@ export const AppRoutes = () => {
       <Route path="/peertopeer" element={<P2PPage />} />
       <Route path="/refurbished" element={<RefurbishedPage />}></Route>
       <Route path="/about-us" element={<AboutUs />}></Route>
-      <Route path="/product/:prodId" element={<ProductPage />} />
+      <Route path="/peertopeer/product/:prodId" element={<ProductPage />} />
+      <Route path="/refurbished/product/:prodId" element={<ProductPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="*" element={<NotFound404 />} />
     </Routes>

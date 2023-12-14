@@ -29,22 +29,22 @@ export const Community = () => {
         <div className={styles.CommunityLatest}>
           <div className={styles.CommunityLatestCard}>
             <img src="./home-latest.jpg" alt="" />
-            <p>Pixel 6a 128GB oöppnad</p>
-            <span>Idag 12:29</span>
+            <p>Pixel 6a 128GB unopened</p>
+            <span>Today 12:29</span>
             <p>2 500 kr</p>
             <img src="./green-circle.png" alt="" />
           </div>
           <div className={styles.CommunityLatestCard}>
             <img src="./home-latest.jpg" alt="" />
-            <p>Pixel 6a 128GB oöppnad</p>
-            <span>Idag 12:29</span>
+            <p>Pixel 6a 128GB unopened</p>
+            <span>Today 12:29</span>
             <p>2 500 kr</p>
             <img src="./green-circle.png" alt="" />
           </div>
           <div className={styles.CommunityLatestCard}>
             <img src="./home-latest.jpg" alt="" />
-            <p>Pixel 6a 128GB oöppnad</p>
-            <span>Idag 12:29</span>
+            <p>Pixel 6a 128GB unopened</p>
+            <span>Today 12:29</span>
             <p>2 500 kr</p>
             <img src="./green-circle.png" alt="" />
           </div>
