@@ -40,7 +40,7 @@ export const ProductList = ({ category }) => {
     };
 
     fetchProds();
-  });
+  }, []);
 
   return (
     <>
