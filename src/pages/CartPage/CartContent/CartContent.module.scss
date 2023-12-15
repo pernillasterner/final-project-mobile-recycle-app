@@ -6,6 +6,7 @@
   min-height: calc(70vh);
   padding: var(--general-smaller-padding);
   margin-top: 4rem;
+  position: relative;
 
   @media screen and (max-width: 2024px) and (max-height: 1179px) {
     min-height: calc(100vh - 70px);
@@ -15,6 +16,27 @@
     min-height: fit-content;
     flex-direction: column;
     margin-top: 20px;
+  }
+
+  .GoBackBtn {
+    position: absolute;
+    top: -90px;
+    left: -539px;
+    cursor: pointer;
+    z-index: var(--z-index-gobackbtn);
+
+    svg {
+      height: 1rem;
+      width: auto;
+    }
+    @media screen and (max-width: 2024px) {
+      left: 40px;
+      top: -70px;
+    }
+    @media screen and (max-width: 767px) {
+      top: -20px;
+      left: 20px;
+    }
   }
 
   .CartColumns {

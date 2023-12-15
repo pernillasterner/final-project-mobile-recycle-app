@@ -184,24 +184,6 @@ select {
   color: var(--clr-white);
 }
 
-.AddToCartBtn {
-  background-color: var(--clr-secondary);
-  color: var(--clr-black);
-  padding: 13px 20px;
-  border: 1px solid transparent;
-  transition: 0.5s ease;
-}
-
-.AddToCartBtn:hover {
-  background-color: transparent;
-  color: var(--clr-secondary);
-  border: 1px solid var(--clr-secondary);
-}
-
-.AddToCartBtn a {
-  font-weight: 700;
-}
-
 /* GLOBAL STYLING ICONS */
 
 .GoBackBtn {
