@@ -7,6 +7,12 @@
 
   @media screen and (max-width: 767px) {
     min-height: 20vh;
+    h1 {
+      background: linear-gradient(var(--clr-white) 40%, var(--clr-primary)) 60%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
   }
 
   @media screen and (min-width: 2025px) {
