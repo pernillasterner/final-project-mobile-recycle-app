@@ -23,7 +23,7 @@ export const CartContent = () => {
 
   return (
     <div className={styles.CartContainer}>
-      <div className={buttonStyles.GoBackBtn} onClick={() => navigate(-1)}>
+      <div className={styles.GoBackBtn} onClick={() => navigate(-1)}>
         <IconGoBack />
       </div>
       {totalItems === 0 ? (

@@ -68,7 +68,7 @@ export const ProductList = ({ category }) => {
                   <span>{prod.priceValue}kr</span>
 
                   <button className={buttons.BuyBtn}>
-                    <Link to={`/${category}/product/${prod.id}`}>Buy</Link>
+                    <Link to={`/products/${category}/${prod.id}`}>Buy</Link>
                   </button>
                   {category === "refurbished" && (
                     <span className={styles.RefurbishedTag}>Refurbished</span>

@@ -11,7 +11,7 @@ import supabase from "../../config/supabaseClient";
 import styles from "./ProductPage.module.scss";
 
 export const ProductPage = () => {
-  const { prodId } = useParams();
+  const { category, prodId } = useParams();
   const [fetchError, setFetchError] = useState(null);
   const [prod, setProd] = useState(null);
   const navigate = useNavigate();
@@ -30,7 +30,6 @@ export const ProductPage = () => {
       } catch (error) {
         setFetchError("Could not fetch products");
         setProd(null);
-        console.log(error);
       }
     };
 
@@ -74,7 +73,7 @@ export const ProductPage = () => {
           <div className={buttonStyles.GoBackBtn} onClick={() => navigate(-1)}>
             <IconGoBack />
           </div>
-          <div className={styles.Prod__LeftColumn}>
+          <div className={`${styles.Prod__LeftColumn} ${styles[category]}`}>
             <div
               className={styles.ProdCardImg}
               style={{ backgroundImage: `url(${prod.imageUrl})` }}
@@ -148,7 +147,7 @@ export const ProductPage = () => {
               </table>
             </div>
             <button
-              className={buttonStyles.AddToCartBtn}
+              className={`${styles.AddToCartBtn} ${styles[category]}`}
               onClick={() => handleAddToCart(prod)}
             >
               Add to cart
